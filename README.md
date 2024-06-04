@@ -55,6 +55,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 ## Credits
 
 - [Sandorian.com](https://www.sandorian.com)
+- [Moneybird.com](https://www.moneybird.com)
 - [All Contributors](../../contributors)
 
 ## License

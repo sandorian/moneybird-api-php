@@ -3,6 +3,7 @@
 namespace Sandorian\Moneybird\Tests\Api;
 
 use PHPUnit\Framework\TestCase;
+use Saloon\Config;
 use Saloon\Http\Faking\MockClient;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
 
@@ -16,6 +17,7 @@ abstract class BaseTestCase extends TestCase
     {
         parent::setUp();
 
+        Config::preventStrayRequests();
         MockClient::destroyGlobal();
     }
 
