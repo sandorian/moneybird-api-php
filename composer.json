@@ -1,0 +1,54 @@
+{
+    "name": "sandorian/moneybird-api-php",
+    "description": "Moneybird API client for PHP",
+    "keywords": [
+        "moneybird",
+        "bookkeeping",
+        "php",
+        "sandorian",
+        "moneybird-api-php"
+    ],
+    "homepage": "https://github.com/sandorian/moneybird-api-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sander van Hooft (Sandorian.com)",
+            "homepage": "https://spatie.be",
+            "email": "sander@sandorian.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.8",
+        "saloonphp/pagination-plugin": "^2.0",
+        "saloonphp/saloon": "^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3.2",
+        "laravel/pint": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sandorian\\Moneybird\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Sandorian\\Moneybird\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "phpstan/extension-installer": true
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
