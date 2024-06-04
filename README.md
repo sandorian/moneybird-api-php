@@ -28,7 +28,7 @@ use Sandorian\Moneybird\Api\MoneybirdApiClient;
 $moneybird = new Moneybird('your_key_here', 'your_administration_id_here');
 
 // 2. Making api requests
-$contact = $moneybird->contacts()->create([
+$response = $moneybird->contacts()->create([
     'company_name' => 'Sandorian Consultancy B.V.',
     'contact_country' => 'NL',
 ]);
