@@ -54,7 +54,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
-- [Sander van Hooft (Sandorian.com)](https://www.sandorian.com)
+- [Sandorian.com](https://www.sandorian.com)
 - [All Contributors](../../contributors)
 
 ## License
