@@ -8,35 +8,48 @@ use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
-use Sandorian\Moneybird\Api\MoneybirdApiClient;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class ContactsEndpointTest extends BaseTestCase
 {
     public function testCreateContact(): void
     {
-        $key = 'testKey123';
-        $administrationId = 'testAdministration123';
-        $moneybird = new MoneybirdApiClient($key, $administrationId);
-
-        $mockClient = new MockClient([
-            CreateContactRequest::class => MockResponse::make('TO DO', 200),
+        $moneybird = $this->getMoneybirdClientWithMocks([
+            CreateContactRequest::class => MockResponse::make('TO DO', 201),
         ]);
 
-        $moneybird->withMockClient($mockClient);
+        $mockClient = $moneybird->getMockClient();
 
-        $response = $moneybird->contacts()->create([
+        $payload = [
             'company_name' => 'Sandorian Consultancy B.V.',
             'contact_country' => 'NL',
-        ]);
+        ];
+        $response = $moneybird->contacts()->create($payload);
 
+        $this->assertSentOnce($mockClient, $response, $payload);
+    }
+
+    /** @test */
+    public function testPaginateContacts(): void
+    {
+        $moneybird = $this->getMoneybirdClient();
+
+        $paginator = $moneybird->contacts()->paginate();
+
+        $this->assertInstanceOf(Paginator::class, $paginator);
+        $this->assertEquals(0, $paginator->getCurrentPage());
+    }
+
+    protected function assertSentOnce(
+        MockClient $mockClient,
+        Response $response,
+        array $body = [],
+    ): void {
         $mockClient->assertSentCount(1);
-        $mockClient->assertSent(function (Request $request) {
-            return $request->body()->all() === [
-                'company_name' => 'Sandorian Consultancy B.V.',
-                'contact_country' => 'NL',
-            ];
+        $mockClient->assertSent(function (Request $request) use ($body) {
+            return $request->body()->all() === $body;
         });
 
         $this->assertInstanceOf(Response::class, $response);

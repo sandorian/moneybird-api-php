@@ -21,15 +21,20 @@ abstract class BaseTestCase extends TestCase
         MockClient::destroyGlobal();
     }
 
-    protected function getMoneybirdClientWithMocks(array $mocks)
+    protected function getMoneybirdClientWithMocks(array $mocks = []): MoneybirdApiClient
     {
-        $moneybird = new MoneybirdApiClient(
+        return $this
+            ->getMoneybirdClient()
+            ->withMockClient(
+                mockClient: new MockClient(mockData: $mocks)
+            );
+    }
+
+    protected function getMoneybirdClient()
+    {
+        return new MoneybirdApiClient(
             key: self::MONEYBIRD_KEY,
             administrationId: self::MONEYBIRD_ADMINISTRATION_ID
         );
-
-        $moneybird->withMockClient(new MockClient($mocks));
-
-        return $moneybird;
     }
 }
