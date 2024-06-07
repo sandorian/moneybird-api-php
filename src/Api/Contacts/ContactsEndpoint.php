@@ -9,8 +9,6 @@ use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ContactsEndpoint extends BaseEndpoint
 {
-    protected string $createRequestClass = CreateContactRequest::class;
-
     public function paginate(): Paginator
     {
         $request = new GetContactsPageRequest;
@@ -19,14 +17,18 @@ class ContactsEndpoint extends BaseEndpoint
     }
 
     /**
+     * @param array $data
+     * @return \Sandorian\Moneybird\Api\Contacts\Contact
      * @throws \Saloon\Exceptions\Request\FatalRequestException
      * @throws \Saloon\Exceptions\Request\RequestException
      */
     public function create(array $data): Contact
     {
-        $request = new CreateContactRequest;
-        $request->body()->merge($data);
+        return parent::create($data);
+    }
 
-        return $this->client->send($request)->dtoOrFail();
+    protected function getCreateRequest(): CreateContactRequest
+    {
+        return new CreateContactRequest;
     }
 }
