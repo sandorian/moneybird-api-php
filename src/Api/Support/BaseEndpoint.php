@@ -11,11 +11,12 @@ abstract class BaseEndpoint
 {
     public function __construct(
         protected readonly MoneybirdApiClient $client
-    ) {}
+    ) {
+    }
 
     /**
-     * @param array $data
      * @return mixed
+     *
      * @throws \Saloon\Exceptions\Request\FatalRequestException
      * @throws \Saloon\Exceptions\Request\RequestException
      */
@@ -47,5 +48,4 @@ abstract class BaseEndpoint
     {
         throw new \Exception('Endpoint method "delete" not supported.');
     }
-
 }

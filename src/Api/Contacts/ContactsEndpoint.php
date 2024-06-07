@@ -17,8 +17,6 @@ class ContactsEndpoint extends BaseEndpoint
     }
 
     /**
-     * @param array $data
-     * @return \Sandorian\Moneybird\Api\Contacts\Contact
      * @throws \Saloon\Exceptions\Request\FatalRequestException
      * @throws \Saloon\Exceptions\Request\RequestException
      */

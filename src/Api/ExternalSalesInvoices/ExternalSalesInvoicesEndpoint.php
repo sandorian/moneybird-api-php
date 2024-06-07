@@ -6,6 +6,8 @@ namespace Sandorian\Moneybird\Api\ExternalSalesInvoices;
 
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
+use Sandorian\Moneybird\Api\ExternalSalesInvoices\Attachments\ExternalSalesInvoiceAttachmentsEndpoint;
+use Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments\ExternalSalesInvoicePaymentsEndpoint;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ExternalSalesInvoicesEndpoint extends BaseEndpoint
@@ -23,5 +25,15 @@ class ExternalSalesInvoicesEndpoint extends BaseEndpoint
         $request = new GetExternalSalesInvoicesPageRequest;
 
         return $this->client->paginate($request);
+    }
+
+    public function attachments(): ExternalSalesInvoiceAttachmentsEndpoint
+    {
+        return new ExternalSalesInvoiceAttachmentsEndpoint($this->client);
+    }
+
+    public function payments(): ExternalSalesInvoicePaymentsEndpoint
+    {
+        return new ExternalSalesInvoicePaymentsEndpoint($this->client);
     }
 }
