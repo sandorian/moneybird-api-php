@@ -9,7 +9,7 @@ use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ExternalSalesInvoicePaymentsEndpoint extends BaseEndpoint
 {
-    public function create(
+    public function createForExternalSalesInvoiceId(
         string $externalSalesInvoiceId,
         array $data
     ): Response {
