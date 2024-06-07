@@ -9,6 +9,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\Http\Request;
 use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
+use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
@@ -17,18 +18,23 @@ class ContactsEndpointTest extends BaseTestCase
     public function testCreateContact(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
-            CreateContactRequest::class => MockResponse::make('TO DO', 201),
+            CreateContactRequest::class => MockResponse::make(ContactResponseStub::get(), 201),
         ]);
-
-        $mockClient = $moneybird->getMockClient();
 
         $payload = [
             'company_name' => 'Sandorian Consultancy B.V.',
             'contact_country' => 'NL',
         ];
+
         $response = $moneybird->contacts()->create($payload);
 
-        $this->assertSentOnce($mockClient, $response, $payload);
+        $this->assertSentOnce($moneybird->getMockClient(), $response, $payload);
+
+        $contact = $response->dtoOrFail();
+
+        $this->assertInstanceOf(Contact::class, $contact);
+        $this->assertEquals('419889276175517682', $contact->id);
+        $this->assertEquals('Sandorian Consultancy B.V.', $contact->company_name);
     }
 
     /** @test */
