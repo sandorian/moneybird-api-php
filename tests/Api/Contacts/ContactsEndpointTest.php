@@ -4,10 +4,7 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Tests\Api\Contacts;
 
-use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
-use Saloon\Http\Request;
-use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
@@ -26,12 +23,11 @@ class ContactsEndpointTest extends BaseTestCase
             'contact_country' => 'NL',
         ];
 
-        $response = $moneybird->contacts()->create($payload);
+        $contact = $moneybird->contacts()->create($payload);
 
-        $this->assertSentOnce($moneybird->getMockClient(), $response, $payload);
+        $mockClient = $moneybird->getMockClient();
 
-        $contact = $response->dtoOrFail();
-
+        $this->assertSentOnce($mockClient, $payload);
         $this->assertInstanceOf(Contact::class, $contact);
         $this->assertEquals('419889276175517682', $contact->id);
         $this->assertEquals('Sandorian Consultancy B.V.', $contact->company_name);
@@ -46,18 +42,5 @@ class ContactsEndpointTest extends BaseTestCase
 
         $this->assertInstanceOf(Paginator::class, $paginator);
         $this->assertEquals(0, $paginator->getCurrentPage());
-    }
-
-    protected function assertSentOnce(
-        MockClient $mockClient,
-        Response $response,
-        array $body = [],
-    ): void {
-        $mockClient->assertSentCount(1);
-        $mockClient->assertSent(function (Request $request) use ($body) {
-            return $request->body()->all() === $body;
-        });
-
-        $this->assertInstanceOf(Response::class, $response);
     }
 }

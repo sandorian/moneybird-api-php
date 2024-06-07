@@ -4,14 +4,16 @@ namespace Sandorian\Moneybird\Tests\Api;
 
 use PHPUnit\Framework\TestCase;
 use Saloon\Config;
+use Saloon\Enums\Method;
 use Saloon\Http\Faking\MockClient;
+use Saloon\Http\Request;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
 
 abstract class BaseTestCase extends TestCase
 {
-    const MONEYBIRD_KEY = 'testKey123';
+    protected const MONEYBIRD_KEY = 'testKey123';
 
-    const MONEYBIRD_ADMINISTRATION_ID = 'testAdministration123';
+    protected const MONEYBIRD_ADMINISTRATION_ID = 'testAdministration123';
 
     protected function setUp(): void
     {
@@ -36,5 +38,13 @@ abstract class BaseTestCase extends TestCase
             key: self::MONEYBIRD_KEY,
             administrationId: self::MONEYBIRD_ADMINISTRATION_ID
         );
+    }
+
+    protected function assertSentOnce(MockClient $mockClient, array $payload): void
+    {
+        $mockClient->assertSentCount(1);
+        $mockClient->assertSent(function (Request $request) use ($payload) {
+            return $request->getMethod() === Method::POST && $request->body()->all() === $payload;
+        });
     }
 }

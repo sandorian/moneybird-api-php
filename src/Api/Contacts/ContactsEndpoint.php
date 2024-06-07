@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\Contacts;
 
-use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ContactsEndpoint extends BaseEndpoint
 {
+    protected string $createRequestClass = CreateContactRequest::class;
+
     public function paginate(): Paginator
     {
         $request = new GetContactsPageRequest;
@@ -17,11 +18,15 @@ class ContactsEndpoint extends BaseEndpoint
         return $this->client->paginate($request);
     }
 
-    public function create(array $data): Response
+    /**
+     * @throws \Saloon\Exceptions\Request\FatalRequestException
+     * @throws \Saloon\Exceptions\Request\RequestException
+     */
+    public function create(array $data): Contact
     {
-        $request = new CreateContactRequest();
+        $request = new CreateContactRequest;
         $request->body()->merge($data);
 
-        return $this->client->send($request);
+        return $this->client->send($request)->dtoOrFail();
     }
 }

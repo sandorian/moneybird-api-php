@@ -67,8 +67,8 @@ class ContactResponseStub
                     'department' => null,
                     'created_at' => '2024-05-02T13:47:20.149Z',
                     'updated_at' => '2024-05-02T13:47:20.149Z',
-                    'version' => 1714657640
-                ]
+                    'version' => 1714657640,
+                ],
             ],
             'archived' => false,
             'events' => [
@@ -80,10 +80,9 @@ class ContactResponseStub
                     'link_entity_type' => null,
                     'data' => [],
                     'created_at' => '2024-05-02T13:47:20.166Z',
-                    'updated_at' => '2024-05-02T13:47:20.166Z'
-                ]
-            ]
+                    'updated_at' => '2024-05-02T13:47:20.166Z',
+                ],
+            ],
         ];
     }
-
 }
