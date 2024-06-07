@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sandorian\Moneybird\Api\ExternalSalesInvoices;
+namespace Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;

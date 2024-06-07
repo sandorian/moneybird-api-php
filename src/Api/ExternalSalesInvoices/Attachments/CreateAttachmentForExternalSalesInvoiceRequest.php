@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Sandorian\Moneybird\Api\ExternalSalesInvoices;
+namespace Sandorian\Moneybird\Api\ExternalSalesInvoices\Attachments;
 
 use Saloon\Contracts\Body\HasBody;
 use Saloon\Data\MultipartValue;
 use Saloon\Enums\Method;
 use Saloon\Http\Request;
+use Saloon\Http\Response;
 use Saloon\Traits\Body\HasMultipartBody;
 
 class CreateAttachmentForExternalSalesInvoiceRequest extends Request implements HasBody
@@ -39,5 +40,10 @@ class CreateAttachmentForExternalSalesInvoiceRequest extends Request implements 
                 //headers: [], // Optional: Headers to be sent with the individual value
             ),
         ];
+    }
+
+    public function createDtoFromResponse(Response $response): ExternalSalesInvoiceAttachment
+    {
+        return ExternalSalesInvoiceAttachment::createFromResponseData($response->json());
     }
 }

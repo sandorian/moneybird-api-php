@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\Support;
 
+#[\AllowDynamicProperties]
 abstract class BaseDto
 {
     public static function createFromResponseData(array $data)
@@ -11,9 +12,7 @@ abstract class BaseDto
         $dto = new static;
 
         foreach ($data as $key => $value) {
-            if (property_exists($dto, $key)) {
-                $dto->$key = $value;
-            }
+            $dto->$key = $value;
         }
 
         return $dto;
