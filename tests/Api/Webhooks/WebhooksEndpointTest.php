@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Tests\Api\Webhooks;
 
 use Saloon\Http\Faking\MockResponse;
+use Sandorian\Moneybird\Api\Webhooks\CreateWebhookRequest;
+use Sandorian\Moneybird\Api\Webhooks\Webhook;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class WebhooksEndpointTest extends BaseTestCase

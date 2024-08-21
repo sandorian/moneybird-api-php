@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Sandorian\Moneybird\Tests\Api\Webhooks;
+namespace Sandorian\Moneybird\Api\Webhooks;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
