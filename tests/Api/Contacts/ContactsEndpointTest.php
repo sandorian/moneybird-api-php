@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Tests\Api\Contacts;
 
 use Saloon\Http\Faking\MockResponse;
-use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
 use Sandorian\Moneybird\Api\Contacts\GetContactRequest;
