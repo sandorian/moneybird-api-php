@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments;
 
-use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ExternalSalesInvoicePaymentsEndpoint extends BaseEndpoint
@@ -12,10 +11,10 @@ class ExternalSalesInvoicePaymentsEndpoint extends BaseEndpoint
     public function createForExternalSalesInvoiceId(
         string $externalSalesInvoiceId,
         array $data
-    ): Response {
+    ): ExternalSalesInvoicePayment {
         $request = new CreatePaymentForExternalSalesInvoiceRequest($externalSalesInvoiceId);
         $request->body()->merge($data);
 
-        return $this->client->send($request);
+        return $this->client->send($request)->dtoOrFail();
     }
 }
