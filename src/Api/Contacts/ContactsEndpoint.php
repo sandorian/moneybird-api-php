@@ -13,6 +13,13 @@ use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
  */
 class ContactsEndpoint extends BaseEndpoint
 {
+    public function get(string $contactId): Contact
+    {
+        $request = new GetContactRequest($contactId);
+
+        return $this->client->send($request)->dtoOrFail();
+    }
+
     protected function getCreateRequest(): CreateContactRequest
     {
         return new CreateContactRequest;

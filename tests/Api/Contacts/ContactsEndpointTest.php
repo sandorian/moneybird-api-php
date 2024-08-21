@@ -8,10 +8,24 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
+use Sandorian\Moneybird\Api\Contacts\GetContactRequest;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class ContactsEndpointTest extends BaseTestCase
 {
+    /** @test */
+    public function testGetContact(): void
+    {
+        $moneybird = $this->getMoneybirdClientWithMocks([
+            GetContactRequest::class => MockResponse::make(ContactResponseStub::get()),
+        ]);
+
+        $contact = $moneybird->contacts()->get('419889276175517682');
+
+        $this->assertInstanceOf(Contact::class, $contact);
+        $this->assertEquals('419889276175517682', $contact->id);
+    }
+
     public function testCreateContact(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
