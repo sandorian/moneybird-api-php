@@ -12,8 +12,7 @@ abstract class BaseEndpoint
 {
     public function __construct(
         protected readonly MoneybirdApiClient $client
-    ) {
-    }
+    ) {}
 
     /**
      * @return mixed

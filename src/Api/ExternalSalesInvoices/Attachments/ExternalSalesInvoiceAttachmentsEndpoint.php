@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\ExternalSalesInvoices\Attachments;
 
-use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class ExternalSalesInvoiceAttachmentsEndpoint extends BaseEndpoint

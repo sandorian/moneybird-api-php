@@ -22,9 +22,9 @@ class ExternalSalesInvoicePaymentsEndpointTest extends BaseTestCase
             ->externalSalesInvoices()
             ->payments()
             ->createForExternalSalesInvoiceId('426664167757317770', [
-                "price" => "121.0",
-                "price_base" => "121.0",
-                "payment_date" => "2024-07-16",
+                'price' => '121.0',
+                'price_base' => '121.0',
+                'payment_date' => '2024-07-16',
             ]);
 
         $this->assertInstanceOf(ExternalSalesInvoicePayment::class, $payment);

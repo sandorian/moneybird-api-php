@@ -13,7 +13,7 @@ class ExternalSalesInvoicesEndpoint extends BaseEndpoint
 {
     public function create(array $data): ExternalSalesInvoice
     {
-        $request = new CreateExternalSalesInvoiceRequest();
+        $request = new CreateExternalSalesInvoiceRequest;
         $request->body()->merge($data);
 
         return $this->client->send($request)->dtoOrFail();

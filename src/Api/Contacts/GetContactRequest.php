@@ -16,7 +16,7 @@ class GetContactRequest extends BaseJsonGetRequest
 
     public function resolveEndpoint(): string
     {
-        return 'contacts/' . $this->contactId;
+        return 'contacts/'.$this->contactId;
     }
 
     public function createDtoFromResponse(Response $response): Contact

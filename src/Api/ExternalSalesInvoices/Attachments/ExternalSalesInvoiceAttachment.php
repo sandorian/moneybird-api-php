@@ -6,6 +6,4 @@ namespace Sandorian\Moneybird\Api\ExternalSalesInvoices\Attachments;
 
 use Sandorian\Moneybird\Api\Support\BaseDto;
 
-class ExternalSalesInvoiceAttachment extends BaseDto
-{
-}
+class ExternalSalesInvoiceAttachment extends BaseDto {}

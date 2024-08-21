@@ -6,6 +6,4 @@ namespace Sandorian\Moneybird\Api\TaxRates;
 
 use Sandorian\Moneybird\Api\Support\BaseDto;
 
-class TaxRate extends BaseDto
-{
-}
+class TaxRate extends BaseDto {}
