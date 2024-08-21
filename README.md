@@ -25,7 +25,7 @@ composer require sandorian/moneybird-api-php
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
 
 // 1. Authentication
-$moneybird = new Moneybird('your_key_here', 'your_administration_id_here');
+$moneybird = new MoneybirdApiClient('your_key_here', 'your_administration_id_here');
 
 // 2. Making api requests
 $response = $moneybird->contacts()->create([
