@@ -9,6 +9,7 @@ use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
 use Sandorian\Moneybird\Api\Contacts\GetContactRequest;
+use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class ContactsEndpointTest extends BaseTestCase
@@ -54,7 +55,7 @@ class ContactsEndpointTest extends BaseTestCase
 
         $paginator = $moneybird->contacts()->paginate();
 
-        $this->assertInstanceOf(Paginator::class, $paginator);
+        $this->assertInstanceOf(MoneybirdPaginator::class, $paginator);
         $this->assertEquals(0, $paginator->getCurrentPage());
     }
 }
