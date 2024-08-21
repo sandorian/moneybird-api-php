@@ -13,13 +13,13 @@ class ExternalSalesInvoiceAttachmentsEndpoint extends BaseEndpoint
         string $externalSalesInvoiceId,
         string $filePath,
         string $fileName,
-    ): Response {
+    ): bool {
         $request = new CreateAttachmentForExternalSalesInvoiceRequest(
             externalSalesInvoiceId: $externalSalesInvoiceId,
             filePath: $filePath,
             fileName: $fileName,
         );
 
-        return $this->client->send($request);
+        return $this->client->send($request)->successful();
     }
 }
