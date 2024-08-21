@@ -13,6 +13,7 @@ use Sandorian\Moneybird\Api\Contacts\ContactsEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
+use Sandorian\Moneybird\Api\Webhooks\WebhooksEndpoint;
 
 class MoneybirdApiClient extends Connector implements HasPagination
 {
@@ -61,5 +62,10 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function taxRates(): TaxRatesEndpoint
     {
         return new TaxRatesEndpoint($this);
+    }
+
+    public function webhooks(): WebhooksEndpoint
+    {
+        return new WebhooksEndpoint($this);
     }
 }
