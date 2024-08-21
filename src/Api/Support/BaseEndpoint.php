@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Api\Support;
 
 use Saloon\Http\Request;
+use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
 
 abstract class BaseEndpoint
@@ -47,5 +48,15 @@ abstract class BaseEndpoint
     protected function getDeleteRequest(): ?Request
     {
         throw new \Exception('Endpoint method "delete" not supported.');
+    }
+
+    public function paginate(): Paginator
+    {
+        return $this->client->paginate($this->getPaginateRequest());
+    }
+
+    protected function getPaginateRequest(): ?Request
+    {
+        throw new \Exception('Endpoint method "paginate" not supported.');
     }
 }
