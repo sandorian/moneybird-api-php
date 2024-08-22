@@ -11,7 +11,6 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class ExternalSalesInvoicePaymentsEndpointTest extends BaseTestCase
 {
-    /** @test */
     public function testCreateForExternalSalesInvoiceId(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([

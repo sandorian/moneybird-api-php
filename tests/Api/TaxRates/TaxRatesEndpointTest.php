@@ -9,7 +9,6 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class TaxRatesEndpointTest extends BaseTestCase
 {
-    /** @test */
     public function testGetTaxRatesPage(): void
     {
         $moneybird = $this->getMoneybirdClient();

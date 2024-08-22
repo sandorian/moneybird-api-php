@@ -11,7 +11,6 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class WebhooksEndpointTest extends BaseTestCase
 {
-    /** @test */
     public function testCreateWebhook(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([

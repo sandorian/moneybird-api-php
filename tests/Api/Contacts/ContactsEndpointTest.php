@@ -13,7 +13,6 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class ContactsEndpointTest extends BaseTestCase
 {
-    /** @test */
     public function testGetContact(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
@@ -47,7 +46,6 @@ class ContactsEndpointTest extends BaseTestCase
         $this->assertEquals('Sandorian Consultancy B.V.', $contact->company_name);
     }
 
-    /** @test */
     public function testPaginateContacts(): void
     {
         $moneybird = $this->getMoneybirdClient();
