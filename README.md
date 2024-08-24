@@ -9,7 +9,7 @@
 
 Effortlessly interact with the Moneybird API using your favourite language PHP.
 
-This package is based on the popular and robust [Saloon PHP](https://docs.saloon.dev) package.
+This package leverages the popular and robust [Saloon PHP](https://docs.saloon.dev) package.
 
 ## Installation
 
