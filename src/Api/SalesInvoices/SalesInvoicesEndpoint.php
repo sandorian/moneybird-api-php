@@ -26,6 +26,14 @@ class SalesInvoicesEndpoint extends BaseEndpoint
         return $request->createDtoFromResponse($response);
     }
 
+    public function findByInvoiceId(string $invoiceId): SalesInvoice
+    {
+        $request = new FindSalesInvoiceByInvoiceIdRequest($invoiceId);
+        $response = $this->client->send($request);
+
+        return $request->createDtoFromResponse($response);
+    }
+
     public function paginate(): Paginator
     {
         $request = new GetSalesInvoicesPageRequest();
