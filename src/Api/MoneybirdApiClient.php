@@ -11,6 +11,7 @@ use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Contacts\ContactsEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
+use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
 use Sandorian\Moneybird\Api\Webhooks\WebhooksEndpoint;
@@ -57,6 +58,11 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint
     {
         return new ExternalSalesInvoicesEndpoint($this);
+    }
+
+    public function salesInvoices(): SalesInvoicesEndpoint
+    {
+        return new SalesInvoicesEndpoint($this);
     }
 
     public function taxRates(): TaxRatesEndpoint
