@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Api\SalesInvoices;
 
 use Saloon\PaginationPlugin\Paginator;
+use Sandorian\Moneybird\Api\SalesInvoices\Payments\SalesInvoicePaymentsEndpoint;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 
 class SalesInvoicesEndpoint extends BaseEndpoint
@@ -47,5 +48,10 @@ class SalesInvoicesEndpoint extends BaseEndpoint
         $request = new GetSalesInvoicesPageRequest();
 
         return $this->client->paginate($request);
+    }
+
+    public function payments(): SalesInvoicePaymentsEndpoint
+    {
+        return new SalesInvoicePaymentsEndpoint($this->client);
     }
 }
