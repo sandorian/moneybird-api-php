@@ -8,6 +8,7 @@ use Saloon\Http\Faking\MockResponse;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\SalesInvoices\CreateSalesInvoiceRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\FindSalesInvoiceByInvoiceIdRequest;
+use Sandorian\Moneybird\Api\SalesInvoices\FindSalesInvoiceByReferenceRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\GetSalesInvoiceRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\GetSalesInvoicesPageRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoice;
@@ -64,6 +65,23 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         ]);
 
         $invoice = $moneybird->salesInvoices()->findByInvoiceId('30052');
+
+        $this->assertInstanceOf(SalesInvoice::class, $invoice);
+        $this->assertEquals('446241800938587778', $invoice->id);
+        $this->assertEquals('446241800633452147', $invoice->contact_id);
+        $this->assertEquals('30052', $invoice->reference);
+        $this->assertCount(1, $invoice->details);
+        $this->assertEquals('Rocking Chair', $invoice->details[0]['description']);
+        $this->assertEquals('129.95', $invoice->details[0]['price']);
+    }
+
+    public function testFindSalesInvoiceByReference(): void
+    {
+        $moneybird = $this->getMoneybirdClientWithMocks([
+            FindSalesInvoiceByReferenceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 200),
+        ]);
+
+        $invoice = $moneybird->salesInvoices()->findByReference('30052');
 
         $this->assertInstanceOf(SalesInvoice::class, $invoice);
         $this->assertEquals('446241800938587778', $invoice->id);
