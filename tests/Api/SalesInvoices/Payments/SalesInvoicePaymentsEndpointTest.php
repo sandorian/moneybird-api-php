@@ -11,7 +11,7 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class SalesInvoicePaymentsEndpointTest extends BaseTestCase
 {
-    public function testRegisterPaymentForSalesInvoice(): void
+    public function test_register_payment_for_sales_invoice(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             RegisterSalesInvoicePaymentRequest::class => MockResponse::make(SalesInvoicePaymentResponseStub::get(), 201),

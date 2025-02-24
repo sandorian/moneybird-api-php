@@ -11,7 +11,7 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class WebhooksEndpointTest extends BaseTestCase
 {
-    public function testCreateWebhook(): void
+    public function test_create_webhook(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             CreateWebhookRequest::class => MockResponse::make([

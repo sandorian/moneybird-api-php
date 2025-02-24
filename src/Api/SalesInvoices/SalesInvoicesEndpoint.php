@@ -53,7 +53,7 @@ class SalesInvoicesEndpoint extends BaseEndpoint
 
     public function paginate(): Paginator
     {
-        $request = new GetSalesInvoicesPageRequest();
+        $request = new GetSalesInvoicesPageRequest;
 
         return $this->client->paginate($request);
     }

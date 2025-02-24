@@ -17,7 +17,7 @@ use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
 class SalesInvoicesEndpointTest extends BaseTestCase
 {
-    public function testCreateSalesInvoice(): void
+    public function test_create_sales_invoice(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             CreateSalesInvoiceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 201),
@@ -42,7 +42,7 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         $this->assertEquals('129.95', $invoice->details[0]['price']);
     }
 
-    public function testGetSalesInvoice(): void
+    public function test_get_sales_invoice(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             GetSalesInvoiceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 200),
@@ -59,7 +59,7 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         $this->assertEquals('129.95', $invoice->details[0]['price']);
     }
 
-    public function testFindSalesInvoiceByInvoiceId(): void
+    public function test_find_sales_invoice_by_invoice_id(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             FindSalesInvoiceByInvoiceIdRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 200),
@@ -76,7 +76,7 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         $this->assertEquals('129.95', $invoice->details[0]['price']);
     }
 
-    public function testFindSalesInvoiceByReference(): void
+    public function test_find_sales_invoice_by_reference(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             FindSalesInvoiceByReferenceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 200),
@@ -93,7 +93,7 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         $this->assertEquals('129.95', $invoice->details[0]['price']);
     }
 
-    public function testPaginateSalesInvoices(): void
+    public function test_paginate_sales_invoices(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             GetSalesInvoicesPageRequest::class => MockResponse::make([SalesInvoiceResponseStub::get()], 200),
@@ -105,7 +105,7 @@ class SalesInvoicesEndpointTest extends BaseTestCase
         $this->assertEquals(0, $paginator->getCurrentPage());
     }
 
-    public function testDuplicateSalesInvoiceToCreditInvoice(): void
+    public function test_duplicate_sales_invoice_to_credit_invoice(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
             DuplicateSalesInvoiceToCreditInvoiceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 201),

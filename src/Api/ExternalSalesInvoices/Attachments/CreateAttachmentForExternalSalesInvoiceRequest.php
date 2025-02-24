@@ -37,7 +37,7 @@ class CreateAttachmentForExternalSalesInvoiceRequest extends Request implements 
                 name: 'file', // Required: the name of the multipart value
                 value: $this->filePath, // Required: Absolute path or file stream
                 filename: $this->fileName, // Optional: File name
-                //headers: [], // Optional: Headers to be sent with the individual value
+                // headers: [], // Optional: Headers to be sent with the individual value
             ),
         ];
     }
