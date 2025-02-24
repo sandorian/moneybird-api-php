@@ -43,6 +43,14 @@ class SalesInvoicesEndpoint extends BaseEndpoint
         return $request->createDtoFromResponse($response);
     }
 
+    public function duplicateToCreditInvoice(string $salesInvoiceId): SalesInvoice
+    {
+        $request = new DuplicateSalesInvoiceToCreditInvoiceRequest($salesInvoiceId);
+        $response = $this->client->send($request);
+
+        return SalesInvoice::createFromResponseData($response->json());
+    }
+
     public function paginate(): Paginator
     {
         $request = new GetSalesInvoicesPageRequest();

@@ -7,6 +7,7 @@ namespace Sandorian\Moneybird\Tests\Api\SalesInvoices;
 use Saloon\Http\Faking\MockResponse;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\SalesInvoices\CreateSalesInvoiceRequest;
+use Sandorian\Moneybird\Api\SalesInvoices\DuplicateSalesInvoiceToCreditInvoiceRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\FindSalesInvoiceByInvoiceIdRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\FindSalesInvoiceByReferenceRequest;
 use Sandorian\Moneybird\Api\SalesInvoices\GetSalesInvoiceRequest;
@@ -102,5 +103,22 @@ class SalesInvoicesEndpointTest extends BaseTestCase
 
         $this->assertInstanceOf(Paginator::class, $paginator);
         $this->assertEquals(0, $paginator->getCurrentPage());
+    }
+
+    public function testDuplicateSalesInvoiceToCreditInvoice(): void
+    {
+        $moneybird = $this->getMoneybirdClientWithMocks([
+            DuplicateSalesInvoiceToCreditInvoiceRequest::class => MockResponse::make(SalesInvoiceResponseStub::get(), 201),
+        ]);
+
+        $creditInvoice = $moneybird->salesInvoices()->duplicateToCreditInvoice('446241800938587778');
+
+        $this->assertInstanceOf(SalesInvoice::class, $creditInvoice);
+        $this->assertEquals('446241800938587778', $creditInvoice->id);
+        $this->assertEquals('446241800633452147', $creditInvoice->contact_id);
+        $this->assertEquals('30052', $creditInvoice->reference);
+        $this->assertCount(1, $creditInvoice->details);
+        $this->assertEquals('Rocking Chair', $creditInvoice->details[0]['description']);
+        $this->assertEquals('129.95', $creditInvoice->details[0]['price']);
     }
 }
