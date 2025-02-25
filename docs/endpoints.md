@@ -223,40 +223,40 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 174. [x] POST /sales_invoices/{id}/duplicate_to_credit_invoice - Duplicate sales invoice to credit invoice
 
 ## Subscription Templates
-175. [ ] GET /subscription_templates - Get subscription templates
-176. [ ] GET /subscription_templates/{id} - Get subscription template
-177. [ ] POST /subscription_templates - Create subscription template
-178. [ ] PATCH /subscription_templates/{id} - Update subscription template
-179. [ ] DELETE /subscription_templates/{id} - Delete subscription template
+175. [x] GET /subscription_templates - Get subscription templates
+176. [x] GET /subscription_templates/{id} - Get subscription template
+177. [x] POST /subscription_templates - Create subscription template
+178. [x] PATCH /subscription_templates/{id} - Update subscription template
+179. [x] DELETE /subscription_templates/{id} - Delete subscription template
 
 ## Subscriptions
-180. [ ] GET /subscriptions - Get subscriptions
-181. [ ] GET /subscriptions/{id} - Get subscription
-182. [ ] POST /subscriptions - Create subscription
-183. [ ] PATCH /subscriptions/{id} - Update subscription
-184. [ ] DELETE /subscriptions/{id} - Delete subscription
-185. [ ] POST /subscriptions/{id}/pause - Pause subscription
-186. [ ] POST /subscriptions/{id}/resume - Resume subscription
-187. [ ] POST /subscriptions/{id}/reactivate - Reactivate subscription
-188. [ ] POST /subscriptions/{id}/duplicate - Duplicate subscription
+180. [x] GET /subscriptions - Get subscriptions
+181. [x] GET /subscriptions/{id} - Get subscription
+182. [x] POST /subscriptions - Create subscription
+183. [x] PATCH /subscriptions/{id} - Update subscription
+184. [x] DELETE /subscriptions/{id} - Delete subscription
+185. [x] POST /subscriptions/{id}/pause - Pause subscription
+186. [x] POST /subscriptions/{id}/resume - Resume subscription
+187. [x] POST /subscriptions/{id}/reactivate - Reactivate subscription
+188. [x] POST /subscriptions/{id}/duplicate - Duplicate subscription
 
 ## Tax Rates
 189. [x] GET /tax_rates - List all tax rates (paginate)
 
 ## Time Entries
-192. [ ] GET /time_entries - Get time entries
-193. [ ] GET /time_entries/{id} - Get time entry
-194. [ ] POST /time_entries - Create time entry
-195. [ ] PATCH /time_entries/{id} - Update time entry
-196. [ ] DELETE /time_entries/{id} - Delete time entry
+192. [x] GET /time_entries - Get time entries
+193. [x] GET /time_entries/{id} - Get time entry
+194. [x] POST /time_entries - Create time entry
+195. [x] PATCH /time_entries/{id} - Update time entry
+196. [x] DELETE /time_entries/{id} - Delete time entry
 
 ## Users
-197. [ ] GET /users - Get users
-198. [ ] GET /users/{id} - Get user
+197. [x] GET /users - Get users
+198. [x] GET /users/{id} - Get user
 
 ## Verifications
-199. [ ] GET /verifications - Get verifications
-200. [ ] GET /verifications/{id} - Get verification
-201. [ ] POST /verifications - Create verification
-202. [ ] PATCH /verifications/{id} - Update verification
-203. [ ] DELETE /verifications/{id} - Delete verification
+199. [x] GET /verifications - Get verifications
+200. [x] GET /verifications/{id} - Get verification
+201. [x] POST /verifications - Create verification
+202. [x] PATCH /verifications/{id} - Update verification
+203. [x] DELETE /verifications/{id} - Delete verification

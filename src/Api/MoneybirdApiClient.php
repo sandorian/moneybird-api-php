@@ -32,8 +32,13 @@ use Sandorian\Moneybird\Api\Projects\ProjectsEndpoint;
 use Sandorian\Moneybird\Api\PurchaseTransactions\PurchaseTransactionsEndpoint;
 use Sandorian\Moneybird\Api\RecurringSalesInvoices\RecurringSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
+use Sandorian\Moneybird\Api\Subscriptions\SubscriptionsEndpoint;
+use Sandorian\Moneybird\Api\SubscriptionTemplates\SubscriptionTemplatesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
+use Sandorian\Moneybird\Api\TimeEntries\TimeEntriesEndpoint;
+use Sandorian\Moneybird\Api\Users\UsersEndpoint;
+use Sandorian\Moneybird\Api\Verifications\VerificationsEndpoint;
 use Sandorian\Moneybird\Api\Webhooks\WebhooksEndpoint;
 
 class MoneybirdApiClient extends Connector implements HasPagination
@@ -193,5 +198,30 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function recurringSalesInvoices(): RecurringSalesInvoicesEndpoint
     {
         return new RecurringSalesInvoicesEndpoint($this);
+    }
+
+    public function subscriptionTemplates(): SubscriptionTemplatesEndpoint
+    {
+        return new SubscriptionTemplatesEndpoint($this);
+    }
+
+    public function subscriptions(): SubscriptionsEndpoint
+    {
+        return new SubscriptionsEndpoint($this);
+    }
+
+    public function timeEntries(): TimeEntriesEndpoint
+    {
+        return new TimeEntriesEndpoint($this);
+    }
+
+    public function users(): UsersEndpoint
+    {
+        return new UsersEndpoint($this);
+    }
+
+    public function verifications(): VerificationsEndpoint
+    {
+        return new VerificationsEndpoint($this);
     }
 }
