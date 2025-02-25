@@ -3,275 +3,262 @@
 This document tracks the implementation progress of all Moneybird API endpoints in this PHP client.
 
 ## Administration
-- [x] GET /administrations - Get administrations
-- [x] GET /administrations/{id} - Get administration
+1. [x] GET /administrations - Get administrations
+2. [x] GET /administrations/{id} - Get administration
 
 ## Contacts
-- [x] GET /contacts - List all contacts (paginate)
-- [x] GET /contacts/filter - Filter contacts
-- [x] GET /contacts/synchronization - List all ids and versions
-- [x] POST /contacts/synchronization - Fetch contacts with given ids
-- [x] GET /contacts/{id} - Get contact
-- [x] GET /contacts/customer_id/{customer_id} - Get contact by customer id
-- [x] POST /contacts - Create a new contact
-- [x] PATCH /contacts/{id} - Update a contact
-- [x] DELETE /contacts/{id} - Delete a contact
-- [x] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
-- [x] GET /contacts/{id}/usage_charges - Get additional charges
-- [x] POST /contacts/{id}/notes - Adds note to entity
-- [x] DELETE /contacts/{id}/notes/{note_id} - Destroys note from entity
-- [x] GET /contacts/{id}/contact_people/{contact_person_id} - Get contact person
-- [x] POST /contacts/{id}/contact_people - Create a new contact person
-- [x] PATCH /contacts/{id}/contact_people/{contact_person_id} - Update a contact person
-- [x] DELETE /contacts/{id}/contact_people/{contact_person_id} - Delete a contact person
-- [x] GET /contacts/{id}/mb_payments_mandate - Get Moneybird Payments mandate
-- [x] POST /contacts/{id}/mb_payments_mandate - Request a new Moneybird Payments mandate
-- [x] POST /contacts/{id}/mb_payments_mandate_url - Request an URL for setting up a Moneybird Payments mandate
-- [x] DELETE /contacts/{id}/mb_payments_mandate - Delete a stored Moneybird Payments mandate
+3. [x] GET /contacts - List all contacts (paginate)
+4. [x] GET /contacts/filter - Filter contacts
+5. [x] GET /contacts/synchronization - List all ids and versions
+6. [x] POST /contacts/synchronization - Fetch contacts with given ids
+7. [x] GET /contacts/{id} - Get contact
+8. [x] GET /contacts/customer_id/{customer_id} - Get contact by customer id
+9. [x] POST /contacts - Create a new contact
+10. [x] PATCH /contacts/{id} - Update a contact
+11. [x] DELETE /contacts/{id} - Delete a contact
+12. [x] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
+13. [x] GET /contacts/{id}/usage_charges - Get additional charges
+14. [x] POST /contacts/{id}/notes - Adds note to entity
+15. [x] DELETE /contacts/{id}/notes/{note_id} - Destroys note from entity
+16. [x] GET /contacts/{id}/contact_people/{contact_person_id} - Get contact person
+17. [x] POST /contacts/{id}/contact_people - Create a new contact person
+18. [x] PATCH /contacts/{id}/contact_people/{contact_person_id} - Update a contact person
+19. [x] DELETE /contacts/{id}/contact_people/{contact_person_id} - Delete a contact person
+20. [x] GET /contacts/{id}/mb_payments_mandate - Get Moneybird Payments mandate
+21. [x] POST /contacts/{id}/mb_payments_mandate - Request a new Moneybird Payments mandate
+22. [x] POST /contacts/{id}/mb_payments_mandate_url - Request an URL for setting up a Moneybird Payments mandate
+23. [x] DELETE /contacts/{id}/mb_payments_mandate - Delete a stored Moneybird Payments mandate
 
 ## Custom Fields
-- [ ] GET /custom_fields - List all custom fields
-- [ ] GET /custom_fields/{id} - Get custom field
+24. [x] GET /custom_fields - List all custom fields
+25. [x] GET /custom_fields/{id} - Get custom field
 
 ## Document Styles
-- [ ] GET /document_styles - List all document styles
-- [ ] GET /document_styles/{id} - Get document style
+26. [x] GET /document_styles - List all document styles
+27. [x] GET /document_styles/{id} - Get document style
 
 ## Documents: General Documents
-- [ ] GET /documents/general_documents - Get general documents
-- [ ] GET /documents/general_documents/synchronization - List all ids and versions
-- [ ] POST /documents/general_documents/synchronization - Fetch general documents with given ids
-- [ ] GET /documents/general_documents/{id} - Get general document
-- [ ] POST /documents/general_documents - Create general document
-- [ ] PATCH /documents/general_documents/{id} - Update general document
-- [ ] DELETE /documents/general_documents/{id} - Delete general document
-- [ ] POST /documents/general_documents/{id}/attachments - Create attachment
-- [ ] DELETE /documents/general_documents/{id}/attachments/{attachment_id} - Delete attachment
+28. [ ] GET /documents/general_documents - Get general documents
+29. [ ] GET /documents/general_documents/synchronization - List all ids and versions
+30. [ ] POST /documents/general_documents/synchronization - Fetch general documents with given ids
+31. [ ] GET /documents/general_documents/{id} - Get general document
+32. [ ] POST /documents/general_documents - Create general document
+33. [ ] PATCH /documents/general_documents/{id} - Update general document
+34. [ ] DELETE /documents/general_documents/{id} - Delete general document
+35. [ ] POST /documents/general_documents/{id}/attachments - Create attachment
+36. [ ] DELETE /documents/general_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: General Journal Documents
-- [ ] GET /documents/general_journal_documents - Get general journal documents
-- [ ] GET /documents/general_journal_documents/synchronization - List all ids and versions
-- [ ] POST /documents/general_journal_documents/synchronization - Fetch general journal documents with given ids
-- [ ] GET /documents/general_journal_documents/{id} - Get general journal document
-- [ ] POST /documents/general_journal_documents - Create general journal document
-- [ ] PATCH /documents/general_journal_documents/{id} - Update general journal document
-- [ ] DELETE /documents/general_journal_documents/{id} - Delete general journal document
-- [ ] POST /documents/general_journal_documents/{id}/attachments - Create attachment
-- [ ] DELETE /documents/general_journal_documents/{id}/attachments/{attachment_id} - Delete attachment
+37. [ ] GET /documents/general_journal_documents - Get general journal documents
+38. [ ] GET /documents/general_journal_documents/synchronization - List all ids and versions
+39. [ ] POST /documents/general_journal_documents/synchronization - Fetch general journal documents with given ids
+40. [ ] GET /documents/general_journal_documents/{id} - Get general journal document
+41. [ ] POST /documents/general_journal_documents - Create general journal document
+42. [ ] PATCH /documents/general_journal_documents/{id} - Update general journal document
+43. [ ] DELETE /documents/general_journal_documents/{id} - Delete general journal document
+44. [ ] POST /documents/general_journal_documents/{id}/attachments - Create attachment
+45. [ ] DELETE /documents/general_journal_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Purchase Invoices
-- [ ] GET /documents/purchase_invoices - Get purchase invoices
-- [ ] GET /documents/purchase_invoices/synchronization - List all ids and versions
-- [ ] POST /documents/purchase_invoices/synchronization - Fetch purchase invoices with given ids
-- [ ] GET /documents/purchase_invoices/{id} - Get purchase invoice
-- [ ] POST /documents/purchase_invoices - Create purchase invoice
-- [ ] PATCH /documents/purchase_invoices/{id} - Update purchase invoice
-- [ ] DELETE /documents/purchase_invoices/{id} - Delete purchase invoice
-- [ ] POST /documents/purchase_invoices/{id}/attachments - Create attachment
-- [ ] DELETE /documents/purchase_invoices/{id}/attachments/{attachment_id} - Delete attachment
+46. [ ] GET /documents/purchase_invoices - Get purchase invoices
+47. [ ] GET /documents/purchase_invoices/synchronization - List all ids and versions
+48. [ ] POST /documents/purchase_invoices/synchronization - Fetch purchase invoices with given ids
+49. [ ] GET /documents/purchase_invoices/{id} - Get purchase invoice
+50. [ ] POST /documents/purchase_invoices - Create purchase invoice
+51. [ ] PATCH /documents/purchase_invoices/{id} - Update purchase invoice
+52. [ ] DELETE /documents/purchase_invoices/{id} - Delete purchase invoice
+53. [ ] POST /documents/purchase_invoices/{id}/attachments - Create attachment
+54. [ ] DELETE /documents/purchase_invoices/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Receipts
-- [ ] GET /documents/receipts - Get receipts
-- [ ] GET /documents/receipts/synchronization - List all ids and versions
-- [ ] POST /documents/receipts/synchronization - Fetch receipts with given ids
-- [ ] GET /documents/receipts/{id} - Get receipt
-- [ ] POST /documents/receipts - Create receipt
-- [ ] PATCH /documents/receipts/{id} - Update receipt
-- [ ] DELETE /documents/receipts/{id} - Delete receipt
-- [ ] POST /documents/receipts/{id}/attachments - Create attachment
-- [ ] DELETE /documents/receipts/{id}/attachments/{attachment_id} - Delete attachment
+55. [ ] GET /documents/receipts - Get receipts
+56. [ ] GET /documents/receipts/synchronization - List all ids and versions
+57. [ ] POST /documents/receipts/synchronization - Fetch receipts with given ids
+58. [ ] GET /documents/receipts/{id} - Get receipt
+59. [ ] POST /documents/receipts - Create receipt
+60. [ ] PATCH /documents/receipts/{id} - Update receipt
+61. [ ] DELETE /documents/receipts/{id} - Delete receipt
+62. [ ] POST /documents/receipts/{id}/attachments - Create attachment
+63. [ ] DELETE /documents/receipts/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Typeless Documents
-- [ ] GET /documents/typeless_documents - Get typeless documents
-- [ ] GET /documents/typeless_documents/synchronization - List all ids and versions
-- [ ] POST /documents/typeless_documents/synchronization - Fetch typeless documents with given ids
-- [ ] GET /documents/typeless_documents/{id} - Get typeless document
-- [ ] POST /documents/typeless_documents - Create typeless document
-- [ ] PATCH /documents/typeless_documents/{id} - Update typeless document
-- [ ] DELETE /documents/typeless_documents/{id} - Delete typeless document
-- [ ] POST /documents/typeless_documents/{id}/attachments - Create attachment
-- [ ] DELETE /documents/typeless_documents/{id}/attachments/{attachment_id} - Delete attachment
+64. [ ] GET /documents/typeless_documents - Get typeless documents
+65. [ ] GET /documents/typeless_documents/synchronization - List all ids and versions
+66. [ ] POST /documents/typeless_documents/synchronization - Fetch typeless documents with given ids
+67. [ ] GET /documents/typeless_documents/{id} - Get typeless document
+68. [ ] POST /documents/typeless_documents - Create typeless document
+69. [ ] PATCH /documents/typeless_documents/{id} - Update typeless document
+70. [ ] DELETE /documents/typeless_documents/{id} - Delete typeless document
+71. [ ] POST /documents/typeless_documents/{id}/attachments - Create attachment
+72. [ ] DELETE /documents/typeless_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Estimates
-- [ ] GET /estimates - Get estimates
-- [ ] GET /estimates/synchronization - List all ids and versions
-- [ ] POST /estimates/synchronization - Fetch estimates with given ids
-- [ ] GET /estimates/{id} - Get estimate
-- [ ] POST /estimates - Create estimate
-- [ ] PATCH /estimates/{id} - Update estimate
-- [ ] DELETE /estimates/{id} - Delete estimate
-- [ ] PATCH /estimates/{id}/change_state/{state} - Change estimate state
-- [ ] POST /estimates/{id}/send_email - Send estimate by email
-- [ ] GET /estimates/{id}/send_email_template - Get send estimate email template
-- [ ] POST /estimates/{id}/duplicate - Duplicate estimate
+73. [ ] GET /estimates - Get estimates
+74. [ ] GET /estimates/synchronization - List all ids and versions
+75. [ ] POST /estimates/synchronization - Fetch estimates with given ids
+76. [ ] GET /estimates/{id} - Get estimate
+77. [ ] POST /estimates - Create estimate
+78. [ ] PATCH /estimates/{id} - Update estimate
+79. [ ] DELETE /estimates/{id} - Delete estimate
+80. [ ] PATCH /estimates/{id}/change_state/{state} - Change estimate state
+81. [ ] POST /estimates/{id}/send_email - Send estimate by email
+82. [ ] GET /estimates/{id}/send_email_template - Get send estimate email template
+83. [ ] POST /estimates/{id}/duplicate - Duplicate estimate
 
 ## External Sales Invoices
-- [x] GET /external_sales_invoices - List all external sales invoices (paginate)
-- [x] GET /external_sales_invoices/synchronization - List all ids and versions
-- [x] POST /external_sales_invoices/synchronization - Fetch external sales invoices with given ids
-- [x] GET /external_sales_invoices/{id} - Get external sales invoice
-- [x] POST /external_sales_invoices - Create external sales invoice
-- [x] PATCH /external_sales_invoices/{id} - Update external sales invoice
-- [x] DELETE /external_sales_invoices/{id} - Delete external sales invoice
-- [x] POST /external_sales_invoices/{id}/payments - Create payment for external sales invoice
-- [x] DELETE /external_sales_invoices/{id}/payments/{payment_id} - Delete payment for external sales invoice
-- [x] POST /external_sales_invoices/{id}/attachments - Create attachment for external sales invoice
+84. [x] GET /external_sales_invoices - List all external sales invoices (paginate)
+85. [x] GET /external_sales_invoices/synchronization - List all ids and versions
+86. [x] POST /external_sales_invoices/synchronization - Fetch external sales invoices with given ids
+87. [x] GET /external_sales_invoices/{id} - Get external sales invoice
+88. [x] POST /external_sales_invoices - Create external sales invoice
+89. [x] PATCH /external_sales_invoices/{id} - Update external sales invoice
+90. [x] DELETE /external_sales_invoices/{id} - Delete external sales invoice
+91. [x] POST /external_sales_invoices/{id}/payments - Create payment for external sales invoice
+92. [x] DELETE /external_sales_invoices/{id}/payments/{payment_id} - Delete payment for external sales invoice
+93. [x] POST /external_sales_invoices/{id}/attachments - Create attachment for external sales invoice
 
 ## Financial Accounts
-- [ ] GET /financial_accounts - Get financial accounts
-- [ ] GET /financial_accounts/{id} - Get financial account
+94. [ ] GET /financial_accounts - Get financial accounts
+95. [ ] GET /financial_accounts/{id} - Get financial account
 
 ## Financial Mutations
-- [ ] GET /financial_mutations - Get financial mutations
-- [ ] GET /financial_mutations/synchronization - List all ids and versions
-- [ ] POST /financial_mutations/synchronization - Fetch financial mutations with given ids
-- [ ] GET /financial_mutations/{id} - Get financial mutation
-- [ ] PATCH /financial_mutations/{id} - Update financial mutation
-- [ ] POST /financial_mutations/{id}/link_booking - Link booking to financial mutation
+96. [ ] GET /financial_mutations - Get financial mutations
+97. [ ] GET /financial_mutations/synchronization - List all ids and versions
+98. [ ] POST /financial_mutations/synchronization - Fetch financial mutations with given ids
+99. [ ] GET /financial_mutations/{id} - Get financial mutation
+100. [ ] PATCH /financial_mutations/{id} - Update financial mutation
+101. [ ] POST /financial_mutations/{id}/link_booking - Link booking to financial mutation
 
 ## Financial Statements
-- [ ] GET /financial_statements - Get financial statements
-- [ ] GET /financial_statements/synchronization - List all ids and versions
-- [ ] POST /financial_statements/synchronization - Fetch financial statements with given ids
-- [ ] GET /financial_statements/{id} - Get financial statement
-- [ ] POST /financial_statements - Create financial statement
-- [ ] PATCH /financial_statements/{id} - Update financial statement
-- [ ] DELETE /financial_statements/{id} - Delete financial statement
+102. [ ] GET /financial_statements - Get financial statements
+103. [ ] GET /financial_statements/synchronization - List all ids and versions
+104. [ ] POST /financial_statements/synchronization - Fetch financial statements with given ids
+105. [ ] GET /financial_statements/{id} - Get financial statement
+106. [ ] POST /financial_statements - Create financial statement
+107. [ ] PATCH /financial_statements/{id} - Update financial statement
+108. [ ] DELETE /financial_statements/{id} - Delete financial statement
 
 ## Identities
-- [ ] GET /identities - Get identities
-- [ ] GET /identities/{id} - Get identity
+109. [ ] GET /identities - Get identities
+110. [ ] GET /identities/{id} - Get identity
 
 ## Import Mappings
-- [ ] GET /import_mappings - Get import mappings
-- [ ] GET /import_mappings/{id} - Get import mapping
-- [ ] POST /import_mappings - Create import mapping
-- [ ] PATCH /import_mappings/{id} - Update import mapping
-- [ ] DELETE /import_mappings/{id} - Delete import mapping
+111. [ ] GET /import_mappings - Get import mappings
+112. [ ] GET /import_mappings/{id} - Get import mapping
+113. [ ] POST /import_mappings - Create import mapping
+114. [ ] PATCH /import_mappings/{id} - Update import mapping
+115. [ ] DELETE /import_mappings/{id} - Delete import mapping
 
 ## Ledger Accounts
-- [ ] GET /ledger_accounts - Get ledger accounts
-- [ ] GET /ledger_accounts/{id} - Get ledger account
-- [ ] POST /ledger_accounts - Create ledger account
-- [ ] PATCH /ledger_accounts/{id} - Update ledger account
-- [ ] DELETE /ledger_accounts/{id} - Delete ledger account
+116. [ ] GET /ledger_accounts - Get ledger accounts
+117. [ ] GET /ledger_accounts/{id} - Get ledger account
+118. [ ] POST /ledger_accounts - Create ledger account
+119. [ ] PATCH /ledger_accounts/{id} - Update ledger account
+120. [ ] DELETE /ledger_accounts/{id} - Delete ledger account
 
 ## Payments
-- [ ] GET /payments - Get payments
-- [ ] GET /payments/{id} - Get payment
+121. [ ] GET /payments - Get payments
+122. [ ] GET /payments/{id} - Get payment
 
 ## Products
-- [ ] GET /products - Get products
-- [ ] GET /products/synchronization - List all ids and versions
-- [ ] POST /products/synchronization - Fetch products with given ids
-- [ ] GET /products/{id} - Get product
-- [ ] POST /products - Create product
-- [ ] PATCH /products/{id} - Update product
-- [ ] DELETE /products/{id} - Delete product
+123. [ ] GET /products - Get products
+124. [ ] GET /products/synchronization - List all ids and versions
+125. [ ] POST /products/synchronization - Fetch products with given ids
+126. [ ] GET /products/{id} - Get product
+127. [ ] POST /products - Create product
+128. [ ] PATCH /products/{id} - Update product
+129. [ ] DELETE /products/{id} - Delete product
 
 ## Projects
-- [ ] GET /projects - Get projects
-- [ ] GET /projects/{id} - Get project
-- [ ] POST /projects - Create project
-- [ ] PATCH /projects/{id} - Update project
-- [ ] DELETE /projects/{id} - Delete project
+130. [ ] GET /projects - Get projects
+131. [ ] GET /projects/{id} - Get project
+132. [ ] POST /projects - Create project
+133. [ ] PATCH /projects/{id} - Update project
+134. [ ] DELETE /projects/{id} - Delete project
 
 ## Purchase Transactions
-- [ ] GET /purchase_transactions - Get purchase transactions
-- [ ] GET /purchase_transactions/{id} - Get purchase transaction
-- [ ] POST /purchase_transactions - Create purchase transaction
-- [ ] PATCH /purchase_transactions/{id} - Update purchase transaction
-- [ ] DELETE /purchase_transactions/{id} - Delete purchase transaction
+135. [ ] GET /purchase_transactions - Get purchase transactions
+136. [ ] GET /purchase_transactions/{id} - Get purchase transaction
+137. [ ] POST /purchase_transactions - Create purchase transaction
+138. [ ] PATCH /purchase_transactions/{id} - Update purchase transaction
+139. [ ] DELETE /purchase_transactions/{id} - Delete purchase transaction
 
 ## Recurring Sales Invoices
-- [ ] GET /recurring_sales_invoices - Get recurring sales invoices
-- [ ] GET /recurring_sales_invoices/synchronization - List all ids and versions
-- [ ] POST /recurring_sales_invoices/synchronization - Fetch recurring sales invoices with given ids
-- [ ] GET /recurring_sales_invoices/{id} - Get recurring sales invoice
-- [ ] POST /recurring_sales_invoices - Create recurring sales invoice
-- [ ] PATCH /recurring_sales_invoices/{id} - Update recurring sales invoice
-- [ ] DELETE /recurring_sales_invoices/{id} - Delete recurring sales invoice
+140. [ ] GET /recurring_sales_invoices - Get recurring sales invoices
+141. [ ] GET /recurring_sales_invoices/synchronization - List all ids and versions
+142. [ ] POST /recurring_sales_invoices/synchronization - Fetch recurring sales invoices with given ids
+143. [ ] GET /recurring_sales_invoices/{id} - Get recurring sales invoice
+144. [ ] POST /recurring_sales_invoices - Create recurring sales invoice
+145. [ ] PATCH /recurring_sales_invoices/{id} - Update recurring sales invoice
+146. [ ] DELETE /recurring_sales_invoices/{id} - Delete recurring sales invoice
 
 ## Sales Invoices
-- [x] GET /sales_invoices - List all sales invoices (paginate)
-- [ ] GET /sales_invoices/synchronization - List all ids and versions
-- [ ] POST /sales_invoices/synchronization - Fetch sales invoices with given ids
-- [x] GET /sales_invoices/{id} - Get sales invoice
-- [x] GET /sales_invoices/find_by_invoice_id/{invoice_id} - Find sales invoice by invoice id
-- [x] GET /sales_invoices/find_by_reference/{reference} - Find sales invoice by reference
-- [x] POST /sales_invoices - Create sales invoice
-- [ ] PATCH /sales_invoices/{id} - Update sales invoice
-- [ ] DELETE /sales_invoices/{id} - Delete sales invoice
-- [x] POST /sales_invoices/{id}/payments - Create payment for sales invoice
-- [ ] DELETE /sales_invoices/{id}/payments/{payment_id} - Delete payment for sales invoice
-- [ ] POST /sales_invoices/{id}/send_email - Send sales invoice by email
-- [ ] GET /sales_invoices/{id}/send_email_template - Get send sales invoice email template
-- [ ] POST /sales_invoices/{id}/send_reminder - Send sales invoice reminder by email
-- [ ] GET /sales_invoices/{id}/send_reminder_template - Get send sales invoice reminder email template
-- [ ] POST /sales_invoices/{id}/send_invoice_reminder - Send invoice reminder by email
-- [ ] GET /sales_invoices/{id}/send_invoice_reminder_template - Get send invoice reminder email template
-- [ ] POST /sales_invoices/{id}/send_payment_reminder - Send payment reminder by email
-- [ ] GET /sales_invoices/{id}/send_payment_reminder_template - Get send payment reminder email template
-- [ ] POST /sales_invoices/{id}/send_post - Send sales invoice by post
-- [ ] POST /sales_invoices/{id}/mark_as_sent - Mark sales invoice as sent
-- [ ] POST /sales_invoices/{id}/mark_as_accepted - Mark sales invoice as accepted
-- [ ] POST /sales_invoices/{id}/mark_as_paid - Mark sales invoice as paid
-- [ ] POST /sales_invoices/{id}/mark_as_uncollectible - Mark sales invoice as uncollectible
-- [ ] POST /sales_invoices/{id}/mark_as_published - Mark sales invoice as published
-- [ ] POST /sales_invoices/{id}/mark_as_unpublished - Mark sales invoice as unpublished
-- [ ] POST /sales_invoices/{id}/duplicate - Duplicate sales invoice
-- [x] POST /sales_invoices/{id}/duplicate_to_credit_invoice - Duplicate sales invoice to credit invoice
+147. [x] GET /sales_invoices - List all sales invoices (paginate)
+148. [ ] GET /sales_invoices/synchronization - List all ids and versions
+149. [ ] POST /sales_invoices/synchronization - Fetch sales invoices with given ids
+150. [x] GET /sales_invoices/{id} - Get sales invoice
+151. [x] GET /sales_invoices/find_by_invoice_id/{invoice_id} - Find sales invoice by invoice id
+152. [x] GET /sales_invoices/find_by_reference/{reference} - Find sales invoice by reference
+153. [x] POST /sales_invoices - Create sales invoice
+154. [ ] PATCH /sales_invoices/{id} - Update sales invoice
+155. [ ] DELETE /sales_invoices/{id} - Delete sales invoice
+156. [x] POST /sales_invoices/{id}/payments - Create payment for sales invoice
+157. [ ] DELETE /sales_invoices/{id}/payments/{payment_id} - Delete payment for sales invoice
+158. [ ] POST /sales_invoices/{id}/send_email - Send sales invoice by email
+159. [ ] GET /sales_invoices/{id}/send_email_template - Get send sales invoice email template
+160. [ ] POST /sales_invoices/{id}/send_reminder - Send sales invoice reminder by email
+161. [ ] GET /sales_invoices/{id}/send_reminder_template - Get send sales invoice reminder email template
+162. [ ] POST /sales_invoices/{id}/send_invoice_reminder - Send invoice reminder by email
+163. [ ] GET /sales_invoices/{id}/send_invoice_reminder_template - Get send invoice reminder email template
+164. [ ] POST /sales_invoices/{id}/send_payment_reminder - Send payment reminder by email
+165. [ ] GET /sales_invoices/{id}/send_payment_reminder_template - Get send payment reminder email template
+166. [ ] POST /sales_invoices/{id}/send_post - Send sales invoice by post
+167. [ ] POST /sales_invoices/{id}/mark_as_sent - Mark sales invoice as sent
+168. [ ] POST /sales_invoices/{id}/mark_as_accepted - Mark sales invoice as accepted
+169. [ ] POST /sales_invoices/{id}/mark_as_paid - Mark sales invoice as paid
+170. [ ] POST /sales_invoices/{id}/mark_as_uncollectible - Mark sales invoice as uncollectible
+171. [ ] POST /sales_invoices/{id}/mark_as_published - Mark sales invoice as published
+172. [ ] POST /sales_invoices/{id}/mark_as_unpublished - Mark sales invoice as unpublished
+173. [ ] POST /sales_invoices/{id}/duplicate - Duplicate sales invoice
+174. [x] POST /sales_invoices/{id}/duplicate_to_credit_invoice - Duplicate sales invoice to credit invoice
 
 ## Subscription Templates
-- [ ] GET /subscription_templates - Get subscription templates
-- [ ] GET /subscription_templates/{id} - Get subscription template
-- [ ] POST /subscription_templates - Create subscription template
-- [ ] PATCH /subscription_templates/{id} - Update subscription template
-- [ ] DELETE /subscription_templates/{id} - Delete subscription template
+175. [ ] GET /subscription_templates - Get subscription templates
+176. [ ] GET /subscription_templates/{id} - Get subscription template
+177. [ ] POST /subscription_templates - Create subscription template
+178. [ ] PATCH /subscription_templates/{id} - Update subscription template
+179. [ ] DELETE /subscription_templates/{id} - Delete subscription template
 
 ## Subscriptions
-- [ ] GET /subscriptions - Get subscriptions
-- [ ] GET /subscriptions/{id} - Get subscription
-- [ ] POST /subscriptions - Create subscription
-- [ ] PATCH /subscriptions/{id} - Update subscription
-- [ ] DELETE /subscriptions/{id} - Delete subscription
-- [ ] POST /subscriptions/{id}/pause - Pause subscription
-- [ ] POST /subscriptions/{id}/resume - Resume subscription
-- [ ] POST /subscriptions/{id}/reactivate - Reactivate subscription
-- [ ] POST /subscriptions/{id}/duplicate - Duplicate subscription
+180. [ ] GET /subscriptions - Get subscriptions
+181. [ ] GET /subscriptions/{id} - Get subscription
+182. [ ] POST /subscriptions - Create subscription
+183. [ ] PATCH /subscriptions/{id} - Update subscription
+184. [ ] DELETE /subscriptions/{id} - Delete subscription
+185. [ ] POST /subscriptions/{id}/pause - Pause subscription
+186. [ ] POST /subscriptions/{id}/resume - Resume subscription
+187. [ ] POST /subscriptions/{id}/reactivate - Reactivate subscription
+188. [ ] POST /subscriptions/{id}/duplicate - Duplicate subscription
 
 ## Tax Rates
-- [x] GET /tax_rates - List all tax rates (paginate)
-- [ ] GET /tax_rates/{id} - Get tax rate
-- [ ] POST /tax_rates - Create tax rate
+189. [x] GET /tax_rates - List all tax rates (paginate)
+190. [ ] GET /tax_rates/{id} - Get tax rate
+191. [ ] POST /tax_rates - Create tax rate
 
 ## Time Entries
-- [ ] GET /time_entries - Get time entries
-- [ ] GET /time_entries/{id} - Get time entry
-- [ ] POST /time_entries - Create time entry
-- [ ] PATCH /time_entries/{id} - Update time entry
-- [ ] DELETE /time_entries/{id} - Delete time entry
+192. [ ] GET /time_entries - Get time entries
+193. [ ] GET /time_entries/{id} - Get time entry
+194. [ ] POST /time_entries - Create time entry
+195. [ ] PATCH /time_entries/{id} - Update time entry
+196. [ ] DELETE /time_entries/{id} - Delete time entry
 
 ## Users
-- [ ] GET /users - Get users
-- [ ] GET /users/{id} - Get user
+197. [ ] GET /users - Get users
+198. [ ] GET /users/{id} - Get user
 
 ## Verifications
-- [ ] GET /verifications - Get verifications
-- [ ] GET /verifications/{id} - Get verification
-- [ ] POST /verifications - Create verification
-- [ ] PATCH /verifications/{id} - Update verification
-- [ ] DELETE /verifications/{id} - Delete verification
-
-## Webhooks
-- [ ] GET /webhooks - Get webhooks
-- [ ] GET /webhooks/{id} - Get webhook
-- [x] POST /webhooks - Create webhook
-- [ ] DELETE /webhooks/{id} - Delete webhook
-
-## Workflows
-- [ ] GET /workflows - Get workflows
-- [ ] GET /workflows/{id} - Get workflow
-- [ ] POST /workflows - Create workflow
-- [ ] PATCH /workflows/{id} - Update workflow
-- [ ] DELETE /workflows/{id} - Delete workflow
+199. [ ] GET /verifications - Get verifications
+200. [ ] GET /verifications/{id} - Get verification
+201. [ ] POST /verifications - Create verification
+202. [ ] PATCH /verifications/{id} - Update verification
+203. [ ] DELETE /verifications/{id} - Delete verification
