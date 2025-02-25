@@ -161,36 +161,36 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 122. [x] GET /payments/{id} - Get payment
 
 ## Products
-123. [ ] GET /products - Get products
-124. [ ] GET /products/synchronization - List all ids and versions
-125. [ ] POST /products/synchronization - Fetch products with given ids
-126. [ ] GET /products/{id} - Get product
-127. [ ] POST /products - Create product
-128. [ ] PATCH /products/{id} - Update product
-129. [ ] DELETE /products/{id} - Delete product
+123. [x] GET /products - Get products
+124. [x] GET /products/synchronization - List all ids and versions
+125. [x] POST /products/synchronization - Fetch products with given ids
+126. [x] GET /products/{id} - Get product
+127. [x] POST /products - Create product
+128. [x] PATCH /products/{id} - Update product
+129. [x] DELETE /products/{id} - Delete product
 
 ## Projects
-130. [ ] GET /projects - Get projects
-131. [ ] GET /projects/{id} - Get project
-132. [ ] POST /projects - Create project
-133. [ ] PATCH /projects/{id} - Update project
-134. [ ] DELETE /projects/{id} - Delete project
+130. [x] GET /projects - Get projects
+131. [x] GET /projects/{id} - Get project
+132. [x] POST /projects - Create project
+133. [x] PATCH /projects/{id} - Update project
+134. [x] DELETE /projects/{id} - Delete project
 
 ## Purchase Transactions
-135. [ ] GET /purchase_transactions - Get purchase transactions
-136. [ ] GET /purchase_transactions/{id} - Get purchase transaction
-137. [ ] POST /purchase_transactions - Create purchase transaction
-138. [ ] PATCH /purchase_transactions/{id} - Update purchase transaction
-139. [ ] DELETE /purchase_transactions/{id} - Delete purchase transaction
+135. [x] GET /purchase_transactions - Get purchase transactions
+136. [x] GET /purchase_transactions/{id} - Get purchase transaction
+137. [x] POST /purchase_transactions - Create purchase transaction
+138. [x] PATCH /purchase_transactions/{id} - Update purchase transaction
+139. [x] DELETE /purchase_transactions/{id} - Delete purchase transaction
 
 ## Recurring Sales Invoices
-140. [ ] GET /recurring_sales_invoices - Get recurring sales invoices
-141. [ ] GET /recurring_sales_invoices/synchronization - List all ids and versions
-142. [ ] POST /recurring_sales_invoices/synchronization - Fetch recurring sales invoices with given ids
-143. [ ] GET /recurring_sales_invoices/{id} - Get recurring sales invoice
-144. [ ] POST /recurring_sales_invoices - Create recurring sales invoice
-145. [ ] PATCH /recurring_sales_invoices/{id} - Update recurring sales invoice
-146. [ ] DELETE /recurring_sales_invoices/{id} - Delete recurring sales invoice
+140. [x] GET /recurring_sales_invoices - Get recurring sales invoices
+141. [x] GET /recurring_sales_invoices/synchronization - List all ids and versions
+142. [x] POST /recurring_sales_invoices/synchronization - Fetch recurring sales invoices with given ids
+143. [x] GET /recurring_sales_invoices/{id} - Get recurring sales invoice
+144. [x] POST /recurring_sales_invoices - Create recurring sales invoice
+145. [x] PATCH /recurring_sales_invoices/{id} - Update recurring sales invoice
+146. [x] DELETE /recurring_sales_invoices/{id} - Delete recurring sales invoice
 
 ## Sales Invoices
 147. [x] GET /sales_invoices - List all sales invoices (paginate)

@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\SalesInvoices\Payments;
 
-use Saloon\Contracts\Body\HasBody;
-use Saloon\Traits\Body\HasJsonBody;
+use Saloon\Http\Response;
+use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoice;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
 
-class RegisterSalesInvoicePaymentRequest extends BaseJsonPostRequest implements HasBody
+class RegisterSalesInvoicePaymentRequest extends BaseJsonPostRequest
 {
-    use HasJsonBody;
-
+    /**
+     * @param  array<string, mixed>  $data
+     */
     public function __construct(
         protected readonly string $salesInvoiceId,
         protected readonly array $data,
@@ -24,8 +25,15 @@ class RegisterSalesInvoicePaymentRequest extends BaseJsonPostRequest implements 
         return 'sales_invoices/'.$this->salesInvoiceId.'/payments';
     }
 
-    public function defaultBody(): array
+    protected function defaultBody(): array
     {
-        return ['payment' => $this->data];
+        return [
+            'payment' => $this->data,
+        ];
+    }
+
+    public function createDtoFromResponse(Response $response): SalesInvoice
+    {
+        return SalesInvoice::createFromResponseData($response->json());
     }
 }

@@ -27,6 +27,10 @@ use Sandorian\Moneybird\Api\Identities\IdentitiesEndpoint;
 use Sandorian\Moneybird\Api\ImportMappings\ImportMappingsEndpoint;
 use Sandorian\Moneybird\Api\LedgerAccounts\LedgerAccountsEndpoint;
 use Sandorian\Moneybird\Api\Payments\PaymentsEndpoint;
+use Sandorian\Moneybird\Api\Products\ProductsEndpoint;
+use Sandorian\Moneybird\Api\Projects\ProjectsEndpoint;
+use Sandorian\Moneybird\Api\PurchaseTransactions\PurchaseTransactionsEndpoint;
+use Sandorian\Moneybird\Api\RecurringSalesInvoices\RecurringSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
@@ -169,5 +173,25 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function payments(): PaymentsEndpoint
     {
         return new PaymentsEndpoint($this);
+    }
+
+    public function products(): ProductsEndpoint
+    {
+        return new ProductsEndpoint($this);
+    }
+
+    public function projects(): ProjectsEndpoint
+    {
+        return new ProjectsEndpoint($this);
+    }
+
+    public function purchaseTransactions(): PurchaseTransactionsEndpoint
+    {
+        return new PurchaseTransactionsEndpoint($this);
+    }
+
+    public function recurringSalesInvoices(): RecurringSalesInvoicesEndpoint
+    {
+        return new RecurringSalesInvoicesEndpoint($this);
     }
 }
