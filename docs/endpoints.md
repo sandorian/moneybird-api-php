@@ -8,14 +8,14 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 
 ## Contacts
 - [x] GET /contacts - List all contacts (paginate)
-- [ ] GET /contacts/filter - Filter contacts
-- [ ] GET /contacts/synchronization - List all ids and versions
-- [ ] POST /contacts/synchronization - Fetch contacts with given ids
+- [x] GET /contacts/filter - Filter contacts
+- [x] GET /contacts/synchronization - List all ids and versions
+- [x] POST /contacts/synchronization - Fetch contacts with given ids
 - [x] GET /contacts/{id} - Get contact
-- [ ] GET /contacts/customer_id/{customer_id} - Get contact by customer id
+- [x] GET /contacts/customer_id/{customer_id} - Get contact by customer id
 - [x] POST /contacts - Create a new contact
-- [ ] PATCH /contacts/{id} - Update a contact
-- [ ] DELETE /contacts/{id} - Delete a contact
+- [x] PATCH /contacts/{id} - Update a contact
+- [x] DELETE /contacts/{id} - Delete a contact
 - [ ] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
 - [ ] GET /contacts/{id}/usage_charges - Get additional charges
 - [ ] POST /contacts/{id}/notes - Adds note to entity
