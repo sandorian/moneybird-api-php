@@ -3,8 +3,8 @@
 This document tracks the implementation progress of all Moneybird API endpoints in this PHP client.
 
 ## Administration
-- [ ] GET /administrations - Get administrations
-- [ ] GET /administrations/{id} - Get administration
+- [x] GET /administrations - Get administrations
+- [x] GET /administrations/{id} - Get administration
 
 ## Contacts
 - [x] GET /contacts - List all contacts (paginate)
