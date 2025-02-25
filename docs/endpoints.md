@@ -82,15 +82,15 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 63. [x] DELETE /documents/receipts/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Typeless Documents
-64. [ ] GET /documents/typeless_documents - Get typeless documents
-65. [ ] GET /documents/typeless_documents/synchronization - List all ids and versions
-66. [ ] POST /documents/typeless_documents/synchronization - Fetch typeless documents with given ids
-67. [ ] GET /documents/typeless_documents/{id} - Get typeless document
-68. [ ] POST /documents/typeless_documents - Create typeless document
-69. [ ] PATCH /documents/typeless_documents/{id} - Update typeless document
-70. [ ] DELETE /documents/typeless_documents/{id} - Delete typeless document
-71. [ ] POST /documents/typeless_documents/{id}/attachments - Create attachment
-72. [ ] DELETE /documents/typeless_documents/{id}/attachments/{attachment_id} - Delete attachment
+64. [x] GET /documents/typeless_documents - Get typeless documents
+65. [x] GET /documents/typeless_documents/synchronization - List all ids and versions
+66. [x] POST /documents/typeless_documents/synchronization - Fetch typeless documents with given ids
+67. [x] GET /documents/typeless_documents/{id} - Get typeless document
+68. [x] POST /documents/typeless_documents - Create typeless document
+69. [x] PATCH /documents/typeless_documents/{id} - Update typeless document
+70. [x] DELETE /documents/typeless_documents/{id} - Delete typeless document
+71. [x] POST /documents/typeless_documents/{id}/attachments - Create attachment
+72. [x] DELETE /documents/typeless_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Estimates
 73. [ ] GET /estimates - Get estimates
