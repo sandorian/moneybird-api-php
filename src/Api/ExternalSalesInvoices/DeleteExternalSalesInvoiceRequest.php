@@ -14,6 +14,6 @@ class DeleteExternalSalesInvoiceRequest extends BaseJsonDeleteRequest
 
     public function resolveEndpoint(): string
     {
-        return 'external_sales_invoices/' . $this->id;
+        return 'external_sales_invoices/'.$this->id;
     }
 }

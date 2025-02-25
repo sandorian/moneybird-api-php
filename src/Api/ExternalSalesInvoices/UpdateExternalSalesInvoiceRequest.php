@@ -15,7 +15,7 @@ class UpdateExternalSalesInvoiceRequest extends BaseJsonPatchRequest
 
     public function resolveEndpoint(): string
     {
-        return 'external_sales_invoices/' . $this->id;
+        return 'external_sales_invoices/'.$this->id;
     }
 
     public function createDtoFromResponse(Response $response): ExternalSalesInvoice

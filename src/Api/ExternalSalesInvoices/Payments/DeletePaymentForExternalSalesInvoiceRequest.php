@@ -15,6 +15,6 @@ class DeletePaymentForExternalSalesInvoiceRequest extends BaseJsonDeleteRequest
 
     public function resolveEndpoint(): string
     {
-        return 'external_sales_invoices/' . $this->externalSalesInvoiceId . '/payments/' . $this->paymentId;
+        return 'external_sales_invoices/'.$this->externalSalesInvoiceId.'/payments/'.$this->paymentId;
     }
 }
