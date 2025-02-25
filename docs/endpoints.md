@@ -242,8 +242,6 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 
 ## Tax Rates
 189. [x] GET /tax_rates - List all tax rates (paginate)
-190. [ ] GET /tax_rates/{id} - Get tax rate
-191. [ ] POST /tax_rates - Create tax rate
 
 ## Time Entries
 192. [ ] GET /time_entries - Get time entries

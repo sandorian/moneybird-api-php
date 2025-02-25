@@ -53,41 +53,65 @@ class MoneybirdApiClient extends Connector implements HasPagination
 
     // ========== Endpoints ==========
 
+    /**
+     * @return AdministrationsEndpoint
+     */
     public function administrations(): AdministrationsEndpoint
     {
         return new AdministrationsEndpoint($this);
     }
 
+    /**
+     * @return ContactsEndpoint
+     */
     public function contacts(): ContactsEndpoint
     {
         return new ContactsEndpoint($this);
     }
 
+    /**
+     * @return CustomFieldsEndpoint
+     */
     public function customFields(): CustomFieldsEndpoint
     {
         return new CustomFieldsEndpoint($this);
     }
 
+    /**
+     * @return DocumentStylesEndpoint
+     */
     public function documentStyles(): DocumentStylesEndpoint
     {
         return new DocumentStylesEndpoint($this);
     }
 
+    /**
+     * @return ExternalSalesInvoicesEndpoint
+     */
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint
     {
         return new ExternalSalesInvoicesEndpoint($this);
     }
 
+    /**
+     * @return SalesInvoicesEndpoint
+     */
     public function salesInvoices(): SalesInvoicesEndpoint
     {
         return new SalesInvoicesEndpoint($this);
     }
 
+    /**
+     * @return TaxRatesEndpoint
+     */
     public function taxRates(): TaxRatesEndpoint
     {
         return new TaxRatesEndpoint($this);
     }
 
+    /**
+     * @return WebhooksEndpoint
+     */
     public function webhooks(): WebhooksEndpoint
     {
         return new WebhooksEndpoint($this);
