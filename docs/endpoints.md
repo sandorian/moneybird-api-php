@@ -130,13 +130,13 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 101. [x] POST /financial_mutations/{id}/link_booking - Link booking to financial mutation
 
 ## Financial Statements
-102. [ ] GET /financial_statements - Get financial statements
-103. [ ] GET /financial_statements/synchronization - List all ids and versions
-104. [ ] POST /financial_statements/synchronization - Fetch financial statements with given ids
-105. [ ] GET /financial_statements/{id} - Get financial statement
-106. [ ] POST /financial_statements - Create financial statement
-107. [ ] PATCH /financial_statements/{id} - Update financial statement
-108. [ ] DELETE /financial_statements/{id} - Delete financial statement
+102. [x] GET /financial_statements - Get financial statements
+103. [x] GET /financial_statements/synchronization - List all ids and versions
+104. [x] POST /financial_statements/synchronization - Fetch financial statements with given ids
+105. [x] GET /financial_statements/{id} - Get financial statement
+106. [x] POST /financial_statements - Create financial statement
+107. [x] PATCH /financial_statements/{id} - Update financial statement
+108. [x] DELETE /financial_statements/{id} - Delete financial statement
 
 ## Identities
 109. [ ] GET /identities - Get identities
