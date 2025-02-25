@@ -194,32 +194,32 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 
 ## Sales Invoices
 147. [x] GET /sales_invoices - List all sales invoices (paginate)
-148. [ ] GET /sales_invoices/synchronization - List all ids and versions
-149. [ ] POST /sales_invoices/synchronization - Fetch sales invoices with given ids
+148. [x] GET /sales_invoices/synchronization - List all ids and versions
+149. [x] POST /sales_invoices/synchronization - Fetch sales invoices with given ids
 150. [x] GET /sales_invoices/{id} - Get sales invoice
 151. [x] GET /sales_invoices/find_by_invoice_id/{invoice_id} - Find sales invoice by invoice id
 152. [x] GET /sales_invoices/find_by_reference/{reference} - Find sales invoice by reference
 153. [x] POST /sales_invoices - Create sales invoice
-154. [ ] PATCH /sales_invoices/{id} - Update sales invoice
-155. [ ] DELETE /sales_invoices/{id} - Delete sales invoice
+154. [x] PATCH /sales_invoices/{id} - Update sales invoice
+155. [x] DELETE /sales_invoices/{id} - Delete sales invoice
 156. [x] POST /sales_invoices/{id}/payments - Create payment for sales invoice
-157. [ ] DELETE /sales_invoices/{id}/payments/{payment_id} - Delete payment for sales invoice
-158. [ ] POST /sales_invoices/{id}/send_email - Send sales invoice by email
-159. [ ] GET /sales_invoices/{id}/send_email_template - Get send sales invoice email template
-160. [ ] POST /sales_invoices/{id}/send_reminder - Send sales invoice reminder by email
-161. [ ] GET /sales_invoices/{id}/send_reminder_template - Get send sales invoice reminder email template
-162. [ ] POST /sales_invoices/{id}/send_invoice_reminder - Send invoice reminder by email
-163. [ ] GET /sales_invoices/{id}/send_invoice_reminder_template - Get send invoice reminder email template
-164. [ ] POST /sales_invoices/{id}/send_payment_reminder - Send payment reminder by email
-165. [ ] GET /sales_invoices/{id}/send_payment_reminder_template - Get send payment reminder email template
-166. [ ] POST /sales_invoices/{id}/send_post - Send sales invoice by post
-167. [ ] POST /sales_invoices/{id}/mark_as_sent - Mark sales invoice as sent
-168. [ ] POST /sales_invoices/{id}/mark_as_accepted - Mark sales invoice as accepted
-169. [ ] POST /sales_invoices/{id}/mark_as_paid - Mark sales invoice as paid
-170. [ ] POST /sales_invoices/{id}/mark_as_uncollectible - Mark sales invoice as uncollectible
-171. [ ] POST /sales_invoices/{id}/mark_as_published - Mark sales invoice as published
-172. [ ] POST /sales_invoices/{id}/mark_as_unpublished - Mark sales invoice as unpublished
-173. [ ] POST /sales_invoices/{id}/duplicate - Duplicate sales invoice
+157. [x] DELETE /sales_invoices/{id}/payments/{payment_id} - Delete payment for sales invoice
+158. [x] POST /sales_invoices/{id}/send_email - Send sales invoice by email
+159. [x] GET /sales_invoices/{id}/send_email_template - Get send sales invoice email template
+160. [x] POST /sales_invoices/{id}/send_reminder - Send sales invoice reminder by email
+161. [x] GET /sales_invoices/{id}/send_reminder_template - Get send sales invoice reminder email template
+162. [x] POST /sales_invoices/{id}/send_invoice_reminder - Send invoice reminder by email
+163. [x] GET /sales_invoices/{id}/send_invoice_reminder_template - Get send invoice reminder email template
+164. [x] POST /sales_invoices/{id}/send_payment_reminder - Send payment reminder by email
+165. [x] GET /sales_invoices/{id}/send_payment_reminder_template - Get send payment reminder email template
+166. [x] POST /sales_invoices/{id}/send_post - Send sales invoice by post
+167. [x] POST /sales_invoices/{id}/mark_as_sent - Mark sales invoice as sent
+168. [x] POST /sales_invoices/{id}/mark_as_accepted - Mark sales invoice as accepted
+169. [x] POST /sales_invoices/{id}/mark_as_paid - Mark sales invoice as paid
+170. [x] POST /sales_invoices/{id}/mark_as_uncollectible - Mark sales invoice as uncollectible
+171. [x] POST /sales_invoices/{id}/mark_as_published - Mark sales invoice as published
+172. [x] POST /sales_invoices/{id}/mark_as_unpublished - Mark sales invoice as unpublished
+173. [x] POST /sales_invoices/{id}/duplicate - Duplicate sales invoice
 174. [x] POST /sales_invoices/{id}/duplicate_to_credit_invoice - Duplicate sales invoice to credit invoice
 
 ## Subscription Templates
