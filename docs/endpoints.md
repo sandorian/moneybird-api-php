@@ -16,18 +16,18 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 - [x] POST /contacts - Create a new contact
 - [x] PATCH /contacts/{id} - Update a contact
 - [x] DELETE /contacts/{id} - Delete a contact
-- [ ] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
-- [ ] GET /contacts/{id}/usage_charges - Get additional charges
-- [ ] POST /contacts/{id}/notes - Adds note to entity
-- [ ] DELETE /contacts/{id}/notes/{note_id} - Destroys note from entity
-- [ ] GET /contacts/{id}/contact_people/{contact_person_id} - Get contact person
-- [ ] POST /contacts/{id}/contact_people - Create a new contact person
-- [ ] PATCH /contacts/{id}/contact_people/{contact_person_id} - Update a contact person
-- [ ] DELETE /contacts/{id}/contact_people/{contact_person_id} - Delete a contact person
-- [ ] GET /contacts/{id}/mb_payments_mandate - Get Moneybird Payments mandate
-- [ ] POST /contacts/{id}/mb_payments_mandate - Request a new Moneybird Payments mandate
-- [ ] POST /contacts/{id}/mb_payments_mandate_url - Request an URL for setting up a Moneybird Payments mandate
-- [ ] DELETE /contacts/{id}/mb_payments_mandate - Delete a stored Moneybird Payments mandate
+- [x] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
+- [x] GET /contacts/{id}/usage_charges - Get additional charges
+- [x] POST /contacts/{id}/notes - Adds note to entity
+- [x] DELETE /contacts/{id}/notes/{note_id} - Destroys note from entity
+- [x] GET /contacts/{id}/contact_people/{contact_person_id} - Get contact person
+- [x] POST /contacts/{id}/contact_people - Create a new contact person
+- [x] PATCH /contacts/{id}/contact_people/{contact_person_id} - Update a contact person
+- [x] DELETE /contacts/{id}/contact_people/{contact_person_id} - Delete a contact person
+- [x] GET /contacts/{id}/mb_payments_mandate - Get Moneybird Payments mandate
+- [x] POST /contacts/{id}/mb_payments_mandate - Request a new Moneybird Payments mandate
+- [x] POST /contacts/{id}/mb_payments_mandate_url - Request an URL for setting up a Moneybird Payments mandate
+- [x] DELETE /contacts/{id}/mb_payments_mandate - Delete a stored Moneybird Payments mandate
 
 ## Custom Fields
 - [ ] GET /custom_fields - List all custom fields
