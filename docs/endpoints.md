@@ -118,16 +118,16 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 93. [x] POST /external_sales_invoices/{id}/attachments - Create attachment for external sales invoice
 
 ## Financial Accounts
-94. [ ] GET /financial_accounts - Get financial accounts
-95. [ ] GET /financial_accounts/{id} - Get financial account
+94. [x] GET /financial_accounts - Get financial accounts
+95. [x] GET /financial_accounts/{id} - Get financial account
 
 ## Financial Mutations
-96. [ ] GET /financial_mutations - Get financial mutations
-97. [ ] GET /financial_mutations/synchronization - List all ids and versions
-98. [ ] POST /financial_mutations/synchronization - Fetch financial mutations with given ids
-99. [ ] GET /financial_mutations/{id} - Get financial mutation
-100. [ ] PATCH /financial_mutations/{id} - Update financial mutation
-101. [ ] POST /financial_mutations/{id}/link_booking - Link booking to financial mutation
+96. [x] GET /financial_mutations - Get financial mutations
+97. [x] GET /financial_mutations/synchronization - List all ids and versions
+98. [x] POST /financial_mutations/synchronization - Fetch financial mutations with given ids
+99. [x] GET /financial_mutations/{id} - Get financial mutation
+100. [x] PATCH /financial_mutations/{id} - Update financial mutation
+101. [x] POST /financial_mutations/{id}/link_booking - Link booking to financial mutation
 
 ## Financial Statements
 102. [ ] GET /financial_statements - Get financial statements

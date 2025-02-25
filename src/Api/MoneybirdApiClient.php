@@ -20,6 +20,8 @@ use Sandorian\Moneybird\Api\Documents\TypelessDocuments\TypelessDocumentsEndpoin
 use Sandorian\Moneybird\Api\DocumentStyles\DocumentStylesEndpoint;
 use Sandorian\Moneybird\Api\Estimates\EstimatesEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
+use Sandorian\Moneybird\Api\FinancialAccounts\FinancialAccountsEndpoint;
+use Sandorian\Moneybird\Api\FinancialMutations\FinancialMutationsEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
@@ -107,6 +109,16 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function estimates(): EstimatesEndpoint
     {
         return new EstimatesEndpoint($this);
+    }
+
+    public function financialAccounts(): FinancialAccountsEndpoint
+    {
+        return new FinancialAccountsEndpoint($this);
+    }
+
+    public function financialMutations(): FinancialMutationsEndpoint
+    {
+        return new FinancialMutationsEndpoint($this);
     }
 
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint
