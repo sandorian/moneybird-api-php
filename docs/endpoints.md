@@ -60,15 +60,15 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 45. [x] DELETE /documents/general_journal_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Purchase Invoices
-46. [ ] GET /documents/purchase_invoices - Get purchase invoices
-47. [ ] GET /documents/purchase_invoices/synchronization - List all ids and versions
-48. [ ] POST /documents/purchase_invoices/synchronization - Fetch purchase invoices with given ids
-49. [ ] GET /documents/purchase_invoices/{id} - Get purchase invoice
-50. [ ] POST /documents/purchase_invoices - Create purchase invoice
-51. [ ] PATCH /documents/purchase_invoices/{id} - Update purchase invoice
-52. [ ] DELETE /documents/purchase_invoices/{id} - Delete purchase invoice
-53. [ ] POST /documents/purchase_invoices/{id}/attachments - Create attachment
-54. [ ] DELETE /documents/purchase_invoices/{id}/attachments/{attachment_id} - Delete attachment
+46. [x] GET /documents/purchase_invoices - Get purchase invoices
+47. [x] GET /documents/purchase_invoices/synchronization - List all ids and versions
+48. [x] POST /documents/purchase_invoices/synchronization - Fetch purchase invoices with given ids
+49. [x] GET /documents/purchase_invoices/{id} - Get purchase invoice
+50. [x] POST /documents/purchase_invoices - Create purchase invoice
+51. [x] PATCH /documents/purchase_invoices/{id} - Update purchase invoice
+52. [x] DELETE /documents/purchase_invoices/{id} - Delete purchase invoice
+53. [x] POST /documents/purchase_invoices/{id}/attachments - Create attachment
+54. [x] DELETE /documents/purchase_invoices/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Receipts
 55. [ ] GET /documents/receipts - Get receipts
