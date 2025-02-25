@@ -12,6 +12,7 @@ use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Administrations\AdministrationsEndpoint;
 use Sandorian\Moneybird\Api\Contacts\ContactsEndpoint;
 use Sandorian\Moneybird\Api\CustomFields\CustomFieldsEndpoint;
+use Sandorian\Moneybird\Api\Documents\GeneralDocuments\GeneralDocumentsEndpoint;
 use Sandorian\Moneybird\Api\DocumentStyles\DocumentStylesEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
@@ -53,65 +54,46 @@ class MoneybirdApiClient extends Connector implements HasPagination
 
     // ========== Endpoints ==========
 
-    /**
-     * @return AdministrationsEndpoint
-     */
     public function administrations(): AdministrationsEndpoint
     {
         return new AdministrationsEndpoint($this);
     }
 
-    /**
-     * @return ContactsEndpoint
-     */
     public function contacts(): ContactsEndpoint
     {
         return new ContactsEndpoint($this);
     }
 
-    /**
-     * @return CustomFieldsEndpoint
-     */
     public function customFields(): CustomFieldsEndpoint
     {
         return new CustomFieldsEndpoint($this);
     }
 
-    /**
-     * @return DocumentStylesEndpoint
-     */
     public function documentStyles(): DocumentStylesEndpoint
     {
         return new DocumentStylesEndpoint($this);
     }
 
-    /**
-     * @return ExternalSalesInvoicesEndpoint
-     */
+    public function generalDocuments(): GeneralDocumentsEndpoint
+    {
+        return new GeneralDocumentsEndpoint($this);
+    }
+
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint
     {
         return new ExternalSalesInvoicesEndpoint($this);
     }
 
-    /**
-     * @return SalesInvoicesEndpoint
-     */
     public function salesInvoices(): SalesInvoicesEndpoint
     {
         return new SalesInvoicesEndpoint($this);
     }
 
-    /**
-     * @return TaxRatesEndpoint
-     */
     public function taxRates(): TaxRatesEndpoint
     {
         return new TaxRatesEndpoint($this);
     }
 
-    /**
-     * @return WebhooksEndpoint
-     */
     public function webhooks(): WebhooksEndpoint
     {
         return new WebhooksEndpoint($this);

@@ -38,15 +38,15 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 27. [x] GET /document_styles/{id} - Get document style
 
 ## Documents: General Documents
-28. [ ] GET /documents/general_documents - Get general documents
-29. [ ] GET /documents/general_documents/synchronization - List all ids and versions
-30. [ ] POST /documents/general_documents/synchronization - Fetch general documents with given ids
-31. [ ] GET /documents/general_documents/{id} - Get general document
-32. [ ] POST /documents/general_documents - Create general document
-33. [ ] PATCH /documents/general_documents/{id} - Update general document
-34. [ ] DELETE /documents/general_documents/{id} - Delete general document
-35. [ ] POST /documents/general_documents/{id}/attachments - Create attachment
-36. [ ] DELETE /documents/general_documents/{id}/attachments/{attachment_id} - Delete attachment
+28. [x] GET /documents/general_documents - Get general documents
+29. [x] GET /documents/general_documents/synchronization - List all ids and versions
+30. [x] POST /documents/general_documents/synchronization - Fetch general documents with given ids
+31. [x] GET /documents/general_documents/{id} - Get general document
+32. [x] POST /documents/general_documents - Create general document
+33. [x] PATCH /documents/general_documents/{id} - Update general document
+34. [x] DELETE /documents/general_documents/{id} - Delete general document
+35. [x] POST /documents/general_documents/{id}/attachments - Create attachment
+36. [x] DELETE /documents/general_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: General Journal Documents
 37. [ ] GET /documents/general_journal_documents - Get general journal documents
