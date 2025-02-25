@@ -23,6 +23,10 @@ use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\FinancialAccounts\FinancialAccountsEndpoint;
 use Sandorian\Moneybird\Api\FinancialMutations\FinancialMutationsEndpoint;
 use Sandorian\Moneybird\Api\FinancialStatements\FinancialStatementsEndpoint;
+use Sandorian\Moneybird\Api\Identities\IdentitiesEndpoint;
+use Sandorian\Moneybird\Api\ImportMappings\ImportMappingsEndpoint;
+use Sandorian\Moneybird\Api\LedgerAccounts\LedgerAccountsEndpoint;
+use Sandorian\Moneybird\Api\Payments\PaymentsEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Api\TaxRates\TaxRatesEndpoint;
@@ -145,5 +149,25 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function webhooks(): WebhooksEndpoint
     {
         return new WebhooksEndpoint($this);
+    }
+
+    public function identities(): IdentitiesEndpoint
+    {
+        return new IdentitiesEndpoint($this);
+    }
+
+    public function importMappings(): ImportMappingsEndpoint
+    {
+        return new ImportMappingsEndpoint($this);
+    }
+
+    public function ledgerAccounts(): LedgerAccountsEndpoint
+    {
+        return new LedgerAccountsEndpoint($this);
+    }
+
+    public function payments(): PaymentsEndpoint
+    {
+        return new PaymentsEndpoint($this);
     }
 }

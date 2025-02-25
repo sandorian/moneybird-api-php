@@ -139,26 +139,26 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 108. [x] DELETE /financial_statements/{id} - Delete financial statement
 
 ## Identities
-109. [ ] GET /identities - Get identities
-110. [ ] GET /identities/{id} - Get identity
+109. [x] GET /identities - Get identities
+110. [x] GET /identities/{id} - Get identity
 
 ## Import Mappings
-111. [ ] GET /import_mappings - Get import mappings
-112. [ ] GET /import_mappings/{id} - Get import mapping
-113. [ ] POST /import_mappings - Create import mapping
-114. [ ] PATCH /import_mappings/{id} - Update import mapping
-115. [ ] DELETE /import_mappings/{id} - Delete import mapping
+111. [x] GET /import_mappings - Get import mappings
+112. [x] GET /import_mappings/{id} - Get import mapping
+113. [x] POST /import_mappings - Create import mapping
+114. [x] PATCH /import_mappings/{id} - Update import mapping
+115. [x] DELETE /import_mappings/{id} - Delete import mapping
 
 ## Ledger Accounts
-116. [ ] GET /ledger_accounts - Get ledger accounts
-117. [ ] GET /ledger_accounts/{id} - Get ledger account
-118. [ ] POST /ledger_accounts - Create ledger account
-119. [ ] PATCH /ledger_accounts/{id} - Update ledger account
-120. [ ] DELETE /ledger_accounts/{id} - Delete ledger account
+116. [x] GET /ledger_accounts - Get ledger accounts
+117. [x] GET /ledger_accounts/{id} - Get ledger account
+118. [x] POST /ledger_accounts - Create ledger account
+119. [x] PATCH /ledger_accounts/{id} - Update ledger account
+120. [x] DELETE /ledger_accounts/{id} - Delete ledger account
 
 ## Payments
-121. [ ] GET /payments - Get payments
-122. [ ] GET /payments/{id} - Get payment
+121. [x] GET /payments - Get payments
+122. [x] GET /payments/{id} - Get payment
 
 ## Products
 123. [ ] GET /products - Get products
