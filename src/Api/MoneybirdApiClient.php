@@ -13,6 +13,7 @@ use Sandorian\Moneybird\Api\Administrations\AdministrationsEndpoint;
 use Sandorian\Moneybird\Api\Contacts\ContactsEndpoint;
 use Sandorian\Moneybird\Api\CustomFields\CustomFieldsEndpoint;
 use Sandorian\Moneybird\Api\Documents\GeneralDocuments\GeneralDocumentsEndpoint;
+use Sandorian\Moneybird\Api\Documents\GeneralJournalDocuments\GeneralJournalDocumentsEndpoint;
 use Sandorian\Moneybird\Api\DocumentStyles\DocumentStylesEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
@@ -77,6 +78,11 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function generalDocuments(): GeneralDocumentsEndpoint
     {
         return new GeneralDocumentsEndpoint($this);
+    }
+
+    public function generalJournalDocuments(): GeneralJournalDocumentsEndpoint
+    {
+        return new GeneralJournalDocumentsEndpoint($this);
     }
 
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint

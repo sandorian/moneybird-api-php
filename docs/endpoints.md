@@ -49,15 +49,15 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 36. [x] DELETE /documents/general_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: General Journal Documents
-37. [ ] GET /documents/general_journal_documents - Get general journal documents
-38. [ ] GET /documents/general_journal_documents/synchronization - List all ids and versions
-39. [ ] POST /documents/general_journal_documents/synchronization - Fetch general journal documents with given ids
-40. [ ] GET /documents/general_journal_documents/{id} - Get general journal document
-41. [ ] POST /documents/general_journal_documents - Create general journal document
-42. [ ] PATCH /documents/general_journal_documents/{id} - Update general journal document
-43. [ ] DELETE /documents/general_journal_documents/{id} - Delete general journal document
-44. [ ] POST /documents/general_journal_documents/{id}/attachments - Create attachment
-45. [ ] DELETE /documents/general_journal_documents/{id}/attachments/{attachment_id} - Delete attachment
+37. [x] GET /documents/general_journal_documents - Get general journal documents
+38. [x] GET /documents/general_journal_documents/synchronization - List all ids and versions
+39. [x] POST /documents/general_journal_documents/synchronization - Fetch general journal documents with given ids
+40. [x] GET /documents/general_journal_documents/{id} - Get general journal document
+41. [x] POST /documents/general_journal_documents - Create general journal document
+42. [x] PATCH /documents/general_journal_documents/{id} - Update general journal document
+43. [x] DELETE /documents/general_journal_documents/{id} - Delete general journal document
+44. [x] POST /documents/general_journal_documents/{id}/attachments - Create attachment
+45. [x] DELETE /documents/general_journal_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Documents: Purchase Invoices
 46. [ ] GET /documents/purchase_invoices - Get purchase invoices
