@@ -18,6 +18,7 @@ use Sandorian\Moneybird\Api\Documents\PurchaseInvoices\PurchaseInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Documents\Receipts\ReceiptsEndpoint;
 use Sandorian\Moneybird\Api\Documents\TypelessDocuments\TypelessDocumentsEndpoint;
 use Sandorian\Moneybird\Api\DocumentStyles\DocumentStylesEndpoint;
+use Sandorian\Moneybird\Api\Estimates\EstimatesEndpoint;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\ExternalSalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\SalesInvoices\SalesInvoicesEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
@@ -101,6 +102,11 @@ class MoneybirdApiClient extends Connector implements HasPagination
     public function typelessDocuments(): TypelessDocumentsEndpoint
     {
         return new TypelessDocumentsEndpoint($this);
+    }
+
+    public function estimates(): EstimatesEndpoint
+    {
+        return new EstimatesEndpoint($this);
     }
 
     public function externalSalesInvoices(): ExternalSalesInvoicesEndpoint

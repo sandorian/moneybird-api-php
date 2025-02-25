@@ -93,17 +93,17 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 72. [x] DELETE /documents/typeless_documents/{id}/attachments/{attachment_id} - Delete attachment
 
 ## Estimates
-73. [ ] GET /estimates - Get estimates
-74. [ ] GET /estimates/synchronization - List all ids and versions
-75. [ ] POST /estimates/synchronization - Fetch estimates with given ids
-76. [ ] GET /estimates/{id} - Get estimate
-77. [ ] POST /estimates - Create estimate
-78. [ ] PATCH /estimates/{id} - Update estimate
-79. [ ] DELETE /estimates/{id} - Delete estimate
-80. [ ] PATCH /estimates/{id}/change_state/{state} - Change estimate state
-81. [ ] POST /estimates/{id}/send_email - Send estimate by email
-82. [ ] GET /estimates/{id}/send_email_template - Get send estimate email template
-83. [ ] POST /estimates/{id}/duplicate - Duplicate estimate
+73. [x] GET /estimates - Get estimates
+74. [x] GET /estimates/synchronization - List all ids and versions
+75. [x] POST /estimates/synchronization - Fetch estimates with given ids
+76. [x] GET /estimates/{id} - Get estimate
+77. [x] POST /estimates - Create estimate
+78. [x] PATCH /estimates/{id} - Update estimate
+79. [x] DELETE /estimates/{id} - Delete estimate
+80. [x] PATCH /estimates/{id}/change_state/{state} - Change estimate state
+81. [x] POST /estimates/{id}/send_email - Send estimate by email
+82. [x] GET /estimates/{id}/send_email_template - Get send estimate email template
+83. [x] POST /estimates/{id}/duplicate - Duplicate estimate
 
 ## External Sales Invoices
 84. [x] GET /external_sales_invoices - List all external sales invoices (paginate)
