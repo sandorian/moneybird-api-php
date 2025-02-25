@@ -6,6 +6,7 @@ namespace Sandorian\Moneybird\Tests\Api\ExternalSalesInvoices\Payments;
 
 use Saloon\Http\Faking\MockResponse;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments\CreatePaymentForExternalSalesInvoiceRequest;
+use Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments\DeletePaymentForExternalSalesInvoiceRequest;
 use Sandorian\Moneybird\Api\ExternalSalesInvoices\Payments\ExternalSalesInvoicePayment;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
@@ -27,5 +28,19 @@ class ExternalSalesInvoicePaymentsEndpointTest extends BaseTestCase
             ]);
 
         $this->assertInstanceOf(ExternalSalesInvoicePayment::class, $payment);
+    }
+
+    public function test_delete_payment_for_external_sales_invoice(): void
+    {
+        $moneybird = $this->getMoneybirdClientWithMocks([
+            DeletePaymentForExternalSalesInvoiceRequest::class => MockResponse::make('', 204),
+        ]);
+
+        $moneybird->externalSalesInvoices()->payments()->deleteForExternalSalesInvoiceId(
+            '426664163463398887',
+            '426664163463398890'
+        );
+
+        $this->expectNotToPerformAssertions();
     }
 }

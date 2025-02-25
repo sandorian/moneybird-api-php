@@ -107,14 +107,14 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 
 ## External Sales Invoices
 - [x] GET /external_sales_invoices - List all external sales invoices (paginate)
-- [ ] GET /external_sales_invoices/synchronization - List all ids and versions
-- [ ] POST /external_sales_invoices/synchronization - Fetch external sales invoices with given ids
-- [ ] GET /external_sales_invoices/{id} - Get external sales invoice
+- [x] GET /external_sales_invoices/synchronization - List all ids and versions
+- [x] POST /external_sales_invoices/synchronization - Fetch external sales invoices with given ids
+- [x] GET /external_sales_invoices/{id} - Get external sales invoice
 - [x] POST /external_sales_invoices - Create external sales invoice
-- [ ] PATCH /external_sales_invoices/{id} - Update external sales invoice
-- [ ] DELETE /external_sales_invoices/{id} - Delete external sales invoice
+- [x] PATCH /external_sales_invoices/{id} - Update external sales invoice
+- [x] DELETE /external_sales_invoices/{id} - Delete external sales invoice
 - [x] POST /external_sales_invoices/{id}/payments - Create payment for external sales invoice
-- [ ] DELETE /external_sales_invoices/{id}/payments/{payment_id} - Delete payment for external sales invoice
+- [x] DELETE /external_sales_invoices/{id}/payments/{payment_id} - Delete payment for external sales invoice
 - [x] POST /external_sales_invoices/{id}/attachments - Create attachment for external sales invoice
 
 ## Financial Accounts

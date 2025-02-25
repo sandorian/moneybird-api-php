@@ -26,6 +26,43 @@ class ExternalSalesInvoicesEndpoint extends BaseEndpoint
         return $this->client->paginate($request);
     }
 
+    public function get(string $id): ExternalSalesInvoice
+    {
+        $request = new GetExternalSalesInvoiceRequest($id);
+
+        return $this->client->send($request)->dtoOrFail();
+    }
+
+    public function update(string $id, array $data): ExternalSalesInvoice
+    {
+        $request = new UpdateExternalSalesInvoiceRequest($id);
+        $request->body()->merge($data);
+
+        return $this->client->send($request)->dtoOrFail();
+    }
+
+    public function delete(string $id): void
+    {
+        $request = new DeleteExternalSalesInvoiceRequest($id);
+
+        $this->client->send($request);
+    }
+
+    public function getSynchronization(): array
+    {
+        $request = new GetExternalSalesInvoicesSynchronizationRequest;
+
+        return $this->client->send($request)->json();
+    }
+
+    public function synchronize(array $ids): array
+    {
+        $request = new SynchronizeExternalSalesInvoicesRequest;
+        $request->body()->merge(['ids' => $ids]);
+
+        return $this->client->send($request)->json();
+    }
+
     public function attachments(): ExternalSalesInvoiceAttachmentsEndpoint
     {
         return new ExternalSalesInvoiceAttachmentsEndpoint($this->client);

@@ -17,4 +17,13 @@ class ExternalSalesInvoicePaymentsEndpoint extends BaseEndpoint
 
         return $this->client->send($request)->dtoOrFail();
     }
+
+    public function deleteForExternalSalesInvoiceId(
+        string $externalSalesInvoiceId,
+        string $paymentId
+    ): void {
+        $request = new DeletePaymentForExternalSalesInvoiceRequest($externalSalesInvoiceId, $paymentId);
+
+        $this->client->send($request);
+    }
 }
