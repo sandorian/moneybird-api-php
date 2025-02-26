@@ -8,18 +8,18 @@ export default defineConfig({
 		starlight({
 			title: 'moneybird php',
 			social: {
-				github: 'https://github.com/withastro/starlight',
+				github: 'https://github.com/sandorian/moneybird-api-php',
 			},
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Getting started',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Authentication', slug: 'guides/authentication' },
 					],
 				},
 				{
-					label: 'Reference',
+					label: 'EndpointReference',
 					autogenerate: { directory: 'reference' },
 				},
 			],
