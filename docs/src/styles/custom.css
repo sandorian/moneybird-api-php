@@ -1,6 +1,6 @@
 /* Adjust the logo size in the navigation bar if needed */
 .site-title img, .site-title svg {
-	height: 1.6rem; /* Adjust this value as needed */
+	height: 3.0rem; /* Adjust this value as needed */
 	width: auto;
   }
 

@@ -8,7 +8,7 @@ export default defineConfig({
 		starlight({
 			title: 'moneybird php',
 			logo: {
-				src: './src/assets/moneybird_logo.svg',
+				src: './src/assets/logos_brief.svg',
 				alt: 'Moneybird logo',
 				replacesTitle: true,
 			},
@@ -24,10 +24,11 @@ export default defineConfig({
 					items: [
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Authentication', slug: 'guides/authentication' },
+						{ label: 'Pagination', slug: 'guides/pagination' },
 					],
 				},
 				{
-					label: 'EndpointReference',
+					label: 'Endpoints',
 					autogenerate: { directory: 'reference' },
 				},
 			],
