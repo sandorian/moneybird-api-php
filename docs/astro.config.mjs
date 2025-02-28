@@ -12,6 +12,9 @@ export default defineConfig({
 				alt: 'Moneybird logo',
 				replacesTitle: true,
 			},
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
 			customCss: [
 				'./src/styles/custom.css',
 			],

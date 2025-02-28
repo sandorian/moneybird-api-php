@@ -1,0 +1,30 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const { ...props } = Astro.props;
+---
+
+<Default {...props}>
+  <slot />
+  <p class="custom-footer">
+    Built with <a href="https://astro.build">Astro</a> and <a href="https://starlight.astro.build">Starlight</a>.
+    <br />
+    Copyright © 2025 Sandorian Consultancy B.V.
+  </p>
+</Default>
+
+<style>
+  .custom-footer {
+    text-align: center;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+  }
+  .custom-footer a {
+    color: var(--sl-color-text-accent);
+    text-decoration: none;
+  }
+  .custom-footer a:hover {
+    text-decoration: underline;
+  }
+</style>
