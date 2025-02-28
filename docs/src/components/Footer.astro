@@ -1,30 +1,81 @@
 ---
 import type { Props } from '@astrojs/starlight/props';
-import Default from '@astrojs/starlight/components/Footer.astro';
-
-const { ...props } = Astro.props;
+import EditLink from '@astrojs/starlight/components/EditLink.astro';
+import LastUpdated from '@astrojs/starlight/components/LastUpdated.astro';
+import Pagination from '@astrojs/starlight/components/Pagination.astro';
+import config from 'virtual:starlight/user-config';
 ---
 
-<Default {...props}>
-  <slot />
-  <p class="custom-footer">
-    Built with <a href="https://astro.build">Astro</a> and <a href="https://starlight.astro.build">Starlight</a>.
-    <br />
-    Copyright © 2025 Sandorian Consultancy B.V.
-  </p>
-</Default>
+<footer class="sl-flex">
+	<div class="meta sl-flex">
+		<EditLink />
+		<LastUpdated />
+	</div>
+	<Pagination />
+
+	<div class="footer-bottom">
+		<div class="copyright">
+			&copy; {new Date().getFullYear()} <a href="https://sandorian.com" target="_blank">Sandorian Consultancy B.V.</a>
+		</div>
+	</div>
+</footer>
 
 <style>
-  .custom-footer {
-    text-align: center;
-    font-size: 0.875rem;
-    margin-top: 1rem;
-  }
-  .custom-footer a {
-    color: var(--sl-color-text-accent);
-    text-decoration: none;
-  }
-  .custom-footer a:hover {
-    text-decoration: underline;
-  }
+	footer {
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+	.meta {
+		gap: 0.75rem 3rem;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		margin-top: 3rem;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+	.meta > :global(p:only-child) {
+		margin-inline-start: auto;
+	}
+
+	.footer-bottom {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 0.5rem;
+	}
+
+	.kudos {
+		align-items: center;
+		gap: 0.5em;
+		margin: 0.5rem auto;
+		font-size: var(--sl-text-xs);
+		text-decoration: none;
+		color: var(--sl-color-gray-3);
+	}
+	.kudos svg {
+		color: var(--sl-color-orange);
+	}
+	.kudos:hover {
+		color: var(--sl-color-white);
+	}
+	
+	.copyright {
+		text-align: center;
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+		padding: 0.5rem 0;
+		border-top: 1px solid var(--sl-color-gray-6);
+		width: 100%;
+		max-width: 20rem;
+		margin: 0.5rem auto;
+	}
+
+    .copyright a {
+        color: var(--sl-color-gray-3);
+        text-decoration: none;
+    }
+
+    .copyright a:hover {
+        color: var(--sl-color-white);
+    }
 </style>
