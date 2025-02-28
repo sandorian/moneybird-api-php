@@ -21,6 +21,9 @@ export default defineConfig({
 			social: {
 				github: 'https://github.com/sandorian/moneybird-api-php',
 			},
+			editLink: {
+				baseUrl: 'https://github.com/sandorian/moneybird-api-php/edit/main/docs/',
+			},
 			sidebar: [
 				{
 					label: 'Getting started',
