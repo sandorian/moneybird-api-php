@@ -9,6 +9,10 @@ Manage your Administrations in Moneybird.
 
 This section covers how to interact with Moneybird's Administrations API. You can retrieve administration information.
 
+:::note
+The operations in this section ignore the `administrationId` as set when instantiating the MoneybirdApiClient.
+:::
+
 ### Basic Operations
 
 #### Get an Administration
