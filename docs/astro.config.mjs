@@ -32,7 +32,7 @@ export default defineConfig({
 					attrs: {name: 'twitter:image', content: socialPreviewImagePath },
 				},
 			],
-			title: 'moneybird php',
+			title: 'moneybird-api-php',
 			logo: {
 				src: './src/assets/logos_brief.svg',
 				alt: 'Moneybird logo',
