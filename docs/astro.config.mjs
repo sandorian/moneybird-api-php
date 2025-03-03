@@ -2,13 +2,16 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+import sitemap from '@astrojs/sitemap';
+
 // The image path that will be appended to the site URL
 const socialPreviewImagePath = '/social_preview.png';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://moneybird.sandorian.com',
-	integrations: [
+    site: 'https://moneybird.sandorian.com',
+    integrations: [
+		sitemap(),
 		starlight({
 			head: [
 				{
