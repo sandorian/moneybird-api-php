@@ -11,28 +11,9 @@ Effortlessly interact with the Moneybird API using your favourite language PHP.
 
 This package leverages the popular and robust [Saloon PHP](https://docs.saloon.dev) package.
 
-## Installation
+## Official Documentation
 
-You can install the Moneybird PHP client via composer:
-
-```bash
-composer require sandorian/moneybird-api-php
-```
-
-## Usage
-
-```php
-use Sandorian\Moneybird\Api\MoneybirdApiClient;
-
-// 1. Authentication
-$moneybird = new MoneybirdApiClient('your_key_here', 'your_administration_id_here');
-
-// 2. Making api requests
-$response = $moneybird->contacts()->create([
-    'company_name' => 'Sandorian Consultancy B.V.',
-    'contact_country' => 'NL',
-]);
-```
+Documentation for this package can be found on the [documentation website](https://moneybird.sandorian.com/).
 
 ## Testing
 
@@ -52,6 +33,7 @@ If you discover any security related issues, please email security@sandorian.com
 
 - [Sandorian.com](https://www.sandorian.com)
 - [Moneybird.com](https://www.moneybird.com)
+- [Saloon PHP](https://docs.saloon.dev)
 - [All Contributors](../../contributors)
 
 ## License
