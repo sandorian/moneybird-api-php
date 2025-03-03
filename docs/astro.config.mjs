@@ -18,18 +18,10 @@ export default defineConfig({
 				{
 					tag: 'meta',
 					attrs: { property: 'og:image:width', content: '1200' },
-				  },
-				  {
-					tag: 'meta',
-					attrs: { property: 'og:image:height', content: '630' },
-				  },
-				{
-					tag: 'meta',
-					attrs: { property: 'og:title', content: '{title}' },
 				},
 				{
 					tag: 'meta',
-					attrs: { property: 'og:description', content: '{description}' },
+					attrs: { property: 'og:image:height', content: '630' },
 				},
 				{
 					tag: 'meta',
