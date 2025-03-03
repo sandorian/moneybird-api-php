@@ -2,11 +2,44 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 
+// The image path that will be appended to the site URL
+const socialPreviewImagePath = '/social_preview.png';
+
 // https://astro.build/config
 export default defineConfig({
 	site: 'https://moneybird.sandorian.com',
 	integrations: [
 		starlight({
+			head: [
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image', content: socialPreviewImagePath },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:image:width', content: '1200' },
+				  },
+				  {
+					tag: 'meta',
+					attrs: { property: 'og:image:height', content: '630' },
+				  },
+				{
+					tag: 'meta',
+					attrs: { property: 'og:title', content: '{title}' },
+				},
+				{
+					tag: 'meta',
+					attrs: { property: 'og:description', content: '{description}' },
+				},
+				{
+					tag: 'meta',
+					attrs: { name: 'twitter:card', content: 'summary_large_image' },
+				},
+				{
+					tag: 'meta',
+					attrs: {name: 'twitter:image', content: socialPreviewImagePath },
+				},
+			],
 			title: 'moneybird php',
 			logo: {
 				src: './src/assets/logos_brief.svg',
