@@ -1,5 +1,6 @@
-<img src="/sandorian/moneybird-api-php/raw/main/art/sandorian_logo.svg" alt="Sandorian logo">
-<img src="/sandorian/moneybird-api-php/raw/main/art/moneybird_logo.svg" alt="Moneybird logo">
+<p align="center">
+  <img src="art/logos.svg" alt="Moneybird PHP by Sandorian logo" width="180">
+</p>
 
 # Moneybird API client for PHP
 
