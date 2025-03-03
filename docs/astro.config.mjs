@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://sandorian.github.io/moneybird-api-php',
 	integrations: [
 		starlight({
 			title: 'moneybird php',
