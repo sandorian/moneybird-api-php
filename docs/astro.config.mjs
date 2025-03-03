@@ -31,6 +31,14 @@ export default defineConfig({
 					tag: 'meta',
 					attrs: {name: 'twitter:image', content: '/social_preview.png' },
 				},
+				{
+					tag: 'script',
+					attrs: {
+					  src: 'https://cdn.usefathom.com/script.js',
+					  'data-site': 'MTBSZFOQ',
+					  defer: true,
+					},
+				  },
 			],
 			title: 'moneybird-api-php',
 			logo: {
