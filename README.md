@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="art/logos.svg" alt="Moneybird PHP by Sandorian logo" width="180">
+  <img src="art/logos.svg" alt="Moneybird PHP by Sandorian logo" width="200">
 </p>
 
 # Moneybird API client for PHP
