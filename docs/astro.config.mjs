@@ -4,9 +4,6 @@ import starlight from '@astrojs/starlight';
 
 import sitemap from '@astrojs/sitemap';
 
-// The image path that will be appended to the site URL
-const socialPreviewImagePath = '/social_preview.png';
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://moneybird.sandorian.com',
@@ -16,7 +13,7 @@ export default defineConfig({
 			head: [
 				{
 					tag: 'meta',
-					attrs: { property: 'og:image', content: socialPreviewImagePath },
+					attrs: { property: 'og:image', content: '/social_preview.png' },
 				},
 				{
 					tag: 'meta',
@@ -32,7 +29,7 @@ export default defineConfig({
 				},
 				{
 					tag: 'meta',
-					attrs: {name: 'twitter:image', content: socialPreviewImagePath },
+					attrs: {name: 'twitter:image', content: '/social_preview.png' },
 				},
 			],
 			title: 'moneybird-api-php',
@@ -57,7 +54,6 @@ export default defineConfig({
 				{
 					label: 'Getting started',
 					items: [
-						// Each item here is one entry in the navigation menu.
 						{ label: 'Authentication', slug: 'guides/authentication' },
 						{ label: 'Pagination', slug: 'guides/pagination' },
 					],
