@@ -44,13 +44,9 @@ composer test
 
 Check the releases for more information on what has changed recently.
 
-## Contributing
-
-Please see [CONTRIBUTING](https://github.com/spatie/.github/blob/main/CONTRIBUTING.md) for details.
-
 ## Security Vulnerabilities
 
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
+If you discover any security related issues, please email security@sandorian.com instead of using the issue tracker.
 
 ## Credits
 
