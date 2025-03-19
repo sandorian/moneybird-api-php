@@ -30,14 +30,14 @@
         "symfony/var-dumper": "^7.1"
     },
     "autoload": {
-        "files": [
-            "tests/helpers.php"
-        ],
         "psr-4": {
             "Sandorian\\Moneybird\\": "src"
         }
     },
     "autoload-dev": {
+        "files": [
+            "tests/helpers.php"
+        ],
         "psr-4": {
             "Sandorian\\Moneybird\\Tests\\": "tests"
         }
