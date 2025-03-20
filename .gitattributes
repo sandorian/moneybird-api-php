@@ -12,4 +12,5 @@
 /.php-cs-fixer.dist.php export-ignore
 /art export-ignore
 /docs export-ignore
+/specs export-ignore
 /UPGRADING.md export-ignore
