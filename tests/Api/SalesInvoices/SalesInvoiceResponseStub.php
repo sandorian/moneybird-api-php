@@ -10,7 +10,7 @@ class SalesInvoiceResponseStub
     {
         return [
             'id' => '446241800938587778',
-            'administration_id' => 123,
+            'administration_id' => '123',
             'contact_id' => '446241800633452147',
             'contact' => [
                 'id' => '446241800633452147',

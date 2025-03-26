@@ -31,7 +31,7 @@ When working with webhooks, you'll have access to the following properties:
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier for the webhook |
-| administration_id | int | ID of the administration the webhook belongs to |
+| administration_id | string | ID of the administration the webhook belongs to |
 | url | string | URL that will receive the webhook notifications |
 | enabled_events | array | List of events the webhook is subscribed to |
 | last_http_status | int | Last HTTP status code received when delivering the webhook |

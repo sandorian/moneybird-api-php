@@ -10,7 +10,7 @@ class ContactResponseStub
     {
         return [
             'id' => '419889276175517682',
-            'administration_id' => 123,
+            'administration_id' => '123',
             'company_name' => 'Sandorian Consultancy B.V.',
             'firstname' => null,
             'lastname' => 'Appleseed',

@@ -273,7 +273,7 @@ When working with sales invoices, you'll have access to the following properties
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the sales invoice belongs to |
+| administration_id | string | ID of the administration the sales invoice belongs to |
 | contact_id | string | ID of the contact associated with the sales invoice |
 | contact | array | Contact information |
 | contact_person_id | string | ID of the contact person |

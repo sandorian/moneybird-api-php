@@ -16,7 +16,7 @@ class WebhooksEndpointTest extends BaseTestCase
         $moneybird = $this->getMoneybirdClientWithMocks([
             CreateWebhookRequest::class => MockResponse::make([
                 'id' => '426664308573734088',
-                'administration_id' => 123,
+                'administration_id' => '123',
                 'url' => 'http://www.mocky.io/v2/5185415ba171ea3a00704eed',
                 'events' => [],
                 'last_http_status' => null,

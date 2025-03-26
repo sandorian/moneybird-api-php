@@ -95,7 +95,7 @@ When working with time entries, you'll have access to the following properties:
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the time entry belongs to |
+| administration_id | string | ID of the administration the time entry belongs to |
 | contact_id | string | ID of the contact associated with the time entry (optional) |
 | project_id | string | ID of the project associated with the time entry (optional) |
 | user_id | int | ID of the user who created the time entry |

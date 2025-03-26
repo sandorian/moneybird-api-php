@@ -46,7 +46,7 @@ When working with tax rates, you'll have access to the following properties:
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the tax rate belongs to |
+| administration_id | string | ID of the administration the tax rate belongs to |
 | name | string | Name of the tax rate (e.g., "21% btw") |
 | percentage | string | Tax percentage value (e.g., "21.0") |
 | tax_rate_type | string | Type of tax rate (e.g., "sales_invoice") |

@@ -54,7 +54,7 @@ When working with external sales invoice payments, you'll have access to the fol
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier for the payment |
-| administration_id | int | ID of the administration the payment belongs to |
+| administration_id | string | ID of the administration the payment belongs to |
 | invoice_type | string | Type of invoice (always "ExternalSalesInvoice" for these payments) |
 | invoice_id | string | ID of the external sales invoice the payment is for |
 | financial_account_id | string | ID of the financial account the payment was made to |

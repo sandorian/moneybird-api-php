@@ -245,7 +245,7 @@ When working with contacts, you'll have access to the following properties:
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | integer | Administration ID |
+| administration_id | string | Administration ID |
 | company_name | string | Company name |
 | firstname | string | First name |
 | lastname | string | Last name |

@@ -136,7 +136,7 @@ When working with external sales invoices, you'll have access to the following p
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | integer | ID of the administration the invoice belongs to |
+| administration_id | string | ID of the administration the invoice belongs to |
 | contact_id | string | ID of the contact associated with the invoice |
 | contact | array | Contact details |
 | date | string | Date of the invoice (YYYY-MM-DD) |
