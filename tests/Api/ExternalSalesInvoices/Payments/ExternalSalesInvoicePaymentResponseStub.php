@@ -10,7 +10,7 @@ class ExternalSalesInvoicePaymentResponseStub
     {
         return [
             'id' => '426664167809746572',
-            'administration_id' => 123,
+            'administration_id' => '123',
             'invoice_type' => 'ExternalSalesInvoice',
             'invoice_id' => '426664167757317770',
             'financial_account_id' => null,

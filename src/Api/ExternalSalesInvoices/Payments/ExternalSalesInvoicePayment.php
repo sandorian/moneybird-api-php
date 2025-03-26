@@ -10,7 +10,7 @@ class ExternalSalesInvoicePayment extends BaseDto
 {
     public string $id;
 
-    public int $administration_id;
+    public string $administration_id;
 
     public string $invoice_type;
 

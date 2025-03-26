@@ -10,7 +10,7 @@ class ExternalSalesInvoiceResponseStub
     {
         return [
             'id' => '426664163463398887',
-            'administration_id' => 123,
+            'administration_id' => '123',
             'contact_id' => '426664163441378788',
             'contact' => [
                 'id' => '426664163441378788',

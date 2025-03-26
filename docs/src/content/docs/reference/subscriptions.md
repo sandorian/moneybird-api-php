@@ -111,7 +111,7 @@ When working with subscriptions, you'll have access to the following properties:
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the subscription belongs to |
+| administration_id | string | ID of the administration the subscription belongs to |
 | start_date | string | Date when the subscription starts |
 | end_date | string | Date when the subscription ends (null if ongoing) |
 | frequency | int | Frequency number (e.g., 1, 3, 6) |

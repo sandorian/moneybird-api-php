@@ -10,7 +10,7 @@ class Webhook extends BaseDto
 {
     public string $id;
 
-    public int $administration_id;
+    public string $administration_id;
 
     public string $url;
 

@@ -86,7 +86,7 @@ When working with subscription templates, you'll have access to the following pr
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the template belongs to |
+| administration_id | string | ID of the administration the template belongs to |
 | workflow_id | string | ID of the workflow to use for the subscription |
 | document_style_id | string | ID of the document style |
 | mergeable | boolean | Whether the template can be merged with other templates |

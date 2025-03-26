@@ -273,7 +273,7 @@ When working with sales invoices, you'll have access to the following properties
 | Property | Type | Description |
 |----------|------|-------------|
 | id | string | Unique identifier |
-| administration_id | int | ID of the administration the sales invoice belongs to |
+| administration_id | string | ID of the administration the sales invoice belongs to |
 | contact_id | string | ID of the contact associated with the sales invoice |
 | contact | array | Contact information |
 | contact_person_id | string | ID of the contact person |
@@ -297,36 +297,36 @@ When working with sales invoices, you'll have access to the following properties
 | discount | string | Discount percentage |
 | original_sales_invoice_id | string | ID of the original sales invoice if this is a duplicate |
 | paused | boolean | Whether the invoice is paused |
-| paid_at | string | Date when the invoice was paid |
-| sent_at | string | Date when the invoice was sent |
-| created_at | string | ISO 8601 timestamp of when the sales invoice was created |
-| updated_at | string | ISO 8601 timestamp of when the sales invoice was last updated |
-| public_view_code | string | Code for public view access |
-| public_view_code_expires_at | string | Expiration date for public view code |
-| version | int | Version number |
-| details | array | Line items on the sales invoice |
-| payments | array | Payment information |
-| total_paid | string | Total amount paid |
-| total_unpaid | string | Total amount unpaid |
-| total_unpaid_base | string | Total amount unpaid in base currency |
+| paid_at | string  | Date when the invoice was paid |
+| sent_at | string  | Date when the invoice was sent |
+| created_at | string  | ISO 8601 timestamp of when the sales invoice was created |
+| updated_at | string  | ISO 8601 timestamp of when the sales invoice was last updated |
+| public_view_code | string  | Code for public view access |
+| public_view_code_expires_at | string  | Expiration date for public view code |
+| version | int     | Version number |
+| details | array   | Line items on the sales invoice |
+| payments | array   | Payment information |
+| total_paid | string  | Total amount paid |
+| total_unpaid | string  | Total amount unpaid |
+| total_unpaid_base | string  | Total amount unpaid in base currency |
 | prices_are_incl_tax | boolean | Whether prices include tax |
-| total_price_excl_tax | string | Total price excluding tax |
-| total_price_excl_tax_base | string | Total price excluding tax in base currency |
-| total_price_incl_tax | string | Total price including tax |
-| total_price_incl_tax_base | string | Total price including tax in base currency |
-| total_discount | string | Total discount amount |
-| marked_dubious_on | string | Date when marked as dubious |
-| marked_uncollectible_on | string | Date when marked as uncollectible |
-| reminder_count | int | Number of reminders sent |
-| next_reminder | string | Date of the next reminder |
-| original_estimate_id | string | ID of the original estimate if created from one |
-| url | string | URL to view the invoice |
-| payment_url | string | URL for payment |
-| custom_fields | array | Custom fields for the sales invoice |
-| notes | array | Notes associated with the sales invoice |
-| attachments | array | Attachments associated with the sales invoice |
-| events | array | Events related to the sales invoice |
-| tax_totals | array | Tax totals information |
+| total_price_excl_tax | string  | Total price excluding tax |
+| total_price_excl_tax_base | string  | Total price excluding tax in base currency |
+| total_price_incl_tax | string  | Total price including tax |
+| total_price_incl_tax_base | string  | Total price including tax in base currency |
+| total_discount | string  | Total discount amount |
+| marked_dubious_on | string  | Date when marked as dubious |
+| marked_uncollectible_on | string  | Date when marked as uncollectible |
+| reminder_count | int     | Number of reminders sent |
+| next_reminder | string  | Date of the next reminder |
+| original_estimate_id | string  | ID of the original estimate if created from one |
+| url | string  | URL to view the invoice |
+| payment_url | string  | URL for payment |
+| custom_fields | array   | Custom fields for the sales invoice |
+| notes | array   | Notes associated with the sales invoice |
+| attachments | array   | Attachments associated with the sales invoice |
+| events | array   | Events related to the sales invoice |
+| tax_totals | array   | Tax totals information |
 
 > **Note:** See the [official API reference](https://developer.moneybird.com/api/sales_invoices/) for the complete list of available properties.
 
