@@ -65,6 +65,9 @@ class RecurringSalesInvoicesEndpoint extends BaseEndpoint
     public function create(array $data): RecurringSalesInvoice
     {
         $request = new CreateRecurringSalesInvoiceRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -75,6 +78,9 @@ class RecurringSalesInvoicesEndpoint extends BaseEndpoint
     public function update(string $recurringSalesInvoiceId, array $data): RecurringSalesInvoice
     {
         $request = new UpdateRecurringSalesInvoiceRequest($recurringSalesInvoiceId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

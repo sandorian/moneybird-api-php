@@ -65,6 +65,9 @@ class GeneralJournalDocumentsEndpoint extends BaseEndpoint
     public function create(array $generalJournalDocumentData): GeneralJournalDocument
     {
         $request = new CreateGeneralJournalDocumentRequest($generalJournalDocumentData);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($generalJournalDocumentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -75,6 +78,9 @@ class GeneralJournalDocumentsEndpoint extends BaseEndpoint
     public function update(string $generalJournalDocumentId, array $generalJournalDocumentData): GeneralJournalDocument
     {
         $request = new UpdateGeneralJournalDocumentRequest($generalJournalDocumentId, $generalJournalDocumentData);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($generalJournalDocumentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -92,6 +98,9 @@ class GeneralJournalDocumentsEndpoint extends BaseEndpoint
     public function createAttachment(string $generalJournalDocumentId, array $attachmentData): array
     {
         $request = new CreateGeneralJournalDocumentAttachmentRequest($generalJournalDocumentId, $attachmentData);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($attachmentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

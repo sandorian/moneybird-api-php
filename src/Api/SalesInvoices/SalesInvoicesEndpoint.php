@@ -14,8 +14,12 @@ class SalesInvoicesEndpoint extends BaseEndpoint
 {
     public function create(array $data): SalesInvoice
     {
-        $request = new CreateSalesInvoiceRequest;
-        $request->body()->merge($data);
+        $request = new CreateSalesInvoiceRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        } else {
+            $request->body()->merge($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -88,8 +92,12 @@ class SalesInvoicesEndpoint extends BaseEndpoint
 
     public function update(string $salesInvoiceId, array $data): SalesInvoice
     {
-        $request = new UpdateSalesInvoiceRequest($salesInvoiceId);
-        $request->body()->merge($data);
+        $request = new UpdateSalesInvoiceRequest($salesInvoiceId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        } else {
+            $request->body()->merge($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
