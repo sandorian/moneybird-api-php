@@ -11,8 +11,10 @@ class VerificationsEndpoint extends BaseEndpoint
 {
     public function create(array $data): Verification
     {
-        $request = new CreateVerificationRequest;
-        $request->body()->merge($data);
+        $request = new CreateVerificationRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -35,8 +37,10 @@ class VerificationsEndpoint extends BaseEndpoint
 
     public function update(string $verificationId, array $data): Verification
     {
-        $request = new UpdateVerificationRequest($verificationId);
-        $request->body()->merge($data);
+        $request = new UpdateVerificationRequest($verificationId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
