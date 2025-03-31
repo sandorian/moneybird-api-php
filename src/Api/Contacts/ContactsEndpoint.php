@@ -18,9 +18,9 @@ use Sandorian\Moneybird\Api\Contacts\MbPaymentsMandate\MbPaymentsMandateUrl;
 use Sandorian\Moneybird\Api\Contacts\Notes\CreateNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\DeleteNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\Note;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\CreateUsageChargeRequest;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\GetUsageChargesRequest;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\UsageCharge;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 
@@ -81,11 +81,11 @@ class ContactsEndpoint extends BaseEndpoint
         $this->client->send($request);
     }
 
-    // ========== Usage Charges ==========
+    // ========== Additional Charges ==========
 
-    public function createUsageCharge(string $contactId, array $data): UsageCharge
+    public function createAdditionalCharge(string $contactId, array $data): AdditionalCharge
     {
-        $request = new CreateUsageChargeRequest($contactId);
+        $request = new CreateAdditionalChargeRequest($contactId);
         if (method_exists($request, 'setEncapsulatedData')) {
             $request->setEncapsulatedData($data);
         } else {
@@ -95,12 +95,12 @@ class ContactsEndpoint extends BaseEndpoint
         return $this->client->send($request)->dtoOrFail();
     }
 
-    public function getUsageCharges(string $contactId): array
+    public function getAdditionalCharges(string $contactId): array
     {
-        $request = new GetUsageChargesRequest($contactId);
+        $request = new GetAdditionalChargesRequest($contactId);
 
         return array_map(
-            fn (array $data) => UsageCharge::createFromResponseData($data),
+            fn (array $data) => AdditionalCharge::createFromResponseData($data),
             $this->client->send($request)->json()
         );
     }

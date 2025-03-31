@@ -7,6 +7,8 @@ namespace Sandorian\Moneybird\Api\Support;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
+use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
 
 abstract class BaseEndpoint
 {
@@ -25,7 +27,9 @@ abstract class BaseEndpoint
         $request = $this->getCreateRequest();
 
         // Use setEncapsulatedData if the method exists, otherwise fall back to merge
+        /** @var object $request */
         if (method_exists($request, 'setEncapsulatedData')) {
+            /** @var BaseJsonPostRequest|BaseJsonPatchRequest $request */
             $request->setEncapsulatedData($data);
         } else {
             $request->body()->merge($data);
