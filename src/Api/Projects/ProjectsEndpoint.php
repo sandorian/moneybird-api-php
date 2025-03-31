@@ -43,6 +43,9 @@ class ProjectsEndpoint extends BaseEndpoint
     public function create(array $data): Project
     {
         $request = new CreateProjectRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -53,6 +56,9 @@ class ProjectsEndpoint extends BaseEndpoint
     public function update(string $projectId, array $data): Project
     {
         $request = new UpdateProjectRequest($projectId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

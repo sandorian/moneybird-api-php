@@ -12,7 +12,9 @@ class TimeEntriesEndpoint extends BaseEndpoint
     public function create(array $data): TimeEntry
     {
         $request = new CreateTimeEntryRequest;
-        $request->body()->merge($data);
+        $request->body()->merge([
+            'time_entry' => $data,
+        ]);
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -36,7 +38,9 @@ class TimeEntriesEndpoint extends BaseEndpoint
     public function update(string $timeEntryId, array $data): TimeEntry
     {
         $request = new UpdateTimeEntryRequest($timeEntryId);
-        $request->body()->merge($data);
+        $request->body()->merge([
+            'time_entry' => $data,
+        ]);
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
