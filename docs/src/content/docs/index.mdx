@@ -24,15 +24,15 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 {/* <CardGrid stagger> */}
 <CardGrid>
+  <Card title="Pin to a specific version" icon="warning">
+		This package is actively evolving. To prevent unexpected issues from breaking changes, we strongly recommend pinning your installation to a specific version. Example: `"sandorian/moneybird-api-php": "^0.3.0"`.
+	</Card>
 	<Card title="Install moneybird-api-php" icon="download">
 		Run `composer require sandorian/moneybird-api-php` to install it.
 	</Card>
 	<Card title="Authenticate" icon="seti:license">
 		Grab your `apiKey` and `administrationId`. Read more in the Moneybird developer [documentation](https://developer.moneybird.com/authentication/).
 	</Card>
-	{/* <Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card> */}
 	<Card title="Read the docs" icon="open-book">
 		Learn more in [the endpoint docs](/reference/contacts/).
 	</Card>
