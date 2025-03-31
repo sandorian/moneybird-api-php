@@ -24,4 +24,14 @@ class CreateMbPaymentsMandateRequest extends BaseJsonPostRequest
     {
         return MbPaymentsMandate::createFromResponseData($response->json());
     }
+    
+    /**
+     * Get the resource key for encapsulation
+     * 
+     * The Moneybird API requires data to be encapsulated within a 'moneybird_payments_mandate' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'moneybird_payments_mandate';
+    }
 }
