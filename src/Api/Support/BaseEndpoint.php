@@ -7,8 +7,6 @@ namespace Sandorian\Moneybird\Api\Support;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
-use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
-use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
 
 abstract class BaseEndpoint
 {

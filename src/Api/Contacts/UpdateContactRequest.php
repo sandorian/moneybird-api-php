@@ -22,10 +22,10 @@ class UpdateContactRequest extends BaseJsonPatchRequest
     {
         return Contact::createFromResponseData($response->json());
     }
-    
+
     /**
      * Get the resource key for encapsulation
-     * 
+     *
      * The Moneybird API requires data to be encapsulated within a 'contact' key
      */
     protected function getResourceKey(): string

@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Tests\Api\Contacts;
 
 use Saloon\Http\Faking\MockResponse;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\ContactPerson;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\CreateContactPersonRequest;
@@ -27,15 +30,12 @@ use Sandorian\Moneybird\Api\Contacts\Notes\DeleteNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\Note;
 use Sandorian\Moneybird\Api\Contacts\SynchronizeContactsRequest;
 use Sandorian\Moneybird\Api\Contacts\UpdateContactRequest;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
+use Sandorian\Moneybird\Tests\Api\Contacts\AdditionalCharges\AdditionalChargesResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\ContactPeople\ContactPeopleResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\MbPaymentsMandate\MbPaymentsMandateResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\Notes\NotesResponseStub;
-use Sandorian\Moneybird\Tests\Api\Contacts\AdditionalCharges\AdditionalChargesResponseStub;
 
 class ContactsEndpointTest extends BaseTestCase
 {

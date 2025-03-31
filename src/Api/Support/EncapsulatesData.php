@@ -6,7 +6,7 @@ namespace Sandorian\Moneybird\Api\Support;
 
 /**
  * Trait for encapsulating request data within a resource-specific key
- * 
+ *
  * The Moneybird API requires data to be encapsulated within a specific key
  * that matches the singular name of the resource (e.g., 'contact' for Contacts).
  */

@@ -24,10 +24,10 @@ class CreateAdditionalChargeRequest extends BaseJsonPostRequest
     {
         return AdditionalCharge::createFromResponseData($response->json());
     }
-    
+
     /**
      * Get the resource key for encapsulation
-     * 
+     *
      * The Moneybird API requires data to be encapsulated within a 'additional_charge' key
      */
     protected function getResourceKey(): string

@@ -24,10 +24,10 @@ class CreateUsageChargeRequest extends BaseJsonPostRequest
     {
         return UsageCharge::createFromResponseData($response->json());
     }
-    
+
     /**
      * Get the resource key for encapsulation
-     * 
+     *
      * The Moneybird API requires data to be encapsulated within a 'usage_charge' key
      */
     protected function getResourceKey(): string

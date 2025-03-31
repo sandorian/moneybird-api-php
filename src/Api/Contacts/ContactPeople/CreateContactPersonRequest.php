@@ -24,10 +24,10 @@ class CreateContactPersonRequest extends BaseJsonPostRequest
     {
         return ContactPerson::createFromResponseData($response->json());
     }
-    
+
     /**
      * Get the resource key for encapsulation
-     * 
+     *
      * The Moneybird API requires data to be encapsulated within a 'contact_person' key
      */
     protected function getResourceKey(): string

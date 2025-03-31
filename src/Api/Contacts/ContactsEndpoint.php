@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\Contacts;
 
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\ContactPerson;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\CreateContactPersonRequest;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\DeleteContactPersonRequest;
@@ -18,9 +21,6 @@ use Sandorian\Moneybird\Api\Contacts\MbPaymentsMandate\MbPaymentsMandateUrl;
 use Sandorian\Moneybird\Api\Contacts\Notes\CreateNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\DeleteNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\Note;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
-use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 

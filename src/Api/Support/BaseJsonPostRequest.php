@@ -11,13 +11,13 @@ use Saloon\Traits\Body\HasJsonBody;
 
 abstract class BaseJsonPostRequest extends Request implements HasBody
 {
-    use HasJsonBody;
     use EncapsulatesData;
+    use HasJsonBody;
 
     protected Method $method = Method::POST;
 
     abstract public function resolveEndpoint(): string;
-    
+
     /**
      * Set the request body with data encapsulated within the resource key
      */
@@ -25,7 +25,7 @@ abstract class BaseJsonPostRequest extends Request implements HasBody
     {
         $this->body()->set($this->encapsulateData($data));
     }
-    
+
     /**
      * Default body data for the request
      * This will be merged with any data provided to the body() method
