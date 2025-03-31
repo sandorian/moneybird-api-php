@@ -24,7 +24,12 @@ abstract class BaseEndpoint
     {
         $request = $this->getCreateRequest();
 
-        $request->body()->merge($data);
+        // Use setEncapsulatedData if the method exists, otherwise fall back to merge
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        } else {
+            $request->body()->merge($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

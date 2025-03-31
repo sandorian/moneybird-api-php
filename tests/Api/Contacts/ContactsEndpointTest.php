@@ -123,7 +123,7 @@ class ContactsEndpointTest extends BaseTestCase
 
         $mockClient = $moneybird->getMockClient();
 
-        $this->assertSentOnce($mockClient, $payload);
+        $this->assertSentOnce($mockClient, ['contact' => $payload]);
         $this->assertInstanceOf(Contact::class, $contact);
         $this->assertEquals('419889276175517682', $contact->id);
         $this->assertEquals('Sandorian Consultancy B.V.', $contact->company_name);
@@ -142,8 +142,9 @@ class ContactsEndpointTest extends BaseTestCase
         $contact = $moneybird->contacts()->update('419889276175517682', $payload);
 
         $mockClient = $moneybird->getMockClient();
-        $mockClient->assertSent(function ($request) {
-            return $request instanceof UpdateContactRequest;
+        $mockClient->assertSent(function ($request) use ($payload) {
+            return $request instanceof UpdateContactRequest
+                && $request->body()->all() === ['contact' => $payload];
         });
         $this->assertInstanceOf(Contact::class, $contact);
         $this->assertEquals('419889276175517682', $contact->id);
