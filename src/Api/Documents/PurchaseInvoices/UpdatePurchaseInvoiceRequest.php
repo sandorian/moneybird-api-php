@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Documents\PurchaseInvoices;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class UpdatePurchaseInvoiceRequest extends BaseJsonPatchRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $purchaseInvoiceData
      */
@@ -29,10 +32,18 @@ class UpdatePurchaseInvoiceRequest extends BaseJsonPatchRequest
         return PurchaseInvoice::createFromResponseData($response->json());
     }
 
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within a 'purchase_invoice' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'purchase_invoice';
+    }
+
     protected function defaultBody(): array
     {
-        return [
-            'purchase_invoice' => $this->purchaseInvoiceData,
-        ];
+        return $this->encapsulateData($this->purchaseInvoiceData);
     }
 }

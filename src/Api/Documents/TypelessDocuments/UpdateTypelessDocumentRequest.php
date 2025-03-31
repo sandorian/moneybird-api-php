@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Documents\TypelessDocuments;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class UpdateTypelessDocumentRequest extends BaseJsonPatchRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $typelessDocumentData
      */
@@ -29,10 +32,18 @@ class UpdateTypelessDocumentRequest extends BaseJsonPatchRequest
         return TypelessDocument::createFromResponseData($response->json());
     }
 
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within a 'typeless_document' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'typeless_document';
+    }
+
     protected function defaultBody(): array
     {
-        return [
-            'typeless_document' => $this->typelessDocumentData,
-        ];
+        return $this->encapsulateData($this->typelessDocumentData);
     }
 }
