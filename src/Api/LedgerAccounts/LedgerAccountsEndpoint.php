@@ -43,6 +43,9 @@ class LedgerAccountsEndpoint extends BaseEndpoint
     public function create(array $data): LedgerAccount
     {
         $request = new CreateLedgerAccountRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -53,6 +56,9 @@ class LedgerAccountsEndpoint extends BaseEndpoint
     public function update(string $ledgerAccountId, array $data): LedgerAccount
     {
         $request = new UpdateLedgerAccountRequest($ledgerAccountId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

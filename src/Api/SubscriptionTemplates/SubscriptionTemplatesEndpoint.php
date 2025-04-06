@@ -11,8 +11,10 @@ class SubscriptionTemplatesEndpoint extends BaseEndpoint
 {
     public function create(array $data): SubscriptionTemplate
     {
-        $request = new CreateSubscriptionTemplateRequest;
-        $request->body()->merge($data);
+        $request = new CreateSubscriptionTemplateRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -35,8 +37,10 @@ class SubscriptionTemplatesEndpoint extends BaseEndpoint
 
     public function update(string $subscriptionTemplateId, array $data): SubscriptionTemplate
     {
-        $request = new UpdateSubscriptionTemplateRequest($subscriptionTemplateId);
-        $request->body()->merge($data);
+        $request = new UpdateSubscriptionTemplateRequest($subscriptionTemplateId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);

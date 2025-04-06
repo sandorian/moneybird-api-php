@@ -43,6 +43,9 @@ class ImportMappingsEndpoint extends BaseEndpoint
     public function create(array $data): ImportMapping
     {
         $request = new CreateImportMappingRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -53,6 +56,9 @@ class ImportMappingsEndpoint extends BaseEndpoint
     public function update(string $importMappingId, array $data): ImportMapping
     {
         $request = new UpdateImportMappingRequest($importMappingId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

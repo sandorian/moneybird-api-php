@@ -66,6 +66,12 @@ class ReceiptsEndpoint extends BaseEndpoint
     {
         $request = new CreateReceiptRequest($receiptData);
 
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($receiptData);
+        } else {
+            $request->body()->merge($receiptData);
+        }
+
         return $this->client->send($request)->dtoOrFail();
     }
 
@@ -75,6 +81,12 @@ class ReceiptsEndpoint extends BaseEndpoint
     public function update(string $receiptId, array $receiptData): Receipt
     {
         $request = new UpdateReceiptRequest($receiptId, $receiptData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($receiptData);
+        } else {
+            $request->body()->merge($receiptData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -92,6 +104,12 @@ class ReceiptsEndpoint extends BaseEndpoint
     public function createAttachment(string $receiptId, array $attachmentData): array
     {
         $request = new CreateReceiptAttachmentRequest($receiptId, $attachmentData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($attachmentData);
+        } else {
+            $request->body()->merge($attachmentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

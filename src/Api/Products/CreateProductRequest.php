@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Products;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class CreateProductRequest extends BaseJsonPostRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $data
      */
@@ -25,9 +28,17 @@ class CreateProductRequest extends BaseJsonPostRequest
 
     protected function defaultBody(): array
     {
-        return [
-            'product' => $this->data,
-        ];
+        return $this->encapsulateData($this->data);
+    }
+
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within a 'product' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'product';
     }
 
     public function createDtoFromResponse(Response $response): Product

@@ -11,8 +11,10 @@ class SubscriptionsEndpoint extends BaseEndpoint
 {
     public function create(array $data): Subscription
     {
-        $request = new CreateSubscriptionRequest;
-        $request->body()->merge($data);
+        $request = new CreateSubscriptionRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -35,8 +37,10 @@ class SubscriptionsEndpoint extends BaseEndpoint
 
     public function update(string $subscriptionId, array $data): Subscription
     {
-        $request = new UpdateSubscriptionRequest($subscriptionId);
-        $request->body()->merge($data);
+        $request = new UpdateSubscriptionRequest($subscriptionId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);

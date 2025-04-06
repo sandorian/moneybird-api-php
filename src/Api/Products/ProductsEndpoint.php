@@ -65,6 +65,9 @@ class ProductsEndpoint extends BaseEndpoint
     public function create(array $data): Product
     {
         $request = new CreateProductRequest($data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -75,6 +78,9 @@ class ProductsEndpoint extends BaseEndpoint
     public function update(string $productId, array $data): Product
     {
         $request = new UpdateProductRequest($productId, $data);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

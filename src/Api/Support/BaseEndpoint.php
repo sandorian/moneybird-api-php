@@ -24,7 +24,14 @@ abstract class BaseEndpoint
     {
         $request = $this->getCreateRequest();
 
-        $request->body()->merge($data);
+        // Use setEncapsulatedData if the method exists, otherwise fall back to merge
+        /** @var object $request */
+        if (method_exists($request, 'setEncapsulatedData')) {
+            /** @var BaseJsonPostRequest|BaseJsonPatchRequest $request */
+            $request->setEncapsulatedData($data);
+        } else {
+            $request->body()->merge($data);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

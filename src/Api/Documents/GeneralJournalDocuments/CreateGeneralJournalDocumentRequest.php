@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Documents\GeneralJournalDocuments;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class CreateGeneralJournalDocumentRequest extends BaseJsonPostRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $generalJournalDocumentData
      */
@@ -30,8 +33,16 @@ class CreateGeneralJournalDocumentRequest extends BaseJsonPostRequest
 
     protected function defaultBody(): array
     {
-        return [
-            'general_journal_document' => $this->generalJournalDocumentData,
-        ];
+        return $this->encapsulateData($this->generalJournalDocumentData);
+    }
+
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within a 'general_journal_document' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'general_journal_document';
     }
 }

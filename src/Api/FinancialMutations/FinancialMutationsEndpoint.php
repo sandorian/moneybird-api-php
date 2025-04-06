@@ -65,6 +65,9 @@ class FinancialMutationsEndpoint extends BaseEndpoint
     public function update(string $financialMutationId, array $body): FinancialMutation
     {
         $request = new UpdateFinancialMutationRequest($financialMutationId, $body);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($body);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -75,6 +78,9 @@ class FinancialMutationsEndpoint extends BaseEndpoint
     public function linkBooking(string $financialMutationId, array $body): FinancialMutation
     {
         $request = new LinkBookingToFinancialMutationRequest($financialMutationId, $body);
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($body);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

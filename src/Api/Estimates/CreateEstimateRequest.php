@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Estimates;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class CreateEstimateRequest extends BaseJsonPostRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $estimateData
      */
@@ -30,8 +33,16 @@ class CreateEstimateRequest extends BaseJsonPostRequest
 
     protected function defaultBody(): array
     {
-        return [
-            'estimate' => $this->estimateData,
-        ];
+        return $this->encapsulateData($this->estimateData);
+    }
+
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within an 'estimate' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'estimate';
     }
 }

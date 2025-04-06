@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Tests\Api\Contacts;
 
 use Saloon\Http\Faking\MockResponse;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
+use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
 use Sandorian\Moneybird\Api\Contacts\Contact;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\ContactPerson;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\CreateContactPersonRequest;
@@ -27,15 +30,12 @@ use Sandorian\Moneybird\Api\Contacts\Notes\DeleteNoteRequest;
 use Sandorian\Moneybird\Api\Contacts\Notes\Note;
 use Sandorian\Moneybird\Api\Contacts\SynchronizeContactsRequest;
 use Sandorian\Moneybird\Api\Contacts\UpdateContactRequest;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\CreateUsageChargeRequest;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\GetUsageChargesRequest;
-use Sandorian\Moneybird\Api\Contacts\UsageCharges\UsageCharge;
 use Sandorian\Moneybird\Api\Support\MoneybirdPaginator;
 use Sandorian\Moneybird\Tests\Api\BaseTestCase;
+use Sandorian\Moneybird\Tests\Api\Contacts\AdditionalCharges\AdditionalChargesResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\ContactPeople\ContactPeopleResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\MbPaymentsMandate\MbPaymentsMandateResponseStub;
 use Sandorian\Moneybird\Tests\Api\Contacts\Notes\NotesResponseStub;
-use Sandorian\Moneybird\Tests\Api\Contacts\UsageCharges\UsageChargesResponseStub;
 
 class ContactsEndpointTest extends BaseTestCase
 {
@@ -123,7 +123,7 @@ class ContactsEndpointTest extends BaseTestCase
 
         $mockClient = $moneybird->getMockClient();
 
-        $this->assertSentOnce($mockClient, $payload);
+        $this->assertSentOnce($mockClient, ['contact' => $payload]);
         $this->assertInstanceOf(Contact::class, $contact);
         $this->assertEquals('419889276175517682', $contact->id);
         $this->assertEquals('Sandorian Consultancy B.V.', $contact->company_name);
@@ -142,8 +142,9 @@ class ContactsEndpointTest extends BaseTestCase
         $contact = $moneybird->contacts()->update('419889276175517682', $payload);
 
         $mockClient = $moneybird->getMockClient();
-        $mockClient->assertSent(function ($request) {
-            return $request instanceof UpdateContactRequest;
+        $mockClient->assertSent(function ($request) use ($payload) {
+            return $request instanceof UpdateContactRequest
+                && $request->body()->all() === ['contact' => $payload];
         });
         $this->assertInstanceOf(Contact::class, $contact);
         $this->assertEquals('419889276175517682', $contact->id);
@@ -170,46 +171,46 @@ class ContactsEndpointTest extends BaseTestCase
         $this->assertEquals(0, $paginator->getCurrentPage());
     }
 
-    // ========== Usage Charges Tests ==========
+    // ========== Additional Charges Tests ==========
 
-    public function test_create_usage_charge(): void
+    public function test_create_additional_charge(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
-            CreateUsageChargeRequest::class => MockResponse::make(UsageChargesResponseStub::create()),
+            CreateAdditionalChargeRequest::class => MockResponse::make(AdditionalChargesResponseStub::create()),
         ]);
 
-        $usageCharge = $moneybird->contacts()->createUsageCharge('987654321', [
-            'description' => 'Test Usage Charge',
+        $additionalCharge = $moneybird->contacts()->createAdditionalCharge('987654321', [
+            'description' => 'Test Additional Charge',
             'price' => '10.00',
             'period' => 'monthly',
         ]);
 
-        $this->assertInstanceOf(UsageCharge::class, $usageCharge);
-        $this->assertEquals('123456789', $usageCharge->id);
-        $this->assertEquals('987654321', $usageCharge->contact_id);
-        $this->assertEquals('Test Usage Charge', $usageCharge->description);
-        $this->assertEquals('10.00', $usageCharge->price);
-        $this->assertEquals('monthly', $usageCharge->period);
+        $this->assertInstanceOf(AdditionalCharge::class, $additionalCharge);
+        $this->assertEquals('123456789', $additionalCharge->id);
+        $this->assertEquals('987654321', $additionalCharge->contact_id);
+        $this->assertEquals('Test Additional Charge', $additionalCharge->description);
+        $this->assertEquals('10.00', $additionalCharge->price);
+        $this->assertEquals('monthly', $additionalCharge->period);
     }
 
-    public function test_get_usage_charges(): void
+    public function test_get_additional_charges(): void
     {
         $moneybird = $this->getMoneybirdClientWithMocks([
-            GetUsageChargesRequest::class => MockResponse::make(UsageChargesResponseStub::getAll()),
+            GetAdditionalChargesRequest::class => MockResponse::make(AdditionalChargesResponseStub::getAll()),
         ]);
 
-        $usageCharges = $moneybird->contacts()->getUsageCharges('987654321');
+        $additionalCharges = $moneybird->contacts()->getAdditionalCharges('987654321');
 
-        $this->assertIsArray($usageCharges);
-        $this->assertCount(2, $usageCharges);
-        $this->assertInstanceOf(UsageCharge::class, $usageCharges[0]);
-        $this->assertEquals('123456789', $usageCharges[0]->id);
-        $this->assertEquals('987654321', $usageCharges[0]->contact_id);
-        $this->assertEquals('Test Usage Charge', $usageCharges[0]->description);
-        $this->assertEquals('10.00', $usageCharges[0]->price);
-        $this->assertEquals('monthly', $usageCharges[0]->period);
-        $this->assertEquals('987654321', $usageCharges[1]->id);
-        $this->assertEquals('Another Usage Charge', $usageCharges[1]->description);
+        $this->assertIsArray($additionalCharges);
+        $this->assertCount(2, $additionalCharges);
+        $this->assertInstanceOf(AdditionalCharge::class, $additionalCharges[0]);
+        $this->assertEquals('123456789', $additionalCharges[0]->id);
+        $this->assertEquals('987654321', $additionalCharges[0]->contact_id);
+        $this->assertEquals('Test Additional Charge', $additionalCharges[0]->description);
+        $this->assertEquals('10.00', $additionalCharges[0]->price);
+        $this->assertEquals('monthly', $additionalCharges[0]->period);
+        $this->assertEquals('987654321', $additionalCharges[1]->id);
+        $this->assertEquals('Another Additional Charge', $additionalCharges[1]->description);
     }
 
     // ========== Notes Tests ==========

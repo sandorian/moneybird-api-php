@@ -16,8 +16,8 @@ This document tracks the implementation progress of all Moneybird API endpoints 
 9. [x] POST /contacts - Create a new contact
 10. [x] PATCH /contacts/{id} - Update a contact
 11. [x] DELETE /contacts/{id} - Delete a contact
-12. [x] POST /contacts/{id}/usage_charges - Create an additional charge to be invoiced at start of next period
-13. [x] GET /contacts/{id}/usage_charges - Get additional charges
+12. [x] POST /contacts/{id}/additional_charges - Create an additional charge to be invoiced at start of next period
+13. [x] GET /contacts/{id}/additional_charges - Get additional charges
 14. [x] POST /contacts/{id}/notes - Adds note to entity
 15. [x] DELETE /contacts/{id}/notes/{note_id} - Destroys note from entity
 16. [x] GET /contacts/{id}/contact_people/{contact_person_id} - Get contact person

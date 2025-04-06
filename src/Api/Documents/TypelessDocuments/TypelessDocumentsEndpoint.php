@@ -66,6 +66,12 @@ class TypelessDocumentsEndpoint extends BaseEndpoint
     {
         $request = new CreateTypelessDocumentRequest($typelessDocumentData);
 
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($typelessDocumentData);
+        } else {
+            $request->body()->merge($typelessDocumentData);
+        }
+
         return $this->client->send($request)->dtoOrFail();
     }
 
@@ -75,6 +81,12 @@ class TypelessDocumentsEndpoint extends BaseEndpoint
     public function update(string $typelessDocumentId, array $typelessDocumentData): TypelessDocument
     {
         $request = new UpdateTypelessDocumentRequest($typelessDocumentId, $typelessDocumentData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($typelessDocumentData);
+        } else {
+            $request->body()->merge($typelessDocumentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -92,6 +104,12 @@ class TypelessDocumentsEndpoint extends BaseEndpoint
     public function createAttachment(string $typelessDocumentId, array $attachmentData): array
     {
         $request = new CreateTypelessDocumentAttachmentRequest($typelessDocumentId, $attachmentData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($attachmentData);
+        } else {
+            $request->body()->merge($attachmentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

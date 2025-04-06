@@ -66,6 +66,12 @@ class GeneralDocumentsEndpoint extends BaseEndpoint
     {
         $request = new CreateGeneralDocumentRequest($generalDocumentData);
 
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($generalDocumentData);
+        } else {
+            $request->body()->merge($generalDocumentData);
+        }
+
         return $this->client->send($request)->dtoOrFail();
     }
 
@@ -75,6 +81,12 @@ class GeneralDocumentsEndpoint extends BaseEndpoint
     public function update(string $generalDocumentId, array $generalDocumentData): GeneralDocument
     {
         $request = new UpdateGeneralDocumentRequest($generalDocumentId, $generalDocumentData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($generalDocumentData);
+        } else {
+            $request->body()->merge($generalDocumentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -92,6 +104,12 @@ class GeneralDocumentsEndpoint extends BaseEndpoint
     public function createAttachment(string $generalDocumentId, array $attachmentData): array
     {
         $request = new CreateGeneralDocumentAttachmentRequest($generalDocumentId, $attachmentData);
+
+        if (method_exists($request, 'setEncapsulatedData')) {
+            $request->setEncapsulatedData($attachmentData);
+        } else {
+            $request->body()->merge($attachmentData);
+        }
 
         return $this->client->send($request)->dtoOrFail();
     }

@@ -6,9 +6,12 @@ namespace Sandorian\Moneybird\Api\Documents\GeneralDocuments;
 
 use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
 class CreateGeneralDocumentAttachmentRequest extends BaseJsonPostRequest
 {
+    use EncapsulatesData;
+
     /**
      * @param  array<string, mixed>  $attachmentData
      */
@@ -29,10 +32,18 @@ class CreateGeneralDocumentAttachmentRequest extends BaseJsonPostRequest
         return $response->json();
     }
 
+    /**
+     * Get the resource key for encapsulation
+     *
+     * The Moneybird API requires data to be encapsulated within a 'attachment' key
+     */
+    protected function getResourceKey(): string
+    {
+        return 'attachment';
+    }
+
     protected function defaultBody(): array
     {
-        return [
-            'attachment' => $this->attachmentData,
-        ];
+        return $this->encapsulateData($this->attachmentData);
     }
 }
