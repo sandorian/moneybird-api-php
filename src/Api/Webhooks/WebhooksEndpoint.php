@@ -13,9 +13,6 @@ class WebhooksEndpoint extends BaseEndpoint
 {
     protected function getCreateRequest(array $data = []): CreateWebhookRequest
     {
-        $request = new CreateWebhookRequest;
-        $request->setEncapsulatedData($data);
-
-        return $request;
+        return new CreateWebhookRequest($data);
     }
 }

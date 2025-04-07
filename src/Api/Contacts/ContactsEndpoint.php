@@ -163,8 +163,7 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function createMbPaymentsMandateUrl(string $contactId, array $data = []): MbPaymentsMandateUrl
     {
-        $request = new CreateMbPaymentsMandateUrlRequest($contactId);
-        $request->setEncapsulatedData($data);
+        $request = new CreateMbPaymentsMandateUrlRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -178,10 +177,7 @@ class ContactsEndpoint extends BaseEndpoint
 
     protected function getCreateRequest(array $data = []): CreateContactRequest
     {
-        $request = new CreateContactRequest;
-        $request->setEncapsulatedData($data);
-
-        return $request;
+        return new CreateContactRequest($data);
     }
 
     protected function getPaginateRequest(): GetContactsPageRequest
