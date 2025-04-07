@@ -14,11 +14,6 @@ class ExternalSalesInvoicesEndpoint extends BaseEndpoint
     public function create(array $data): ExternalSalesInvoice
     {
         $request = new CreateExternalSalesInvoiceRequest($data);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -40,11 +35,6 @@ class ExternalSalesInvoicesEndpoint extends BaseEndpoint
     public function update(string $id, array $data): ExternalSalesInvoice
     {
         $request = new UpdateExternalSalesInvoiceRequest($id, $data);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }

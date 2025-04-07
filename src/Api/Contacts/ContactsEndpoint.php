@@ -86,11 +86,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function createAdditionalCharge(string $contactId, array $data): AdditionalCharge
     {
         $request = new CreateAdditionalChargeRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -110,11 +106,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function createNote(string $contactId, array $data): Note
     {
         $request = new CreateNoteRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -138,11 +130,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function createContactPerson(string $contactId, array $data): ContactPerson
     {
         $request = new CreateContactPersonRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -150,11 +138,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function updateContactPerson(string $contactId, string $contactPersonId, array $data): ContactPerson
     {
         $request = new UpdateContactPersonRequest($contactId, $contactPersonId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -178,13 +162,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function createMbPaymentsMandate(string $contactId, array $data = []): MbPaymentsMandate
     {
         $request = new CreateMbPaymentsMandateRequest($contactId);
-        if (! empty($data)) {
-            if (method_exists($request, 'setEncapsulatedData')) {
-                $request->setEncapsulatedData($data);
-            } else {
-                $request->body()->merge($data);
-            }
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -192,13 +170,7 @@ class ContactsEndpoint extends BaseEndpoint
     public function createMbPaymentsMandateUrl(string $contactId, array $data = []): MbPaymentsMandateUrl
     {
         $request = new CreateMbPaymentsMandateUrlRequest($contactId);
-        if (! empty($data)) {
-            if (method_exists($request, 'setEncapsulatedData')) {
-                $request->setEncapsulatedData($data);
-            } else {
-                $request->body()->merge($data);
-            }
-        }
+        $request->setEncapsulatedData($data);
 
         return $this->client->send($request)->dtoOrFail();
     }
