@@ -12,6 +12,14 @@ class CreateWebhookRequest extends BaseJsonPostRequest
 {
     use EncapsulatesData;
 
+    public function __construct(
+        private readonly array $data = []
+    ) {
+        if (! empty($this->data)) {
+            $this->setEncapsulatedData($this->data);
+        }
+    }
+
     public function resolveEndpoint(): string
     {
         return 'webhooks';

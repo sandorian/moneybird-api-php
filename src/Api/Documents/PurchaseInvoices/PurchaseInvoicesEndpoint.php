@@ -66,12 +66,6 @@ class PurchaseInvoicesEndpoint extends BaseEndpoint
     {
         $request = new CreatePurchaseInvoiceRequest($purchaseInvoiceData);
 
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($purchaseInvoiceData);
-        } else {
-            $request->body()->merge($purchaseInvoiceData);
-        }
-
         return $this->client->send($request)->dtoOrFail();
     }
 
@@ -81,12 +75,6 @@ class PurchaseInvoicesEndpoint extends BaseEndpoint
     public function update(string $purchaseInvoiceId, array $purchaseInvoiceData): PurchaseInvoice
     {
         $request = new UpdatePurchaseInvoiceRequest($purchaseInvoiceId, $purchaseInvoiceData);
-
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($purchaseInvoiceData);
-        } else {
-            $request->body()->merge($purchaseInvoiceData);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -104,12 +92,6 @@ class PurchaseInvoicesEndpoint extends BaseEndpoint
     public function createAttachment(string $purchaseInvoiceId, array $attachmentData): array
     {
         $request = new CreatePurchaseInvoiceAttachmentRequest($purchaseInvoiceId, $attachmentData);
-
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($attachmentData);
-        } else {
-            $request->body()->merge($attachmentData);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }

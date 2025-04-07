@@ -10,8 +10,13 @@ use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
 class UpdateContactRequest extends BaseJsonPatchRequest
 {
     public function __construct(
-        private readonly string $contactId
-    ) {}
+        private readonly string $contactId,
+        private readonly array $data = []
+    ) {
+        if (! empty($this->data)) {
+            $this->setEncapsulatedData($this->data);
+        }
+    }
 
     public function resolveEndpoint(): string
     {

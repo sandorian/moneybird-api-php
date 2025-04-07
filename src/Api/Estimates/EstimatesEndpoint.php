@@ -65,9 +65,6 @@ class EstimatesEndpoint extends BaseEndpoint
     public function create(array $estimateData): Estimate
     {
         $request = new CreateEstimateRequest($estimateData);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($estimateData);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -78,9 +75,6 @@ class EstimatesEndpoint extends BaseEndpoint
     public function update(string $estimateId, array $estimateData): Estimate
     {
         $request = new UpdateEstimateRequest($estimateId, $estimateData);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($estimateData);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }

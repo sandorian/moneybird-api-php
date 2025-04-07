@@ -68,8 +68,7 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function update(string $contactId, array $data): Contact
     {
-        $request = new UpdateContactRequest($contactId);
-        $request->setEncapsulatedData($data);
+        $request = new UpdateContactRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -85,12 +84,7 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function createAdditionalCharge(string $contactId, array $data): AdditionalCharge
     {
-        $request = new CreateAdditionalChargeRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request = new CreateAdditionalChargeRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -109,12 +103,7 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function createNote(string $contactId, array $data): Note
     {
-        $request = new CreateNoteRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request = new CreateNoteRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -137,24 +126,14 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function createContactPerson(string $contactId, array $data): ContactPerson
     {
-        $request = new CreateContactPersonRequest($contactId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request = new CreateContactPersonRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
 
     public function updateContactPerson(string $contactId, string $contactPersonId, array $data): ContactPerson
     {
-        $request = new UpdateContactPersonRequest($contactId, $contactPersonId);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        } else {
-            $request->body()->merge($data);
-        }
+        $request = new UpdateContactPersonRequest($contactId, $contactPersonId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -177,28 +156,14 @@ class ContactsEndpoint extends BaseEndpoint
 
     public function createMbPaymentsMandate(string $contactId, array $data = []): MbPaymentsMandate
     {
-        $request = new CreateMbPaymentsMandateRequest($contactId);
-        if (! empty($data)) {
-            if (method_exists($request, 'setEncapsulatedData')) {
-                $request->setEncapsulatedData($data);
-            } else {
-                $request->body()->merge($data);
-            }
-        }
+        $request = new CreateMbPaymentsMandateRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
 
     public function createMbPaymentsMandateUrl(string $contactId, array $data = []): MbPaymentsMandateUrl
     {
-        $request = new CreateMbPaymentsMandateUrlRequest($contactId);
-        if (! empty($data)) {
-            if (method_exists($request, 'setEncapsulatedData')) {
-                $request->setEncapsulatedData($data);
-            } else {
-                $request->body()->merge($data);
-            }
-        }
+        $request = new CreateMbPaymentsMandateUrlRequest($contactId, $data);
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -210,9 +175,9 @@ class ContactsEndpoint extends BaseEndpoint
         $this->client->send($request);
     }
 
-    protected function getCreateRequest(): CreateContactRequest
+    protected function getCreateRequest(array $data = []): CreateContactRequest
     {
-        return new CreateContactRequest;
+        return new CreateContactRequest($data);
     }
 
     protected function getPaginateRequest(): GetContactsPageRequest

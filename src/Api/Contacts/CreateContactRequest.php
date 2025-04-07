@@ -9,6 +9,14 @@ use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
 
 class CreateContactRequest extends BaseJsonPostRequest
 {
+    public function __construct(
+        private readonly array $data = []
+    ) {
+        if (! empty($this->data)) {
+            $this->setEncapsulatedData($this->data);
+        }
+    }
+
     public function resolveEndpoint(): string
     {
         return 'contacts';
