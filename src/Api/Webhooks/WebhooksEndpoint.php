@@ -11,8 +11,10 @@ use Sandorian\Moneybird\Api\Support\BaseEndpoint;
  */
 class WebhooksEndpoint extends BaseEndpoint
 {
-    protected function getCreateRequest(): CreateWebhookRequest
+    protected function getCreateRequest(array $data = []): CreateWebhookRequest
     {
-        return new CreateWebhookRequest;
+        $request = new CreateWebhookRequest;
+        $request->setEncapsulatedData($data);
+        return $request;
     }
 }

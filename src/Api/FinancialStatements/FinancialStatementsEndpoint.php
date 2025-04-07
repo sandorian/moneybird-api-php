@@ -65,9 +65,6 @@ class FinancialStatementsEndpoint extends BaseEndpoint
     public function create(array $data): FinancialStatement
     {
         $request = new CreateFinancialStatementRequest($data);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }
@@ -78,9 +75,6 @@ class FinancialStatementsEndpoint extends BaseEndpoint
     public function update(string $financialStatementId, array $data): FinancialStatement
     {
         $request = new UpdateFinancialStatementRequest($financialStatementId, $data);
-        if (method_exists($request, 'setEncapsulatedData')) {
-            $request->setEncapsulatedData($data);
-        }
 
         return $this->client->send($request)->dtoOrFail();
     }

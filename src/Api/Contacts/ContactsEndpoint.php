@@ -182,9 +182,11 @@ class ContactsEndpoint extends BaseEndpoint
         $this->client->send($request);
     }
 
-    protected function getCreateRequest(): CreateContactRequest
+    protected function getCreateRequest(array $data = []): CreateContactRequest
     {
-        return new CreateContactRequest;
+        $request = new CreateContactRequest;
+        $request->setEncapsulatedData($data);
+        return $request;
     }
 
     protected function getPaginateRequest(): GetContactsPageRequest
