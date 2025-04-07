@@ -12,8 +12,11 @@ class UpdateContactPersonRequest extends BaseJsonPatchRequest
     public function __construct(
         protected readonly string $contactId,
         protected readonly string $contactPersonId,
+        private readonly array $data = []
     ) {
-        //
+        if (! empty($this->data)) {
+            $this->setEncapsulatedData($this->data);
+        }
     }
 
     public function resolveEndpoint(): string

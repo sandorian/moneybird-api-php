@@ -17,8 +17,11 @@ class CreateMbPaymentsMandateRequest extends BaseJsonPostRequest
      */
     public function __construct(
         protected readonly string $contactId,
+        private readonly array $data = []
     ) {
-        //
+        if (! empty($this->data)) {
+            $this->setEncapsulatedData($this->data);
+        }
     }
 
     public function resolveEndpoint(): string

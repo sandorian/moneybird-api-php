@@ -15,6 +15,7 @@ class WebhooksEndpoint extends BaseEndpoint
     {
         $request = new CreateWebhookRequest;
         $request->setEncapsulatedData($data);
+
         return $request;
     }
 }
