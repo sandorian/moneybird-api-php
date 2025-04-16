@@ -21,6 +21,7 @@
     "require": {
         "php": "^8.2",
         "guzzlehttp/guzzle": "^7.9",
+        "kelunik/link-header-rfc5988": "^1.0",
         "saloonphp/pagination-plugin": "^2.2",
         "saloonphp/saloon": "^3.10"
     },
