@@ -46,6 +46,16 @@ class RecurringSalesInvoicesEndpointTest extends BaseTestCase
         $this->assertSame('REF-001', $recurringSalesInvoices[0]->reference);
     }
 
+    public function test_it_can_get_all_recurring_sales_invoices_paginated(): void
+    {
+        $recurringSalesInvoices = iterator_to_array($this->client->recurringSalesInvoices()->paginate()->items());
+
+        $this->assertCount(1, $recurringSalesInvoices);
+        $this->assertContainsOnlyInstancesOf(RecurringSalesInvoice::class, $recurringSalesInvoices);
+        $this->assertSame('123456789012345678', $recurringSalesInvoices[0]->id);
+        $this->assertSame('REF-001', $recurringSalesInvoices[0]->reference);
+    }
+
     public function test_it_can_get_a_recurring_sales_invoice(): void
     {
         $recurringSalesInvoice = $this->client->recurringSalesInvoices()->get('123456789012345678');

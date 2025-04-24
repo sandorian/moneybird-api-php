@@ -5,9 +5,10 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Api\RecurringSalesInvoices;
 
 use Saloon\Http\Response;
+use Saloon\PaginationPlugin\Contracts\Paginatable;
 use Sandorian\Moneybird\Api\Support\BaseJsonGetRequest;
 
-class GetRecurringSalesInvoicesRequest extends BaseJsonGetRequest
+class GetRecurringSalesInvoicesRequest extends BaseJsonGetRequest implements Paginatable
 {
     public function resolveEndpoint(): string
     {
