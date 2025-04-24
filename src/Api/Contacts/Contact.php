@@ -74,7 +74,7 @@ class Contact extends BaseDto
 
     public ?string $tax_number_validated_at;
 
-    public ?string $tax_number_valid;
+    public ?bool $tax_number_valid;
 
     public ?string $invoice_workflow_id;
 
