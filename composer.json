@@ -23,6 +23,7 @@
         "guzzlehttp/guzzle": "^7.9",
         "kelunik/link-header-rfc5988": "^1.0",
         "saloonphp/pagination-plugin": "^2.2",
+        "saloonphp/rate-limit-plugin": "^2.0",
         "saloonphp/saloon": "^3.10"
     },
     "require-dev": {

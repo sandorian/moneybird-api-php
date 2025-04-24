@@ -9,6 +9,10 @@ use Saloon\Http\Connector;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Contracts\HasPagination;
 use Saloon\PaginationPlugin\Paginator;
+use Saloon\RateLimitPlugin\Contracts\RateLimitStore;
+use Saloon\RateLimitPlugin\Limit;
+use Saloon\RateLimitPlugin\Stores\MemoryStore;
+use Saloon\RateLimitPlugin\Traits\HasRateLimits;
 use Sandorian\Moneybird\Api\Administrations\AdministrationsEndpoint;
 use Sandorian\Moneybird\Api\Contacts\ContactsEndpoint;
 use Sandorian\Moneybird\Api\CustomFields\CustomFieldsEndpoint;
@@ -43,11 +47,13 @@ use Sandorian\Moneybird\Api\Webhooks\WebhooksEndpoint;
 
 class MoneybirdApiClient extends Connector implements HasPagination
 {
+    use HasRateLimits;
+
     public function __construct(
         protected readonly string $key,
         protected readonly string $administrationId,
     ) {
-        //
+        $this->rateLimitStore = new MemoryStore;
     }
 
     public function resolveBaseUrl(): string
@@ -66,6 +72,61 @@ class MoneybirdApiClient extends Connector implements HasPagination
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
         ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function resolveLimits(): array
+    {
+        return [
+            Limit::allow(150)->everyFiveMinutes(),
+        ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function resolveRateLimitStore(): RateLimitStore
+    {
+        return new MemoryStore;
+    }
+
+    /**
+     * Set the rate limit store. By default, it's an in-memory store that gets destroyed when this
+     * MoneybirdApiClient instance is destroyed.
+     *
+     * @return $this
+     */
+    public function setRateLimitStore(RateLimitStore $rateLimitStore): self
+    {
+        $this->rateLimitStore = $rateLimitStore;
+
+        return $this;
+    }
+
+    /**
+     * Disable rate limiting. By default, it's enabled.
+     *
+     * @return $this
+     */
+    public function disableRateLimiting(): self
+    {
+        $this->rateLimitingEnabled = false;
+
+        return $this;
+    }
+
+    /**
+     * Enable rate limiting. By default, it's already enabled.
+     *
+     * @return $this
+     */
+    public function enableRateLimiting(): self
+    {
+        $this->rateLimitingEnabled = true;
+
+        return $this;
     }
 
     public function paginate(Request $request): Paginator
