@@ -37,7 +37,7 @@ class MoneybirdPaginator extends PagedPaginator
 
     protected function getPageItems(Response $response, Request $request): array
     {
-        return $response->json();
+        return $this->request->createDtoFromResponse($response);
     }
 
     protected function parseResponseLinks($rawLinks)
