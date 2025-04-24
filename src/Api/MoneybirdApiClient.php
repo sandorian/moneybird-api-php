@@ -49,7 +49,6 @@ class MoneybirdApiClient extends Connector implements HasPagination
 {
     use HasRateLimits;
 
-
     public function __construct(
         protected readonly string $key,
         protected readonly string $administrationId,
