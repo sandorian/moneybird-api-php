@@ -92,7 +92,7 @@ class SalesInvoice extends BaseDto
 
     public string $total_price_incl_tax_base;
 
-    public string $total_discount;
+    public string|int $total_discount;
 
     public ?string $marked_dubious_on;
 
