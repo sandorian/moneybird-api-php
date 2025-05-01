@@ -15,8 +15,11 @@ class GetTaxRatesPageRequest extends BaseJsonGetRequest implements Paginatable
         return 'tax_rates';
     }
 
-    public function createDtoFromResponse(Response $response): TaxRate
+    public function createDtoFromResponse(Response $response): array
     {
-        return TaxRate::createFromResponseData($response->json());
+        return array_map(
+            fn (array $data) => TaxRate::createFromResponseData($data),
+            $response->json()
+        );
     }
 }
