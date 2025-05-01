@@ -14,7 +14,7 @@ class Contact extends BaseDto
 
     public ?string $firstname;
 
-    public string $lastname;
+    public ?string $lastname;
 
     public ?string $address1;
 
