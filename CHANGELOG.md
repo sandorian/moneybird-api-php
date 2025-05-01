@@ -2,6 +2,19 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.1 - 2025-05-01
+
+Courtesy of @jeffreyvanhees 😎 .
+
+### What's Changed
+
+* Contact's lastname should be nullable by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/32
+* Fix createDtoFromResponse for GetTaxRatesPageRequest.php by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/34
+* Let total_discount of SalesInvoice accept int and string  by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/31
+* Let `tax_number_valid` of Contact accept boolean and string by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/30
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.0...v0.2.1
+
 ## v0.2.0 - 2025-04-28
 
 ### What's Changed
@@ -27,6 +40,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   ```
