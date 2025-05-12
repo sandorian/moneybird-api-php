@@ -32,7 +32,7 @@ class SalesInvoice extends BaseDto
 
     public string $identity_id;
 
-    public int $draft_id;
+    public ?int $draft_id;
 
     public string $state;
 
