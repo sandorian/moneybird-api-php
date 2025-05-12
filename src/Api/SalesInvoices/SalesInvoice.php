@@ -52,7 +52,7 @@ class SalesInvoice extends BaseDto
 
     public string $currency;
 
-    public string $discount;
+    public ?string $discount;
 
     public ?string $original_sales_invoice_id;
 
