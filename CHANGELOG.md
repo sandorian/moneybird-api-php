@@ -2,6 +2,16 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.2 - 2025-11-25
+
+### What's Changed
+
+* Make discount property of sales invoice nullable by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/35
+* Make draft_id property of sales invoice nullable by @jeffreyvanhees in https://github.com/sandorian/moneybird-api-php/pull/36
+* [Fix] Use PATCH method for LinkBookingToFinancialMutationRequest by @jorisvanandel in https://github.com/sandorian/moneybird-api-php/pull/43
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.1...v0.2.2
+
 ## v0.2.1 - 2025-05-01
 
 Courtesy of @jeffreyvanhees 😎 .
@@ -40,6 +50,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
