@@ -72,10 +72,10 @@ class FinancialMutationsEndpoint extends BaseEndpoint
     /**
      * @param  array<string, mixed>  $body
      */
-    public function linkBooking(string $financialMutationId, array $body): FinancialMutation
+    public function linkBooking(string $financialMutationId, array $body): int
     {
         $request = new LinkBookingToFinancialMutationRequest($financialMutationId, $body);
 
-        return $this->client->send($request)->dtoOrFail();
+        return $this->client->send($request)->status();
     }
 }

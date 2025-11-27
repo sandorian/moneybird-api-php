@@ -27,11 +27,6 @@ class LinkBookingToFinancialMutationRequest extends BaseJsonPostRequest
         return 'financial_mutations/'.$this->financialMutationId.'/link_booking';
     }
 
-    public function createDtoFromResponse(Response $response): FinancialMutation
-    {
-        return FinancialMutation::createFromResponseData($response->json());
-    }
-
     protected function defaultBody(): array
     {
         return $this->encapsulateData($this->data);
