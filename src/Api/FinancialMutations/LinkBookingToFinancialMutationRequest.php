@@ -34,16 +34,6 @@ class LinkBookingToFinancialMutationRequest extends BaseJsonPatchRequest
 
     protected function defaultBody(): array
     {
-        return $this->encapsulateData($this->data);
-    }
-
-    /**
-     * Get the resource key for encapsulation
-     *
-     * The Moneybird API requires data to be encapsulated within a 'booking' key
-     */
-    protected function getResourceKey(): string
-    {
-        return 'booking';
+        return $this->data;
     }
 }
