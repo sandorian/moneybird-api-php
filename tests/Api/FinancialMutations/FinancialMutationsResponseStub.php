@@ -109,37 +109,4 @@ class FinancialMutationsResponseStub
             "payments": []
         }';
     }
-
-    public static function linkBooking(): string
-    {
-        return '{
-            "id": "123456789",
-            "administration_id": "123",
-            "financial_account_id": "456789123",
-            "type": "debit",
-            "amount": "100.00",
-            "code": "TRTP",
-            "date": "2023-01-01",
-            "message": "Payment for invoice",
-            "contra_account_name": "Client Company",
-            "contra_account_number": "NL01BANK9876543210",
-            "batch_reference": "BATCH123",
-            "offset_id": null,
-            "sepa_fields": null,
-            "created_at": "2023-01-01T12:00:00.000Z",
-            "updated_at": "2023-01-03T12:00:00.000Z",
-            "ledger_account_bookings": [
-                {
-                    "id": "123456",
-                    "administration_id": "123",
-                    "ledger_account_id": "789456",
-                    "description": "Booking for invoice payment",
-                    "price": "100.00",
-                    "created_at": "2023-01-03T12:00:00.000Z",
-                    "updated_at": "2023-01-03T12:00:00.000Z"
-                }
-            ],
-            "payments": []
-        }';
-    }
 }
