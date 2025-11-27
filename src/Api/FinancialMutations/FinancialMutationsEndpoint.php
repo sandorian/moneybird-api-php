@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\FinancialMutations;
 
+use Saloon\Http\Response;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\Support\BaseEndpoint;
 use Sandorian\Moneybird\Api\Support\IdVersion;
@@ -72,10 +73,10 @@ class FinancialMutationsEndpoint extends BaseEndpoint
     /**
      * @param  array<string, mixed>  $body
      */
-    public function linkBooking(string $financialMutationId, array $body): int
+    public function linkBooking(string $financialMutationId, array $body): Response
     {
         $request = new LinkBookingToFinancialMutationRequest($financialMutationId, $body);
 
-        return $this->client->send($request)->status();
+        return $this->client->send($request);
     }
 }
