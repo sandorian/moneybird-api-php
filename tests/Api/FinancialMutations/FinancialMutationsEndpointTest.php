@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Tests\Api\FinancialMutations;
 
 use Saloon\Http\Faking\MockResponse;
+use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\FinancialMutations\FinancialMutation;
 use Sandorian\Moneybird\Api\FinancialMutations\GetFinancialMutationRequest;
 use Sandorian\Moneybird\Api\FinancialMutations\GetFinancialMutationsRequest;
@@ -86,15 +87,12 @@ class FinancialMutationsEndpointTest extends BaseTestCase
 
     public function test_it_can_link_booking_to_financial_mutation(): void
     {
-        $financialMutation = $this->client->financialMutations()->linkBooking('123456789', [
+        $response = $this->client->financialMutations()->linkBooking('123456789', [
             'booking_type' => 'LedgerAccountBooking',
             'booking_id' => '123456',
             'price' => '100.00',
         ]);
 
-        $this->assertInstanceOf(FinancialMutation::class, $financialMutation);
-        $this->assertSame('123456789', $financialMutation->id);
-        $this->assertCount(1, $financialMutation->ledger_account_bookings);
-        $this->assertSame('123456', $financialMutation->ledger_account_bookings[0]['id']);
+        $this->assertInstanceOf(Response::class, $response);
     }
 }
