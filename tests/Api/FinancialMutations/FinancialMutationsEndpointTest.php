@@ -31,7 +31,7 @@ class FinancialMutationsEndpointTest extends BaseTestCase
             PostFinancialMutationsSynchronizationRequest::class => MockResponse::make(FinancialMutationsResponseStub::getAll(), 200),
             GetFinancialMutationRequest::class => MockResponse::make(FinancialMutationsResponseStub::get(), 200),
             UpdateFinancialMutationRequest::class => MockResponse::make(FinancialMutationsResponseStub::update(), 200),
-            LinkBookingToFinancialMutationRequest::class => MockResponse::make(FinancialMutationsResponseStub::linkBooking(), 200),
+            LinkBookingToFinancialMutationRequest::class => MockResponse::make([], 200),
         ]);
     }
 
