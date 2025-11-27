@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\FinancialMutations;
 
-use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
 use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
