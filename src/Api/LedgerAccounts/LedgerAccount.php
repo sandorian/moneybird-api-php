@@ -15,7 +15,7 @@ class LedgerAccount extends BaseDto
         public readonly ?string $account_type = null,
         public readonly ?string $account_id = null,
         public readonly ?bool $parent = null,
-        public readonly ?bool $allowed_document_types = null,
+        public readonly ?array $allowed_document_types = null,
         public readonly ?string $description = null,
         public readonly ?string $created_at = null,
         public readonly ?string $updated_at = null,
