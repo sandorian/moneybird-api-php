@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\FinancialMutations;
 
-use Saloon\Http\Response;
 use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
 use Sandorian\Moneybird\Api\Support\EncapsulatesData;
 
@@ -25,11 +24,6 @@ class LinkBookingToFinancialMutationRequest extends BaseJsonPatchRequest
     public function resolveEndpoint(): string
     {
         return 'financial_mutations/'.$this->financialMutationId.'/link_booking';
-    }
-
-    public function createDtoFromResponse(Response $response): FinancialMutation
-    {
-        return FinancialMutation::createFromResponseData($response->json());
     }
 
     protected function defaultBody(): array
