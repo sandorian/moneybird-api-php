@@ -46,7 +46,7 @@ class SalesInvoice extends BaseDto
 
     public ?string $short_payment_reference;
 
-    public string $reference;
+    public ?string $reference;
 
     public string $language;
 
