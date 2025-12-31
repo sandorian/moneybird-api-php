@@ -4,25 +4,22 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Tests\Api\CustomFields;
 
-use PHPUnit\Framework\TestCase;
-use Saloon\Http\Faking\MockClient;
 use Saloon\Http\Faking\MockResponse;
 use Sandorian\Moneybird\Api\CustomFields\CustomField;
 use Sandorian\Moneybird\Api\CustomFields\GetCustomFieldRequest;
 use Sandorian\Moneybird\Api\CustomFields\GetCustomFieldsRequest;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
+use Sandorian\Moneybird\Tests\Api\BaseTestCase;
 
-class CustomFieldsEndpointTest extends TestCase
+class CustomFieldsEndpointTest extends BaseTestCase
 {
     private MoneybirdApiClient $client;
-
-    private MockClient $mockClient;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->mockClient = new MockClient([
+        $this->client = $this->getMoneybirdClientWithMocks([
             GetCustomFieldsRequest::class => MockResponse::make(
                 CustomFieldsResponseStub::getAll(),
                 200
@@ -32,9 +29,6 @@ class CustomFieldsEndpointTest extends TestCase
                 200
             ),
         ]);
-
-        $this->client = new MoneybirdApiClient('test-token', 'test-administration-id');
-        $this->client->withMockClient($this->mockClient);
     }
 
     public function test_it_can_get_all_custom_fields(): void

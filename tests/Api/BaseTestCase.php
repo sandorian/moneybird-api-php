@@ -34,10 +34,10 @@ abstract class BaseTestCase extends TestCase
 
     protected function getMoneybirdClient()
     {
-        return new MoneybirdApiClient(
+        return (new MoneybirdApiClient(
             key: self::MONEYBIRD_KEY,
             administrationId: self::MONEYBIRD_ADMINISTRATION_ID
-        );
+        ))->disableRateLimiting();
     }
 
     protected function assertSentOnce(MockClient $mockClient, array $payload): void
