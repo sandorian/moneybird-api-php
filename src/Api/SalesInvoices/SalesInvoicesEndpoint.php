@@ -105,9 +105,12 @@ class SalesInvoicesEndpoint extends BaseEndpoint
         $this->client->send($request);
     }
 
-    public function sendEmail(string $salesInvoiceId): SalesInvoice
+    /**
+     * @param  array<string, mixed>  $sendingData  Optional data like delivery_method, email_address, email_message
+     */
+    public function sendEmail(string $salesInvoiceId, array $sendingData = []): SalesInvoice
     {
-        $request = new SendSalesInvoiceEmailRequest($salesInvoiceId);
+        $request = new SendSalesInvoiceEmailRequest($salesInvoiceId, $sendingData);
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);
@@ -201,9 +204,12 @@ class SalesInvoicesEndpoint extends BaseEndpoint
         return $request->createDtoFromResponse($response);
     }
 
-    public function markAsUncollectible(string $salesInvoiceId): SalesInvoice
+    /**
+     * @param  array<string, mixed>  $data  Optional: uncollectible_date, book_method
+     */
+    public function markAsUncollectible(string $salesInvoiceId, array $data = []): SalesInvoice
     {
-        $request = new MarkSalesInvoiceAsUncollectibleRequest($salesInvoiceId);
+        $request = new MarkSalesInvoiceAsUncollectibleRequest($salesInvoiceId, $data);
         $response = $this->client->send($request);
 
         return $request->createDtoFromResponse($response);

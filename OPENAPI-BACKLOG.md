@@ -18,60 +18,17 @@ This document tracks the differences between this PHP library and the official M
 
 ---
 
-## 🐛 Incorrect Implementations (Bugs)
+## ✅ Fixed Bugs (Previously Incorrect)
 
-These existing implementations don't match the OpenAPI spec and may fail.
+The following bugs have been fixed:
 
-### Sales Invoices
-
-#### `SendSalesInvoiceEmailRequest`
-**File:** `src/Api/SalesInvoices/SendSalesInvoiceEmailRequest.php`
-
-| Issue | Current | Should Be |
-|-------|---------|-----------|
-| HTTP Method | POST | **PATCH** |
-| Endpoint | `send_email` | **`send_invoice`** |
-
----
-
-#### `DuplicateSalesInvoiceToCreditInvoiceRequest`
-**File:** `src/Api/SalesInvoices/DuplicateSalesInvoiceToCreditInvoiceRequest.php`
-
-| Issue | Current | Should Be |
-|-------|---------|-----------|
-| HTTP Method | POST | **PATCH** |
-
----
-
-#### `MarkSalesInvoiceAsUncollectibleRequest`
-**File:** `src/Api/SalesInvoices/MarkSalesInvoiceAsUncollectibleRequest.php`
-
-| Issue | Current | Should Be |
-|-------|---------|-----------|
-| HTTP Method | POST | **PATCH** |
-
----
-
-### Estimates
-
-#### `SendEstimateEmailRequest`
-**File:** `src/Api/Estimates/SendEstimateEmailRequest.php`
-
-| Issue | Current | Should Be |
-|-------|---------|-----------|
-| HTTP Method | POST | **PATCH** |
-| Endpoint | `send_email` | **`send_estimate`** |
-
-Body wrapper `estimate_sending` is correct.
-
----
-
-#### `ChangeEstimateStateRequest`
-**File:** `src/Api/Estimates/ChangeEstimateStateRequest.php`
-
-| Issue | Current | Should Be |
-|-------|---------|-----------|
-| State parameter | URL path (`/change_state/{state}`) | **Request body** (`{"state": "value"}`) |
+| Request | Fix Applied |
+|---------|-------------|
+| `SendSalesInvoiceEmailRequest` | POST→PATCH, endpoint `send_email`→`send_invoice` |
+| `SendEstimateEmailRequest` | POST→PATCH, endpoint `send_email`→`send_estimate` |
+| `DuplicateSalesInvoiceToCreditInvoiceRequest` | POST→PATCH |
+| `MarkSalesInvoiceAsUncollectibleRequest` | POST→PATCH |
+| `ChangeEstimateStateRequest` | State moved from URL path to request body |
 
 ---
 
@@ -294,10 +251,11 @@ These match the OpenAPI spec:
 
 ## Summary of Issues
 
-### Critical (Will Fail)
-1. 5 requests use wrong HTTP method (POST instead of PATCH)
-2. 2 requests use wrong endpoint names (send_email vs send_invoice/send_estimate)
-3. 1 request sends state in URL instead of body
+### ✅ Fixed
+All critical bugs have been fixed:
+- 5 requests now use correct HTTP method (PATCH)
+- 2 requests now use correct endpoint names
+- 1 request now sends state in body instead of URL
 
 ### Undocumented (May or May Not Work)
 1. 5 sales invoice mark_as_* endpoints not in spec
@@ -315,5 +273,4 @@ These match the OpenAPI spec:
 ## Notes
 
 - The OpenAPI spec uses `{format}` suffix (e.g., `.json`), but this library uses headers
-- HTTP method differences (POST vs PATCH) may work on lenient servers but should be fixed
 - Undocumented endpoints should be tested against the live API before removal

@@ -5,12 +5,16 @@ declare(strict_types=1);
 namespace Sandorian\Moneybird\Api\SalesInvoices;
 
 use Saloon\Http\Response;
-use Sandorian\Moneybird\Api\Support\BaseJsonPostRequest;
+use Sandorian\Moneybird\Api\Support\BaseJsonPatchRequest;
 
-class MarkSalesInvoiceAsUncollectibleRequest extends BaseJsonPostRequest
+class MarkSalesInvoiceAsUncollectibleRequest extends BaseJsonPatchRequest
 {
+    /**
+     * @param  array<string, mixed>  $data  Optional: uncollectible_date, book_method
+     */
     public function __construct(
         protected readonly string $salesInvoiceId,
+        protected readonly array $data = [],
     ) {
         //
     }
@@ -23,5 +27,10 @@ class MarkSalesInvoiceAsUncollectibleRequest extends BaseJsonPostRequest
     public function createDtoFromResponse(Response $response): SalesInvoice
     {
         return SalesInvoice::createFromResponseData($response->json());
+    }
+
+    protected function defaultBody(): array
+    {
+        return $this->data;
     }
 }
