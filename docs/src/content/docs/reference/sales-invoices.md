@@ -99,10 +99,20 @@ $client->salesInvoices()->delete('123456789');
 
 #### Send Email
 
-Send the sales invoice by email.
+Send the sales invoice by email. You can optionally provide sending options.
 
 ```php
+// Send with default settings
 $salesInvoice = $client->salesInvoices()->sendEmail('123456789');
+
+// Send with custom options
+$sendingData = [
+    'delivery_method' => 'Email',
+    'email_address' => 'customer@example.com',
+    'email_message' => 'Please find your invoice attached.',
+];
+
+$salesInvoice = $client->salesInvoices()->sendEmail('123456789', $sendingData);
 ```
 
 #### Get Email Template
@@ -181,10 +191,19 @@ $salesInvoice = $client->salesInvoices()->markAsPaid('123456789');
 
 #### Mark as Uncollectible
 
-Mark a sales invoice as uncollectible.
+Mark a sales invoice as uncollectible. You can optionally provide a date and booking method.
 
 ```php
+// Mark as uncollectible with defaults
 $salesInvoice = $client->salesInvoices()->markAsUncollectible('123456789');
+
+// Mark as uncollectible with options
+$data = [
+    'uncollectible_date' => '2025-01-15',
+    'book_method' => 'revenue',
+];
+
+$salesInvoice = $client->salesInvoices()->markAsUncollectible('123456789', $data);
 ```
 
 #### Mark as Published
