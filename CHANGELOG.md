@@ -2,6 +2,14 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.5 - 2026-01-07
+
+### What's Changed
+
+* Fix GitHub Actions workflow failure by @sandervanhooft in https://github.com/sandorian/moneybird-api-php/pull/50
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.4...v0.2.5
+
 ## v0.2.4 - 2026-01-07
 
 ### What's Changed
@@ -73,6 +81,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
