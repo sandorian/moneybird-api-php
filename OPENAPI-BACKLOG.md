@@ -19,7 +19,7 @@ This document tracks the differences between this PHP library and the official M
 
 ## 🐛 Incorrect Implementations (Bugs)
 
-These are existing implementations that don't match the OpenAPI spec and will fail or behave incorrectly.
+These are existing implementations that don't match the OpenAPI spec and may fail or behave incorrectly.
 
 ### Sales Invoices
 
@@ -66,9 +66,8 @@ These are existing implementations that don't match the OpenAPI spec and will fa
 |-------|---------|-----------|
 | HTTP Method | POST | **PATCH** |
 | Endpoint | `send_email` | **`send_estimate`** |
-| Body wrapper | `estimate_sending` | **`sales_invoice_sending`** |
 
-**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `estimates/{id}/send_estimate`
+**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `estimates/{id}/send_estimate`. Body wrapper `estimate_sending` is correct.
 
 ---
 
@@ -80,6 +79,29 @@ These are existing implementations that don't match the OpenAPI spec and will fa
 | State parameter | URL path (`/change_state/{state}`) | **Request body** (`{"state": "value"}`) |
 
 **Fix:** Remove `{state}` from URL path. Send state in request body as `{"state": "accepted"}` etc.
+
+---
+
+## ⚠️ Endpoints Not in OpenAPI Spec
+
+These endpoints are implemented but **do not appear in the official OpenAPI spec**. They may be undocumented legacy endpoints, or they may not work at all. Needs verification against the live API.
+
+### Sales Invoices
+
+| File | Endpoint | Status |
+|------|----------|--------|
+| `MarkSalesInvoiceAsSentRequest.php` | `mark_as_sent` | ❓ Not in spec |
+| `MarkSalesInvoiceAsPaidRequest.php` | `mark_as_paid` | ❓ Not in spec |
+| `MarkSalesInvoiceAsAcceptedRequest.php` | `mark_as_accepted` | ❓ Not in spec |
+| `MarkSalesInvoiceAsPublishedRequest.php` | `mark_as_published` | ❓ Not in spec |
+| `MarkSalesInvoiceAsUnpublishedRequest.php` | `mark_as_unpublished` | ❓ Not in spec |
+
+**Note:** The OpenAPI spec only documents `mark_as_dubious` and `mark_as_uncollectible` for sales invoices. The above endpoints may be:
+1. Undocumented but functional
+2. Deprecated and scheduled for removal
+3. Non-functional
+
+**Action:** Test against live API to determine status.
 
 ---
 
