@@ -2,6 +2,21 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.4 - 2026-01-07
+
+### What's Changed
+
+* Fix make SalesInvoice.reference nullable (according to api docs) by @robindirksen1 in https://github.com/sandorian/moneybird-api-php/pull/48
+* allowed_document_types is array instead of bool in LedgerAccount by @robindirksen1 in https://github.com/sandorian/moneybird-api-php/pull/47
+* Fix: LinkBookingToFinancialMutationRequest doesn't return resource by @jorisvanandel in https://github.com/sandorian/moneybird-api-php/pull/46
+* Bump dependabot/fetch-metadata from 2.4.0 to 2.5.0 by @dependabot[bot] in https://github.com/sandorian/moneybird-api-php/pull/49
+
+### New Contributors
+
+* @robindirksen1 made their first contribution in https://github.com/sandorian/moneybird-api-php/pull/48
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.3...v0.2.4
+
 ## v0.2.3 - 2025-11-27
 
 ### What's Changed
@@ -58,6 +73,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
