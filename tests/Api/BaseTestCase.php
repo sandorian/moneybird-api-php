@@ -27,6 +27,7 @@ abstract class BaseTestCase extends TestCase
     {
         return $this
             ->getMoneybirdClient()
+            ->disableRateLimiting()
             ->withMockClient(
                 mockClient: new MockClient(mockData: $mocks)
             );
