@@ -11,15 +11,16 @@ This document tracks the differences between this PHP library and the official M
 ## Legend
 
 - 🐛 **Incorrect Implementation** - Bug that needs fixing
-- ❌ **Not Implemented** - Entire resource missing
+- ❓ **Not in Spec** - Implemented but not in OpenAPI spec (may be undocumented/legacy)
+- ❌ **Not Implemented** - Entire resource missing from library
 - ⚠️ **Partially Implemented** - Some methods/endpoints missing
-- ✅ **Implemented** - Fully matches OpenAPI spec
+- ✅ **Fully Implemented** - Matches OpenAPI spec
 
 ---
 
 ## 🐛 Incorrect Implementations (Bugs)
 
-These are existing implementations that don't match the OpenAPI spec and may fail or behave incorrectly.
+These existing implementations don't match the OpenAPI spec and may fail.
 
 ### Sales Invoices
 
@@ -31,8 +32,6 @@ These are existing implementations that don't match the OpenAPI spec and may fai
 | HTTP Method | POST | **PATCH** |
 | Endpoint | `send_email` | **`send_invoice`** |
 
-**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `sales_invoices/{id}/send_invoice`
-
 ---
 
 #### `DuplicateSalesInvoiceToCreditInvoiceRequest`
@@ -42,8 +41,6 @@ These are existing implementations that don't match the OpenAPI spec and may fai
 |-------|---------|-----------|
 | HTTP Method | POST | **PATCH** |
 
-**Fix:** Change to `BaseJsonPatchRequest`
-
 ---
 
 #### `MarkSalesInvoiceAsUncollectibleRequest`
@@ -52,8 +49,6 @@ These are existing implementations that don't match the OpenAPI spec and may fai
 | Issue | Current | Should Be |
 |-------|---------|-----------|
 | HTTP Method | POST | **PATCH** |
-
-**Fix:** Change to `BaseJsonPatchRequest`
 
 ---
 
@@ -67,7 +62,7 @@ These are existing implementations that don't match the OpenAPI spec and may fai
 | HTTP Method | POST | **PATCH** |
 | Endpoint | `send_email` | **`send_estimate`** |
 
-**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `estimates/{id}/send_estimate`. Body wrapper `estimate_sending` is correct.
+Body wrapper `estimate_sending` is correct.
 
 ---
 
@@ -78,15 +73,13 @@ These are existing implementations that don't match the OpenAPI spec and may fai
 |-------|---------|-----------|
 | State parameter | URL path (`/change_state/{state}`) | **Request body** (`{"state": "value"}`) |
 
-**Fix:** Remove `{state}` from URL path. Send state in request body as `{"state": "accepted"}` etc.
-
 ---
 
-## ⚠️ Endpoints Not in OpenAPI Spec
+## ❓ Endpoints/Methods Not in OpenAPI Spec
 
-These endpoints are implemented but **do not appear in the official OpenAPI spec**. They may be undocumented legacy endpoints, or they may not work at all. Needs verification against the live API.
+These are implemented but **do not appear in the official OpenAPI spec**. They may be undocumented legacy endpoints that work, or they may not work at all. **Needs verification against the live API.**
 
-### Sales Invoices
+### Sales Invoices - Status Change Endpoints
 
 | File | Endpoint | Status |
 |------|----------|--------|
@@ -96,277 +89,231 @@ These endpoints are implemented but **do not appear in the official OpenAPI spec
 | `MarkSalesInvoiceAsPublishedRequest.php` | `mark_as_published` | ❓ Not in spec |
 | `MarkSalesInvoiceAsUnpublishedRequest.php` | `mark_as_unpublished` | ❓ Not in spec |
 
-**Note:** The OpenAPI spec only documents `mark_as_dubious` and `mark_as_uncollectible` for sales invoices. The above endpoints may be:
-1. Undocumented but functional
-2. Deprecated and scheduled for removal
-3. Non-functional
-
-**Action:** Test against live API to determine status.
+**Note:** The spec only documents `mark_as_dubious` and `mark_as_uncollectible`.
 
 ---
 
-## Missing Resources (Not Implemented)
+### Synchronization Endpoints Not in Spec
 
-### ❌ Assets
+These resources have synchronization methods implemented, but the OpenAPI spec does NOT include sync endpoints for them:
+
+| Resource | Methods in Codebase | In Spec? |
+|----------|---------------------|----------|
+| Products | `synchronization()`, `synchronize()` | ❌ No |
+| Financial Statements | `synchronization()`, `synchronize()` | ❌ No |
+| External Sales Invoices | `getSynchronization()`, `synchronize()` | ❌ No |
+
+---
+
+### Financial Statements - Extra Methods
+
+The OpenAPI spec only supports:
+- `POST /financial_statements` (create)
+- `PATCH /financial_statements/{id}` (update)
+- `DELETE /financial_statements/{id}` (delete)
+
+But the codebase also has:
+- `paginate()`, `all()` - **Not in spec** (no GET list endpoint)
+- `get()` - **Not in spec** (no GET by ID endpoint)
+- `synchronization()`, `synchronize()` - **Not in spec**
+
+---
+
+### Ledger Accounts - Create Method
+
+The OpenAPI spec does NOT have a POST endpoint for creating ledger accounts, but `LedgerAccountsEndpoint::create()` exists.
+
+---
+
+### Import Mappings - Entire Resource
+
+`ImportMappingsEndpoint` exists but the entire `/import_mappings` resource is **not in the OpenAPI spec**.
+
+---
+
+## ❌ Missing Resources (Not Implemented)
+
+### Assets
 Full asset management including depreciation tracking.
 
 **Endpoints needed:**
-- `GET /{administration_id}/assets` - List all assets
-- `POST /{administration_id}/assets` - Create an asset
-- `GET /{administration_id}/assets/{id}` - Get a single asset
-- `PATCH /{administration_id}/assets/{id}` - Update an asset
-- `DELETE /{administration_id}/assets/{id}` - Delete an asset
-- `POST /{administration_id}/assets/{id}/disposals` - Create a disposal
-- `POST /{administration_id}/assets/{id}/sources` - Add a source to an asset
-- `DELETE /{administration_id}/assets/{id}/sources/{detail_id}` - Delete a source
-- `POST /{administration_id}/assets/{id}/value_changes/arbitrary` - Create arbitrary value change
-- `POST /{administration_id}/assets/{id}/value_changes/divestment` - Create divestment value change
-- `POST /{administration_id}/assets/{id}/value_changes/full_depreciation` - Create full depreciation
-- `POST /{administration_id}/assets/{id}/value_changes/manual` - Create manual value change
-- `POST /{administration_id}/assets/{id}/value_changes/retroactive_linear_value_changes` - Create retroactive linear value changes
-
-**Priority**: Medium
+- `GET/POST /{administration_id}/assets` - List/Create
+- `GET/PATCH/DELETE /{administration_id}/assets/{id}` - CRUD
+- `POST /{administration_id}/assets/{id}/disposals` - Create disposal
+- `POST/DELETE /{administration_id}/assets/{id}/sources` - Manage sources
+- `POST /{administration_id}/assets/{id}/value_changes/*` - Value changes (arbitrary, divestment, full_depreciation, manual, retroactive)
 
 ---
 
-### ❌ Customer Contact Portal
-Allow customers to view their invoices and subscriptions via temporary links.
-
-**Endpoints needed:**
-- `POST /{administration_id}/customer_contact_portal/{contact_id}` - Create portal link
-- `GET /{administration_id}/customer_contact_portal/{contact_id}/invoices` - List invoices for contact
-- `GET /{administration_id}/customer_contact_portal/{contact_id}/subscriptions/{id}` - Get subscription details
-
-**Priority**: Low
-
----
-
-### ❌ Downloads
-Access generated exports from the administration.
-
-**Endpoints needed:**
-- `GET /{administration_id}/downloads` - List available downloads
-- `GET /{administration_id}/downloads/{id}/download` - Download a file
-
-**Priority**: Low
-
----
-
-### ❌ Reports
+### Reports
 Analytical reports for the administration.
 
 **Endpoints needed:**
-- `GET /{administration_id}/reports/assets` - Asset report
-- `GET /{administration_id}/reports/balance_sheet` - Balance sheet
-- `GET /{administration_id}/reports/cash_flow` - Cash flow report
-- `GET /{administration_id}/reports/creditors` - Creditors report
-- `GET /{administration_id}/reports/debtors` - Debtors report
-- `GET /{administration_id}/reports/expenses_by_contact` - Expenses by contact
-- `GET /{administration_id}/reports/expenses_by_project` - Expenses by project
-- `GET /{administration_id}/reports/export/auditfile` - Export audit file
-- `GET /{administration_id}/reports/export/brugstaat` - Export brugstaat
-- `GET /{administration_id}/reports/export/ledger_accounts` - Export ledger accounts
-- `GET /{administration_id}/reports/general_ledger` - General ledger
-- `GET /{administration_id}/reports/journal_entries` - Journal entries
-- `GET /{administration_id}/reports/ledger_accounts/{ledger_account_id}` - Ledger account report
-- `GET /{administration_id}/reports/profit_loss` - Profit & loss
-- `GET /{administration_id}/reports/revenue_by_contact` - Revenue by contact
-- `GET /{administration_id}/reports/revenue_by_project` - Revenue by project
-- `GET /{administration_id}/reports/subscriptions` - Subscriptions report
-- `GET /{administration_id}/reports/tax` - Tax report
-
-**Priority**: High
+- Balance sheet, Cash flow, Profit & loss
+- Creditors, Debtors
+- Revenue/Expenses by contact/project
+- General ledger, Journal entries
+- Tax report, Subscriptions report
+- Export endpoints (auditfile, brugstaat, ledger_accounts)
 
 ---
 
-### ❌ SEPA Credit Transfer
-Initiate SEPA credit transfers.
-
-**Endpoints needed:**
-- `POST /{administration_id}/sepa_credit_transfer` - Create SEPA credit transfer
-
-**Priority**: Low
+### Customer Contact Portal
+- `POST /{administration_id}/customer_contact_portal/{contact_id}` - Create portal link
+- `GET .../invoices` - List invoices
+- `GET .../subscriptions/{id}` - Get subscription
 
 ---
 
-### ❌ Workflows
-Invoice and estimate workflow settings.
-
-**Endpoints needed:**
-- `GET /{administration_id}/workflows` - List all workflows
-
-**Priority**: Low
+### Downloads
+- `GET /{administration_id}/downloads` - List downloads
+- `GET /{administration_id}/downloads/{id}/download` - Download file
 
 ---
 
-## Partially Implemented Resources
+### SEPA Credit Transfer
+- `POST /{administration_id}/sepa_credit_transfer`
 
-### ⚠️ Contacts
+---
+
+### Workflows
+- `GET /{administration_id}/workflows` - List workflows
+
+---
+
+## ⚠️ Partially Implemented Resources
+
+### Contacts
+**Missing:** `POST .../archive` - Archive a contact
+
+---
+
+### Estimates
 **Missing:**
-- `POST /{administration_id}/contacts/{id}/archive` - Archive a contact
-
----
-
-### ⚠️ Estimates
-**Missing:**
-- `POST /{administration_id}/estimates/{id}/bill_estimate` - Bill an estimate
-- `GET /{administration_id}/estimates/find_by_estimate_id/{estimate_id}` - Find by estimate ID
-- `GET /{administration_id}/estimates/{id}/download_pdf` - Download PDF
+- `PATCH /{id}/bill_estimate` - Bill an estimate
+- `GET /find_by_estimate_id/{estimate_id}` - Find by ID
+- `GET /{id}/download_pdf` - Download PDF
 - Attachments sub-resource (CRUD + download)
 
 ---
 
-### ⚠️ External Sales Invoices
+### External Sales Invoices
 **Missing:**
-- `POST /{administration_id}/external_sales_invoices/{id}/mark_as_dubious` - Mark as dubious
-- `POST /{administration_id}/external_sales_invoices/{id}/mark_as_uncollectible` - Mark as uncollectible
+- `PATCH /{id}/mark_as_dubious` - Mark as dubious
+- `PATCH /{id}/mark_as_uncollectible` - Mark as uncollectible
 - Notes sub-resource
 
+**Note:** Synchronization methods exist but are NOT in spec.
+
 ---
 
-### ⚠️ Identities
+### Identities
+**Missing:** `GET /default` - Get default identity
+
+---
+
+### Products
 **Missing:**
-- `GET /{administration_id}/identities/default` - Get default identity
+- `GET /identifier/{identifier}` - Find by identifier
+- `GET /{id}/sales_link` - Get sales link
+
+**Note:** Synchronization methods exist but are NOT in spec.
 
 ---
 
-### ⚠️ Products
+### Sales Invoices
 **Missing:**
-- `GET /{administration_id}/products/identifier/{identifier}` - Find by identifier
-- `GET /{administration_id}/products/{id}/sales_link` - Get sales link
+- `POST /send_reminders` - Bulk send reminders
+- `GET /{id}/download_pdf` - Download PDF
+- `GET /{id}/download_packing_slip_pdf` - Download packing slip
+- `GET /{id}/download_ubl` - Download UBL
+- `PATCH /{id}/mark_as_dubious` - Mark as dubious
+- `POST /{id}/pause` - Pause reminders
+- `POST /{id}/resume` - Resume reminders
+- `PATCH /{id}/register_payment_creditinvoice` - Register via credit invoice
 
 ---
 
-### ⚠️ Sales Invoices
+### Subscription Templates
 **Missing:**
-- `POST /{administration_id}/sales_invoices/send_reminders` - Bulk send reminders
-- `GET /{administration_id}/sales_invoices/{id}/download_packing_slip_pdf` - Download packing slip
-- `GET /{administration_id}/sales_invoices/{id}/download_pdf` - Download PDF
-- `GET /{administration_id}/sales_invoices/{id}/download_ubl` - Download UBL
-- `POST /{administration_id}/sales_invoices/{id}/mark_as_dubious` - Mark as dubious
-- `POST /{administration_id}/sales_invoices/{id}/pause` - Pause invoice reminders
-- `POST /{administration_id}/sales_invoices/{id}/resume` - Resume invoice reminders
-- `POST /{administration_id}/sales_invoices/{id}/register_payment_creditinvoice` - Register payment via credit invoice
+- `GET /{id}/checkout_identifier`
+- `GET /{id}/sales_link`
 
 ---
 
-### ⚠️ Subscription Templates
+### Subscriptions
+**Missing:** `POST /{id}/create_and_schedule_one_off_sales_invoice`
+
+---
+
+### Time Entries
+**Missing:** Notes sub-resource (CRUD)
+
+---
+
+### Financial Mutations
+**Missing:** `DELETE /{id}/unlink_booking`
+
+---
+
+### Documents (All Types)
+**Missing on General Documents, General Journal Documents, Purchase Invoices, Receipts:**
+- `GET .../attachments/{id}/download` - Download attachment
+
+---
+
+### Webhooks
 **Missing:**
-- `GET /{administration_id}/subscription_templates/{id}/checkout_identifier` - Get checkout identifier
-- `GET /{administration_id}/subscription_templates/{id}/sales_link` - Get sales link
+- `GET /webhooks` - List all webhooks
+- `GET /webhooks/{id}` - Get single webhook
+- `DELETE /webhooks/{id}` - Delete webhook
 
 ---
 
-### ⚠️ Subscriptions
-**Missing:**
-- `POST /{administration_id}/subscriptions/{id}/create_and_schedule_one_off_sales_invoice` - Create one-off invoice
+## ✅ Fully Implemented Resources
+
+These match the OpenAPI spec:
+
+| Resource | Spec Methods | Status |
+|----------|--------------|--------|
+| Administrations | GET (list) | ✅ |
+| Custom Fields | GET (list) | ✅ |
+| Document Styles | GET (list) | ✅ |
+| Financial Accounts | GET (list) | ✅ |
+| Payments | GET (by ID only) | ✅ |
+| Projects | Full CRUD | ✅ |
+| Purchase Transactions | Full CRUD | ✅ |
+| Recurring Sales Invoices | Full CRUD + sync + notes | ✅ |
+| Tax Rates | GET (list) | ✅ |
+| Users | GET (list, by ID) | ✅ |
+| Verifications | GET (list) | ✅ |
+| Contacts | Full CRUD + sync + sub-resources | ✅ (except archive) |
+| Sales Invoices | Full CRUD + sync + payments + notes | ✅ (except downloads/status methods) |
 
 ---
 
-### ⚠️ Time Entries
-**Missing:**
-- Notes sub-resource (CRUD)
+## Summary of Issues
 
----
+### Critical (Will Fail)
+1. 5 requests use wrong HTTP method (POST instead of PATCH)
+2. 2 requests use wrong endpoint names (send_email vs send_invoice/send_estimate)
+3. 1 request sends state in URL instead of body
 
-### ⚠️ Financial Mutations
-**Missing:**
-- `DELETE /{administration_id}/financial_mutations/{id}/unlink_booking` - Unlink booking
+### Undocumented (May or May Not Work)
+1. 5 sales invoice mark_as_* endpoints not in spec
+2. 3 resources have sync methods not in spec (Products, Financial Statements, External Sales Invoices)
+3. Financial Statements GET methods not in spec
+4. Ledger Accounts create() not in spec
+5. Entire Import Mappings resource not in spec
 
----
-
-### ⚠️ Documents (General Documents, General Journal Documents, Purchase Invoices, Receipts)
-**Missing on all document types:**
-- `GET /{administration_id}/documents/{type}/{id}/attachments/{attachment_id}/download` - Download attachment
-- Notes sub-resource with delete by ID
-
----
-
-### ⚠️ Webhooks
-**Missing:**
-- `GET /{administration_id}/webhooks` - List all webhooks
-- `GET /{administration_id}/webhooks/{id}` - Get a single webhook
-- `DELETE /{administration_id}/webhooks/{id}` - Delete a webhook
-
----
-
-## Fully Implemented Resources
-
-### ✅ Administrations
-- List all administrations
-
-### ✅ Custom Fields
-- List all custom fields
-
-### ✅ Document Styles
-- List all document styles
-
-### ✅ Financial Accounts
-- List all financial accounts
-
-### ✅ Financial Statements
-- Full CRUD + synchronization
-
-### ✅ Ledger Accounts
-- Full CRUD
-
-### ✅ Payments
-- Get payment by ID
-
-### ✅ Projects
-- Full CRUD
-
-### ✅ Purchase Transactions
-- Full CRUD
-
-### ✅ Recurring Sales Invoices
-- Full CRUD + synchronization + notes
-
-### ✅ Tax Rates
-- List all tax rates
-
-### ✅ Users
-- List users, get by ID
-
-### ✅ Verifications
-- List verifications
-
----
-
-## Implementation Priority
-
-### High Priority
-1. **Reports** - Essential for financial analysis and compliance
-2. **Assets** - Important for businesses with significant fixed assets
-3. **Sales Invoices** - Complete missing download and status methods
-
-### Medium Priority
-4. **Webhooks** - Complete CRUD operations
-5. **Estimates** - Add missing find, bill, and download methods
-6. **Financial Mutations** - Add unlink_booking
-
-### Low Priority
-7. **Customer Contact Portal** - Nice to have
-8. **Downloads** - Export functionality
-9. **SEPA Credit Transfer** - Specialized use case
-10. **Workflows** - Read-only configuration
+### Missing from Library
+1. 6 entire resources (Assets, Reports, Customer Portal, Downloads, SEPA, Workflows)
+2. Various sub-methods on existing resources
 
 ---
 
 ## Notes
 
-- The OpenAPI spec uses `{format}` suffix on all paths (e.g., `.json`), but this library handles format via headers
-- Some endpoints may have additional query parameters not fully documented here
-- Check the OpenAPI spec file for complete request/response schemas
-
----
-
-## Contributing
-
-When implementing missing endpoints:
-
-1. Create request classes in `src/Api/{Resource}/Requests/`
-2. Add methods to the endpoint class `src/Api/{Resource}/{Resource}Endpoint.php`
-3. Create DTOs if needed in `src/Dto/`
-4. Add tests in `tests/`
-5. Update this backlog file
+- The OpenAPI spec uses `{format}` suffix (e.g., `.json`), but this library uses headers
+- HTTP method differences (POST vs PATCH) may work on lenient servers but should be fixed
+- Undocumented endpoints should be tested against the live API before removal
