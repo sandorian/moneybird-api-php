@@ -10,9 +10,76 @@ This document tracks the differences between this PHP library and the official M
 
 ## Legend
 
+- 🐛 **Incorrect Implementation** - Bug that needs fixing
 - ❌ **Not Implemented** - Entire resource missing
 - ⚠️ **Partially Implemented** - Some methods/endpoints missing
 - ✅ **Implemented** - Fully matches OpenAPI spec
+
+---
+
+## 🐛 Incorrect Implementations (Bugs)
+
+These are existing implementations that don't match the OpenAPI spec and will fail or behave incorrectly.
+
+### Sales Invoices
+
+#### `SendSalesInvoiceEmailRequest`
+**File:** `src/Api/SalesInvoices/SendSalesInvoiceEmailRequest.php`
+
+| Issue | Current | Should Be |
+|-------|---------|-----------|
+| HTTP Method | POST | **PATCH** |
+| Endpoint | `send_email` | **`send_invoice`** |
+
+**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `sales_invoices/{id}/send_invoice`
+
+---
+
+#### `DuplicateSalesInvoiceToCreditInvoiceRequest`
+**File:** `src/Api/SalesInvoices/DuplicateSalesInvoiceToCreditInvoiceRequest.php`
+
+| Issue | Current | Should Be |
+|-------|---------|-----------|
+| HTTP Method | POST | **PATCH** |
+
+**Fix:** Change to `BaseJsonPatchRequest`
+
+---
+
+#### `MarkSalesInvoiceAsUncollectibleRequest`
+**File:** `src/Api/SalesInvoices/MarkSalesInvoiceAsUncollectibleRequest.php`
+
+| Issue | Current | Should Be |
+|-------|---------|-----------|
+| HTTP Method | POST | **PATCH** |
+
+**Fix:** Change to `BaseJsonPatchRequest`
+
+---
+
+### Estimates
+
+#### `SendEstimateEmailRequest`
+**File:** `src/Api/Estimates/SendEstimateEmailRequest.php`
+
+| Issue | Current | Should Be |
+|-------|---------|-----------|
+| HTTP Method | POST | **PATCH** |
+| Endpoint | `send_email` | **`send_estimate`** |
+| Body wrapper | `estimate_sending` | **`sales_invoice_sending`** |
+
+**Fix:** Change to `BaseJsonPatchRequest` and update endpoint to `estimates/{id}/send_estimate`
+
+---
+
+#### `ChangeEstimateStateRequest`
+**File:** `src/Api/Estimates/ChangeEstimateStateRequest.php`
+
+| Issue | Current | Should Be |
+|-------|---------|-----------|
+| State parameter | URL path (`/change_state/{state}`) | **Request body** (`{"state": "value"}`) |
+
+**Fix:** Remove `{state}` from URL path. Send state in request body as `{"state": "accepted"}` etc.
 
 ---
 
