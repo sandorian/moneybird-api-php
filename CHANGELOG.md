@@ -2,6 +2,14 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.7 - 2026-01-13
+
+### What's Changed
+
+* Fix Administrations endpoint URLs by @sandervanhooft in https://github.com/sandorian/moneybird-api-php/pull/52
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.6...v0.2.7
+
 ## v0.2.6 - 2026-01-07
 
 ### What's Changed
@@ -89,6 +97,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
