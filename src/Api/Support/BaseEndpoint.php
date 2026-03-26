@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Sandorian\Moneybird\Api\Support;
 
+use Saloon\Exceptions\Request\FatalRequestException;
+use Saloon\Exceptions\Request\RequestException;
 use Saloon\Http\Request;
 use Saloon\PaginationPlugin\Paginator;
 use Sandorian\Moneybird\Api\MoneybirdApiClient;
@@ -17,8 +19,8 @@ abstract class BaseEndpoint
     /**
      * @return mixed
      *
-     * @throws \Saloon\Exceptions\Request\FatalRequestException
-     * @throws \Saloon\Exceptions\Request\RequestException
+     * @throws FatalRequestException
+     * @throws RequestException
      */
     public function create(array $data): BaseDto
     {
