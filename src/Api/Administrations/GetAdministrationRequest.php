@@ -16,12 +16,12 @@ class GetAdministrationRequest extends BaseJsonGetRequest
     }
 
     /**
-     * Returns the full URL to bypass the connector's base URL.
-     * The Administrations endpoint does not use an administration ID in the path.
+     * The Administrations endpoint does not use an administration ID in the path,
+     * so we navigate up from the connector's base URL (which includes the admin ID).
      */
     public function resolveEndpoint(): string
     {
-        return 'https://moneybird.com/api/v2/administrations/'.$this->id;
+        return '/../administrations/'.$this->id;
     }
 
     public function createDtoFromResponse(Response $response): Administration
