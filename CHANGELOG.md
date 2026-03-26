@@ -2,6 +2,16 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.2.8 - 2026-03-26
+
+### What's Changed
+
+- Add Saloon v4 support to resolve CVE-2026-33182 (SSRF) and CVE-2026-33183 (fixture path traversal)
+- Fix Administrations endpoints to use relative paths instead of absolute URLs
+- Widen constraints: saloonphp/saloon ^3.10|^4.0, pagination-plugin ^2.2|^2.3, rate-limit-plugin ^2.0|^2.5
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.7...v0.2.8
+
 ## v0.2.7 - 2026-01-13
 
 ### What's Changed
@@ -97,6 +107,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
