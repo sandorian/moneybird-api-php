@@ -112,6 +112,14 @@ $client->generalDocuments()->deleteAttachment('123456789', 'attachment_id');
 
 ### Specialized Features
 
+#### Get Synchronization List
+
+Get a list of general document IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->generalDocuments()->synchronization();
+```
+
 #### Synchronize General Documents
 
 Synchronize a list of general documents by their IDs.

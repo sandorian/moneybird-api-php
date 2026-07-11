@@ -73,6 +73,14 @@ $linkData = [
 $financialMutation = $client->financialMutations()->linkBooking('123456789', $linkData);
 ```
 
+#### Get Synchronization List
+
+Get a list of financial mutation IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->financialMutations()->synchronization();
+```
+
 #### Synchronize Financial Mutations
 
 Synchronize a list of financial mutations by their IDs.

@@ -7,7 +7,7 @@ Manage your contacts in Moneybird.
 
 ## Working with Contacts
 
-This section covers how to interact with Moneybird's Contacts API. You can create, retrieve, update, and delete contacts, as well as manage contact people, notes, usage charges, and payment mandates.
+This section covers how to interact with Moneybird's Contacts API. You can create, retrieve, update, and delete contacts, as well as manage contact people, notes, additional charges, and payment mandates.
 
 ### Basic Operations
 
@@ -180,11 +180,11 @@ Delete a note from a contact.
 $client->contacts()->deleteNote('contact-id-123', 'note-id-789');
 ```
 
-### Usage Charges
+### Additional Charges
 
-#### Create a Usage Charge
+#### Create an Additional Charge
 
-Create a usage charge for a contact.
+Create an additional charge for a contact.
 
 ```php
 $chargeData = [
@@ -193,15 +193,15 @@ $chargeData = [
     'period' => '2023-01',
 ];
 
-$usageCharge = $client->contacts()->createUsageCharge('contact-id-123', $chargeData);
+$additionalCharge = $client->contacts()->createAdditionalCharge('contact-id-123', $chargeData);
 ```
 
-#### Get Usage Charges
+#### Get Additional Charges
 
-Get all usage charges for a contact.
+Get all additional charges for a contact.
 
 ```php
-$usageCharges = $client->contacts()->getUsageCharges('contact-id-123');
+$additionalCharges = $client->contacts()->getAdditionalCharges('contact-id-123');
 ```
 
 ### Moneybird Payments Mandate

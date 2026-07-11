@@ -80,6 +80,14 @@ $client->externalSalesInvoices()->delete('123456789');
 
 ### Specialized Features
 
+#### Get Synchronization List
+
+Get a list of external sales invoice IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->externalSalesInvoices()->getSynchronization();
+```
+
 #### Synchronize External Sales Invoices
 
 Synchronize a list of external sales invoices by their IDs.
@@ -98,17 +106,14 @@ Access the attachments endpoint for an external sales invoice.
 $attachmentsEndpoint = $client->externalSalesInvoices()->attachments();
 
 // Upload an attachment
-$attachment = $attachmentsEndpoint->create('123456789', [
-    'filename' => 'invoice.pdf',
-    'content' => base64_encode(file_get_contents('path/to/invoice.pdf'))
-]);
-
-// Get an attachment
-$attachment = $attachmentsEndpoint->get('123456789', 'attachment_id');
-
-// Delete an attachment
-$attachmentsEndpoint->delete('123456789', 'attachment_id');
+$success = $attachmentsEndpoint->createForExternalSalesInvoiceId(
+    '123456789',
+    '/path/to/invoice.pdf',
+    'invoice.pdf'
+);
 ```
+
+See [External Sales Invoice Attachments](/reference/external-sales-invoice-attachments/) for more details.
 
 #### Working with Payments
 
@@ -119,15 +124,17 @@ Access the payments endpoint for an external sales invoice.
 $paymentsEndpoint = $client->externalSalesInvoices()->payments();
 
 // Create a payment
-$payment = $paymentsEndpoint->create('123456789', [
+$payment = $paymentsEndpoint->createForExternalSalesInvoiceId('123456789', [
     'payment_date' => '2025-03-05',
     'price' => '200.00',
-    'payment_method' => 'bank_transfer'
+    'financial_account_id' => '987654321',
 ]);
 
 // Delete a payment
-$paymentsEndpoint->delete('123456789', 'payment_id');
+$paymentsEndpoint->deleteForExternalSalesInvoiceId('123456789', 'payment_id');
 ```
+
+See [External Sales Invoice Payments](/reference/external-sales-invoice-payments/) for more details.
 
 ## External Sales Invoice Properties
 

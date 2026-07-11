@@ -116,6 +116,14 @@ $client->generalJournalDocuments()->deleteAttachment('123456789', 'attachment_id
 
 ### Specialized Features
 
+#### Get Synchronization List
+
+Get a list of general journal document IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->generalJournalDocuments()->synchronization();
+```
+
 #### Synchronize General Journal Documents
 
 Synchronize a list of general journal documents by their IDs.
