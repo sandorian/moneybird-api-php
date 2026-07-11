@@ -2,9 +2,23 @@
 
 This document tracks the differences between this PHP library and the official Moneybird OpenAPI specification.
 
-**Last Updated**: 2025-01-07
-**OpenAPI Spec Version**: v2-20251223-d1277b6a05
-**Spec File**: `openapi-specs/openapi-2025-01-07.yml`
+**Last Updated**: 2026-07-12
+**OpenAPI Spec Version**: v2-20260710-57729b61b9
+**Spec File**: `openapi-specs/openapi-2026-07-12.yml`
+
+---
+
+## 🆕 Spec Changes Since 2025-01-07 (v2-20251223 → v2-20260710)
+
+New in the official spec, compared to the previous stored version:
+
+- **Task Lists** (entirely new resource family, not implemented): `task_lists`, `task_list_groups`, `task_list_tasks` (incl. assignment, completion, notes), `task_list_templates`
+- **External Sales Invoices synchronization** (`GET`/`POST /external_sales_invoices/synchronization`) is now officially in the spec — this library already implemented it (`getSynchronization()` / `synchronize()`), so it is no longer "undocumented"
+- **Reports**: new `GET /reports/creditors_aging` and `GET /reports/debtors_aging`
+- **Assets**: new `POST`/`DELETE /assets/{id}/reinvestment_reserve_purchase` and `.../reinvestment_reserve_sale`; the sources delete path parameter was renamed `detail_id` → `source_id`
+- **Time Entries**: new `PATCH /time_entries/{id}/resume` and `PATCH /time_entries/{id}/stop` (not implemented)
+- **Webhooks**: new `PATCH /webhooks/{id}/activate` and `PATCH /webhooks/{id}/deactivate` (not implemented)
+- **Workflows**: new `GET /workflows/{id}` (resource still not implemented)
 
 ---
 
@@ -58,7 +72,8 @@ These resources have synchronization methods implemented, but the OpenAPI spec d
 |----------|---------------------|----------|
 | Products | `synchronization()`, `synchronize()` | ❌ No |
 | Financial Statements | `synchronization()`, `synchronize()` | ❌ No |
-| External Sales Invoices | `getSynchronization()`, `synchronize()` | ❌ No |
+
+**Update 2026-07-12:** External Sales Invoices synchronization was added to the official spec and is no longer in this list — the existing `getSynchronization()` / `synchronize()` implementation is now spec-compliant.
 
 ---
 
@@ -97,7 +112,9 @@ Full asset management including depreciation tracking.
 - `GET/POST /{administration_id}/assets` - List/Create
 - `GET/PATCH/DELETE /{administration_id}/assets/{id}` - CRUD
 - `POST /{administration_id}/assets/{id}/disposals` - Create disposal
-- `POST/DELETE /{administration_id}/assets/{id}/sources` - Manage sources
+- `POST/DELETE /{administration_id}/assets/{id}/sources` - Manage sources (delete uses `source_id`)
+- `POST/DELETE /{administration_id}/assets/{id}/reinvestment_reserve_purchase` - *(new in v2-20260710)*
+- `POST/DELETE /{administration_id}/assets/{id}/reinvestment_reserve_sale` - *(new in v2-20260710)*
 - `POST /{administration_id}/assets/{id}/value_changes/*` - Value changes (arbitrary, divestment, full_depreciation, manual, retroactive)
 
 ---
@@ -108,9 +125,10 @@ Analytical reports for the administration.
 **Endpoints needed:**
 - Balance sheet, Cash flow, Profit & loss
 - Creditors, Debtors
+- Creditors aging, Debtors aging *(new in v2-20260710)*
 - Revenue/Expenses by contact/project
 - General ledger, Journal entries
-- Tax report, Subscriptions report
+- Tax report, Subscriptions report, Assets report
 - Export endpoints (auditfile, brugstaat, ledger_accounts)
 
 ---
@@ -135,6 +153,23 @@ Analytical reports for the administration.
 
 ### Workflows
 - `GET /{administration_id}/workflows` - List workflows
+- `GET /{administration_id}/workflows/{id}` - Get single workflow *(new in v2-20260710)*
+
+---
+
+### Task Lists *(new in v2-20260710)*
+Task management resource family, entirely new in the spec:
+
+- `GET/POST /{administration_id}/task_lists` + `GET/PATCH/DELETE /task_lists/{id}`
+- `POST /task_lists/{task_list_id}/groups`
+- `GET/PATCH/DELETE /task_list_groups/{id}` + `POST /task_list_groups/{task_list_group_id}/tasks`
+- `GET/PATCH/DELETE /task_list_tasks/{id}`
+- `POST/DELETE /task_list_tasks/{task_list_task_id}/assignment`
+- `POST/DELETE /task_list_tasks/{task_list_task_id}/completion`
+- `POST /task_list_tasks/{task_list_task_id}/notes`
+- `GET/POST /task_list_templates` + `GET/PATCH/DELETE /task_list_templates/{id}`
+- `POST /task_list_templates/{task_list_template_id}/groups`
+- `POST /task_list_templates/{task_list_template_id}/task_lists`
 
 ---
 
@@ -160,7 +195,7 @@ Analytical reports for the administration.
 - `PATCH /{id}/mark_as_uncollectible` - Mark as uncollectible
 - Notes sub-resource
 
-**Note:** Synchronization methods exist but are NOT in spec.
+**Note:** Synchronization endpoints were added to the spec in v2-20260710; the existing implementation is now spec-compliant.
 
 ---
 
@@ -204,7 +239,10 @@ Analytical reports for the administration.
 ---
 
 ### Time Entries
-**Missing:** Notes sub-resource (CRUD)
+**Missing:**
+- Notes sub-resource (CRUD)
+- `PATCH /{id}/resume` - Resume a running time entry *(new in v2-20260710)*
+- `PATCH /{id}/stop` - Stop a running time entry *(new in v2-20260710)*
 
 ---
 
@@ -224,6 +262,8 @@ Analytical reports for the administration.
 - `GET /webhooks` - List all webhooks
 - `GET /webhooks/{id}` - Get single webhook
 - `DELETE /webhooks/{id}` - Delete webhook
+- `PATCH /webhooks/{id}/activate` - Activate webhook *(new in v2-20260710)*
+- `PATCH /webhooks/{id}/deactivate` - Deactivate webhook *(new in v2-20260710)*
 
 ---
 
@@ -259,14 +299,14 @@ All critical bugs have been fixed:
 
 ### Undocumented (May or May Not Work)
 1. 5 sales invoice mark_as_* endpoints not in spec
-2. 3 resources have sync methods not in spec (Products, Financial Statements, External Sales Invoices)
+2. 2 resources have sync methods not in spec (Products, Financial Statements) — External Sales Invoices sync is now official
 3. Financial Statements GET methods not in spec
 4. Ledger Accounts create() not in spec
 5. Entire Import Mappings resource not in spec
 
 ### Missing from Library
-1. 6 entire resources (Assets, Reports, Customer Portal, Downloads, SEPA, Workflows)
-2. Various sub-methods on existing resources
+1. 7 entire resources (Assets, Reports, Customer Portal, Downloads, SEPA, Workflows, Task Lists)
+2. Various sub-methods on existing resources (incl. new time entry resume/stop and webhook activate/deactivate)
 
 ---
 

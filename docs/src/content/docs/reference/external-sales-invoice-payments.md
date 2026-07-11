@@ -25,7 +25,7 @@ $data = [
     'transaction_identifier' => 'TRANSACTION123'
 ];
 
-$payment = $client->externalSalesInvoicePayments()->createForExternalSalesInvoiceId(
+$payment = $client->externalSalesInvoices()->payments()->createForExternalSalesInvoiceId(
     $externalSalesInvoiceId,
     $data
 );
@@ -41,7 +41,7 @@ Remove a payment from an external sales invoice.
 $externalSalesInvoiceId = '123456789';
 $paymentId = '987654321';
 
-$client->externalSalesInvoicePayments()->deleteForExternalSalesInvoiceId(
+$client->externalSalesInvoices()->payments()->deleteForExternalSalesInvoiceId(
     $externalSalesInvoiceId,
     $paymentId
 );

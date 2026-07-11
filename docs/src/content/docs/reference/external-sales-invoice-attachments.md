@@ -20,7 +20,7 @@ $externalSalesInvoiceId = '123456789';
 $filePath = '/path/to/your/file.pdf';
 $fileName = 'invoice.pdf';
 
-$success = $client->externalSalesInvoiceAttachments()->createForExternalSalesInvoiceId(
+$success = $client->externalSalesInvoices()->attachments()->createForExternalSalesInvoiceId(
     $externalSalesInvoiceId,
     $filePath,
     $fileName

@@ -32,6 +32,14 @@ foreach ($estimates as $estimate) {
 }
 ```
 
+#### Get All Estimates
+
+Get all estimates as an array (fetches all pages).
+
+```php
+$estimates = $client->estimates()->all();
+```
+
 #### Create an Estimate
 
 Create a new estimate.
@@ -117,6 +125,14 @@ Create a duplicate of an existing estimate.
 
 ```php
 $duplicateEstimate = $client->estimates()->duplicate('123456789');
+```
+
+#### Get Synchronization List
+
+Get a list of estimate IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->estimates()->synchronization();
 ```
 
 #### Synchronize Estimates

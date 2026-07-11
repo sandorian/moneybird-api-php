@@ -147,12 +147,28 @@ Send an invoice reminder.
 $salesInvoice = $client->salesInvoices()->sendInvoiceReminder('123456789');
 ```
 
+#### Get Invoice Reminder Template
+
+Get the invoice reminder template for a sales invoice.
+
+```php
+$invoiceReminderTemplate = $client->salesInvoices()->getInvoiceReminderTemplate('123456789');
+```
+
 #### Send Payment Reminder
 
 Send a payment reminder.
 
 ```php
 $salesInvoice = $client->salesInvoices()->sendPaymentReminder('123456789');
+```
+
+#### Get Payment Reminder Template
+
+Get the payment reminder template for a sales invoice.
+
+```php
+$paymentReminderTemplate = $client->salesInvoices()->getPaymentReminderTemplate('123456789');
 ```
 
 #### Send by Post

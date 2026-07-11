@@ -83,6 +83,14 @@ $client->financialStatements()->delete('123456789');
 
 ### Specialized Features
 
+#### Get Synchronization List
+
+Get a list of financial statement IDs and version timestamps for synchronization.
+
+```php
+$syncList = $client->financialStatements()->synchronization();
+```
+
 #### Synchronize Financial Statements
 
 Synchronize a list of financial statements by their IDs.
