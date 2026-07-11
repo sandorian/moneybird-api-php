@@ -2,6 +2,27 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.3.0 - 2026-07-11
+
+### What's Changed
+
+**OpenAPI spec & documentation**
+
+- Synced official Moneybird OpenAPI spec to `v2-20260710-57729b61b9`; refreshed `OPENAPI-BACKLOG.md` (new Task Lists resource family, aging reports, webhook activate/deactivate, time entry resume/stop; External Sales Invoices synchronization is now officially in the spec)
+- Fixed docs drift: corrected `createAdditionalCharge()`/`getAdditionalCharges()` naming, removed nonexistent client accessors from examples, documented previously missing `synchronization()` and reminder-template methods
+
+**CI & tooling**
+
+- Tests now run on all pull requests, across all officially supported PHP versions (8.2–8.5)
+- Added PHPStan (level 5, baselined) with new `composer analyse` script
+- Added `composer audit` workflow (latest Composer, weekly schedule)
+- Added Astro docs build check on PRs; bumped `actions/checkout` to v7
+- Resolved npm audit advisories in the docs site (astro 5.18.2, vite 6.4.3)
+
+No changes to the library's runtime code or public API — safe upgrade from v0.2.8.
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.2.8...v0.3.0
+
 ## v0.2.8 - 2026-03-26
 
 ### What's Changed
@@ -107,6 +128,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
