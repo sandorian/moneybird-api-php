@@ -4,12 +4,8 @@ permissions:
 
 on:
   push:
-    paths:
-      - '**.php'
-      - '.github/workflows/run-tests.yml'
-      - 'phpunit.xml.dist'
-      - 'composer.json'
-      - 'composer.lock'
+    branches: [ main ]
+  pull_request:
 
 jobs:
   test:

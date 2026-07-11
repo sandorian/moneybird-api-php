@@ -1,0 +1,391 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/AdditionalCharges/AdditionalCharge.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/ContactPeople/ContactPerson.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/MbPaymentsMandate/MbPaymentsMandate.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/MbPaymentsMandate/MbPaymentsMandateUrl.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/Notes/Note.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Contacts/UsageCharges/UsageCharge.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/CustomFields/CustomField.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/DocumentStyles/DocumentStyle.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Documents/GeneralDocuments/GeneralDocument.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Documents\\GeneralDocuments\\GeneralDocumentsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Documents\\GeneralDocuments\\GeneralDocument\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Documents/GeneralDocuments/GeneralDocumentsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Documents/GeneralJournalDocuments/GeneralJournalDocument.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Documents\\GeneralJournalDocuments\\GeneralJournalDocumentsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Documents\\GeneralJournalDocuments\\GeneralJournalDocument\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Documents/GeneralJournalDocuments/GeneralJournalDocumentsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Documents/PurchaseInvoices/PurchaseInvoice.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Documents\\PurchaseInvoices\\PurchaseInvoicesEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Documents\\PurchaseInvoices\\PurchaseInvoice\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Documents/PurchaseInvoices/PurchaseInvoicesEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Documents/Receipts/Receipt.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Documents\\Receipts\\ReceiptsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Documents\\Receipts\\Receipt\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Documents/Receipts/ReceiptsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Documents/TypelessDocuments/TypelessDocument.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Documents\\TypelessDocuments\\TypelessDocumentsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Documents\\TypelessDocuments\\TypelessDocument\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Documents/TypelessDocuments/TypelessDocumentsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Estimates/Estimate.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Estimates\\EstimatesEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Estimates\\Estimate\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Estimates/EstimatesEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/FinancialAccounts/FinancialAccount.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\FinancialAccounts\\FinancialAccountsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\FinancialAccounts\\FinancialAccount\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/FinancialAccounts/FinancialAccountsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/FinancialMutations/FinancialMutation.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\FinancialMutations\\FinancialMutationsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\FinancialMutations\\FinancialMutation\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/FinancialMutations/FinancialMutationsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/FinancialStatements/FinancialStatement.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\FinancialStatements\\FinancialStatementsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\FinancialStatements\\FinancialStatement\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/FinancialStatements/FinancialStatementsEndpoint.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Identities\\IdentitiesEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Identities\\Identity\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Identities/IdentitiesEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Identities/Identity.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/ImportMappings/ImportMapping.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\ImportMappings\\CreateImportMappingRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/ImportMappings/ImportMappingsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\ImportMappings\\UpdateImportMappingRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/ImportMappings/ImportMappingsEndpoint.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\ImportMappings\\ImportMappingsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\ImportMappings\\ImportMapping\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/ImportMappings/ImportMappingsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/LedgerAccounts/LedgerAccount.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\LedgerAccounts\\CreateLedgerAccountRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/LedgerAccounts/LedgerAccountsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\LedgerAccounts\\UpdateLedgerAccountRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/LedgerAccounts/LedgerAccountsEndpoint.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\LedgerAccounts\\LedgerAccountsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\LedgerAccounts\\LedgerAccount\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/LedgerAccounts/LedgerAccountsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Payments/Payment.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Payments\\PaymentsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Payments\\Payment\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Payments/PaymentsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Products/Product.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Products\\CreateProductRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Products/ProductsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Products\\UpdateProductRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Products/ProductsEndpoint.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Products\\ProductsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Products\\Product\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Products/ProductsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Projects/Project.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Projects\\CreateProjectRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Projects/ProjectsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Projects\\UpdateProjectRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Projects/ProjectsEndpoint.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\Projects\\ProjectsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\Projects\\Project\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/Projects/ProjectsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/PurchaseTransactions/PurchaseTransaction.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\PurchaseTransactions\\PurchaseTransactionsEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\PurchaseTransactions\\PurchaseTransaction\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/PurchaseTransactions/PurchaseTransactionsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/RecurringSalesInvoices/RecurringSalesInvoice.php
+
+		-
+			message: '#^Method Sandorian\\Moneybird\\Api\\RecurringSalesInvoices\\RecurringSalesInvoicesEndpoint\:\:paginate\(\) should return iterable\<Sandorian\\Moneybird\\Api\\RecurringSalesInvoices\\RecurringSalesInvoice\>&Saloon\\PaginationPlugin\\Paginator but returns Sandorian\\Moneybird\\Api\\Support\\MoneybirdPaginator\.$#'
+			identifier: return.type
+			count: 1
+			path: src/Api/RecurringSalesInvoices/RecurringSalesInvoicesEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/SalesInvoices/Payments/SalesInvoicePayment.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/SubscriptionTemplates/SubscriptionTemplate.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\SubscriptionTemplates\\CreateSubscriptionTemplateRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/SubscriptionTemplates/SubscriptionTemplatesEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\SubscriptionTemplates\\UpdateSubscriptionTemplateRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/SubscriptionTemplates/SubscriptionTemplatesEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Subscriptions/Subscription.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Subscriptions\\CreateSubscriptionRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Subscriptions/SubscriptionsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Subscriptions\\UpdateSubscriptionRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Subscriptions/SubscriptionsEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Support/BaseDto.php
+
+		-
+			message: '#^PHPDoc tag @return with type mixed is not subtype of native type Sandorian\\Moneybird\\Api\\Support\\BaseDto\.$#'
+			identifier: return.phpDocType
+			count: 1
+			path: src/Api/Support/BaseEndpoint.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Support/IdVersion.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/TimeEntries/TimeEntry.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Users/User.php
+
+		-
+			message: '#^Unsafe usage of new static\(\)\.$#'
+			identifier: new.static
+			count: 1
+			path: src/Api/Verifications/Verification.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Verifications\\CreateVerificationRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Verifications/VerificationsEndpoint.php
+
+		-
+			message: '#^Call to function method_exists\(\) with Sandorian\\Moneybird\\Api\\Verifications\\UpdateVerificationRequest and ''setEncapsulatedData'' will always evaluate to true\.$#'
+			identifier: function.alreadyNarrowedType
+			count: 1
+			path: src/Api/Verifications/VerificationsEndpoint.php

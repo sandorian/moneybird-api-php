@@ -33,11 +33,11 @@ src/Api/
 # Run tests
 composer test
 
-# Run static analysis
+# Run static analysis (PHPStan level 5, baseline in phpstan-baseline.neon)
 composer analyse
 
 # Fix code style
-composer fix-style
+composer format
 
 # Run all checks
 composer test && composer analyse
@@ -98,4 +98,10 @@ The API has a rate limit of 150 requests per 5 minutes. This is handled automati
 
 ## Testing
 
-Tests are in `tests/` using Pest PHP. Run with `composer test`.
+Tests are in `tests/` using PHPUnit. Run with `composer test`.
+
+## CI
+
+- **Tests** (`run-tests.yml`): PHPUnit matrix (PHP 8.2/8.3 × prefer-lowest/stable × ubuntu/windows) on pushes to `main` and all pull requests.
+- **PHPStan** (`phpstan.yml`): `composer analyse` on pushes to `main` and all pull requests. New errors fail CI; pre-existing ones are pinned in `phpstan-baseline.neon` — shrink the baseline over time, don't add to it.
+- **Docs Build** (`docs-build.yml`): builds the Astro docs site on pull requests touching `docs/**` (deploy still happens only on `main` via `deploy-docs.yml`).
