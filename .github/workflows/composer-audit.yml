@@ -1,0 +1,33 @@
+name: Composer Audit
+permissions:
+  contents: read
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  schedule:
+    # Weekly, so new advisories surface without waiting for a push
+    - cron: '30 6 * * 1'
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          tools: composer:latest
+          coverage: none
+
+      - name: Install dependencies (prefer-stable)
+        run: composer update --prefer-stable --prefer-dist --no-interaction
+
+      - name: Audit dependencies
+        run: composer audit

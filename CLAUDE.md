@@ -105,3 +105,5 @@ Tests are in `tests/` using PHPUnit. Run with `composer test`.
 - **Tests** (`run-tests.yml`): PHPUnit matrix (PHP 8.2/8.3 × prefer-lowest/stable × ubuntu/windows) on pushes to `main` and all pull requests.
 - **PHPStan** (`phpstan.yml`): `composer analyse` on pushes to `main` and all pull requests. New errors fail CI; pre-existing ones are pinned in `phpstan-baseline.neon` — shrink the baseline over time, don't add to it.
 - **Docs Build** (`docs-build.yml`): builds the Astro docs site on pull requests touching `docs/**` (deploy still happens only on `main` via `deploy-docs.yml`).
+- **Composer Audit** (`composer-audit.yml`): `composer audit` (latest Composer) against a prefer-stable resolution, on pushes to `main`, all pull requests, and a weekly cron. Must stay prefer-stable: prefer-lowest would resolve Saloon v3, which has known advisories accepted for BC.
+- Workflows use `actions/checkout@v7` (blocks pwn-request patterns by default in `pull_request_target` workflows). The only `pull_request_target` workflow (`dependabot-auto-merge.yml`) deliberately never checks out PR code.
