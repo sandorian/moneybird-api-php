@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.9",
+        "guzzlehttp/guzzle": "^8.2",
         "kelunik/link-header-rfc5988": "^1.0",
         "saloonphp/pagination-plugin": "^2.2|^2.3",
         "saloonphp/rate-limit-plugin": "^2.0|^2.5",
