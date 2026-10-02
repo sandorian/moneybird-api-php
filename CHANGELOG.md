@@ -2,6 +2,27 @@
 
 All notable changes to `sandorian/moneybird-api-php` will be documented in this file.
 
+## v0.4.0 - 2026-10-02
+
+### Changes
+
+**OpenAPI spec and contacts**
+
+- Synced the 2026-10-02 Moneybird OpenAPI snapshot.
+- Added `contacts()->doubles()` for paginated possible duplicate contact groups.
+- Added `ContactDuplicateGroup` and request mapping for `GET /contacts/doubles`.
+
+**Financial accounts**
+
+- Added the `moneybird_account` field to `FinancialAccount` responses.
+
+**Docs and tests**
+
+- Documented duplicate contact lookup and the new financial-account property.
+- Added coverage for contact duplicate groups and the financial-account field.
+
+**Full Changelog**: https://github.com/sandorian/moneybird-api-php/compare/v0.3.0...v0.4.0
+
 ## v0.3.0 - 2026-07-11
 
 ### What's Changed
@@ -128,6 +149,7 @@ Feedback and contributions are welcome.
   "require": {
       "sandorian/moneybird-api-php": "^0.1.0"
   }
+  
   
   
   
