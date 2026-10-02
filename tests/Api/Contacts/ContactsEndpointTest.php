@@ -9,6 +9,7 @@ use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\AdditionalCharge;
 use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\CreateAdditionalChargeRequest;
 use Sandorian\Moneybird\Api\Contacts\AdditionalCharges\GetAdditionalChargesRequest;
 use Sandorian\Moneybird\Api\Contacts\Contact;
+use Sandorian\Moneybird\Api\Contacts\ContactDuplicateGroup;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\ContactPerson;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\CreateContactPersonRequest;
 use Sandorian\Moneybird\Api\Contacts\ContactPeople\DeleteContactPersonRequest;
@@ -17,6 +18,7 @@ use Sandorian\Moneybird\Api\Contacts\ContactPeople\UpdateContactPersonRequest;
 use Sandorian\Moneybird\Api\Contacts\CreateContactRequest;
 use Sandorian\Moneybird\Api\Contacts\DeleteContactRequest;
 use Sandorian\Moneybird\Api\Contacts\GetContactByCustomerIdRequest;
+use Sandorian\Moneybird\Api\Contacts\GetContactDoublesRequest;
 use Sandorian\Moneybird\Api\Contacts\GetContactRequest;
 use Sandorian\Moneybird\Api\Contacts\GetContactsSynchronizationRequest;
 use Sandorian\Moneybird\Api\Contacts\MbPaymentsMandate\CreateMbPaymentsMandateRequest;
@@ -72,6 +74,27 @@ class ContactsEndpointTest extends BaseTestCase
 
         $this->assertInstanceOf(MoneybirdPaginator::class, $paginator);
         $this->assertEquals(0, $paginator->getCurrentPage());
+    }
+
+    public function test_get_contact_doubles(): void
+    {
+        $moneybird = $this->getMoneybirdClient();
+
+        $paginator = $moneybird->contacts()->doubles();
+
+        $this->assertInstanceOf(MoneybirdPaginator::class, $paginator);
+        $this->assertEquals(0, $paginator->getCurrentPage());
+    }
+
+    public function test_get_contact_doubles_request_maps_duplicate_groups(): void
+    {
+        $contact = ContactResponseStub::get();
+        $group = ContactDuplicateGroup::createFromResponseData(['contacts' => [$contact]]);
+
+        $this->assertCount(1, $group->contacts);
+        $this->assertInstanceOf(Contact::class, $group->contacts[0]);
+        $this->assertSame('419889276175517682', $group->contacts[0]->id);
+        $this->assertSame('contacts/doubles', (new GetContactDoublesRequest)->resolveEndpoint());
     }
 
     public function test_get_contacts_synchronization(): void
