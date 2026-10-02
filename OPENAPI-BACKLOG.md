@@ -2,9 +2,19 @@
 
 This document tracks the differences between this PHP library and the official Moneybird OpenAPI specification.
 
-**Last Updated**: 2026-07-12
-**OpenAPI Spec Version**: v2-20260710-57729b61b9
-**Spec File**: `openapi-specs/openapi-2026-07-12.yml`
+**Last Updated**: 2026-10-02
+**OpenAPI Spec Version**: v2-20261002-6d64d9c3ae
+**Spec File**: `openapi-specs/openapi-2026-10-02.yml`
+
+---
+
+## 🆕 Spec Changes Since 2026-07-12 (v2-20260710 → v2-20261002)
+
+New or changed in the official spec, compared to the previous stored version:
+
+- **Contacts**: new `GET /{administration_id}/contacts/doubles` endpoint for paginated groups of possible duplicate contacts. Implemented as `ContactsEndpoint::doubles()` with `ContactDuplicateGroup`.
+- **Financial Accounts**: `financial_account_response` gained `moneybird_account` boolean. Implemented on `FinancialAccount`.
+- **Shared schemas/request bodies**: new reusable `money` schema, refined identifier refs for detail/custom field attributes, expanded validation error shape, added note event enum values, clarified period/date descriptions, and added reusable `503_service_unavailable` response. No further library changes needed because request payloads are array-based and DTOs accept dynamic response properties where applicable.
 
 ---
 
@@ -284,7 +294,7 @@ These match the OpenAPI spec:
 | Tax Rates | GET (list) | ✅ |
 | Users | GET (list, by ID) | ✅ |
 | Verifications | GET (list) | ✅ |
-| Contacts | Full CRUD + sync + sub-resources | ✅ (except archive) |
+| Contacts | Full CRUD + sync + duplicate groups + sub-resources | ✅ (except archive) |
 | Sales Invoices | Full CRUD + sync + payments + notes | ✅ (except downloads/status methods) |
 
 ---
@@ -306,7 +316,7 @@ All critical bugs have been fixed:
 
 ### Missing from Library
 1. 7 entire resources (Assets, Reports, Customer Portal, Downloads, SEPA, Workflows, Task Lists)
-2. Various sub-methods on existing resources (incl. new time entry resume/stop and webhook activate/deactivate)
+2. Various sub-methods on existing resources (incl. time entry resume/stop and webhook activate/deactivate)
 
 ---
 

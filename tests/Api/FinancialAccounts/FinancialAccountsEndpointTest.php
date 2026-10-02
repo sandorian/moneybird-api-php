@@ -42,5 +42,6 @@ class FinancialAccountsEndpointTest extends BaseTestCase
         $this->assertInstanceOf(FinancialAccount::class, $financialAccount);
         $this->assertSame('123456789', $financialAccount->id);
         $this->assertSame('Bank Account', $financialAccount->name);
+        $this->assertFalse($financialAccount->moneybird_account);
     }
 }

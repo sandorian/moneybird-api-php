@@ -40,6 +40,20 @@ $filters = [
 $contacts = $client->contacts()->filter($filters);
 ```
 
+#### Find Possible Duplicate Contacts
+
+Get paginated groups of contacts that Moneybird considers possible duplicates.
+
+```php
+$duplicateGroups = $client->contacts()->doubles();
+
+foreach ($duplicateGroups->items() as $group) {
+    foreach ($group->contacts as $contact) {
+        echo $contact->company_name;
+    }
+}
+```
+
 #### Create a Contact
 
 Create a new contact.

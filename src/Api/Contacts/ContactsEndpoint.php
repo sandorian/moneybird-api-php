@@ -51,6 +51,13 @@ class ContactsEndpoint extends BaseEndpoint
         return new MoneybirdPaginator($this->client, $request);
     }
 
+    public function doubles(): MoneybirdPaginator
+    {
+        $request = new GetContactDoublesRequest;
+
+        return new MoneybirdPaginator($this->client, $request);
+    }
+
     public function getSynchronization(): array
     {
         $request = new GetContactsSynchronizationRequest;

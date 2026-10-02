@@ -17,6 +17,7 @@ class FinancialAccountsResponseStub
                 "identifier": "NL01BANK0123456789",
                 "currency": "EUR",
                 "provider": "bank",
+                "moneybird_account": false,
                 "active": true,
                 "created_at": "2023-01-01T12:00:00.000Z",
                 "updated_at": "2023-01-01T12:00:00.000Z"
@@ -29,6 +30,7 @@ class FinancialAccountsResponseStub
                 "identifier": "1234-5678-9012-3456",
                 "currency": "EUR",
                 "provider": "creditcard",
+                "moneybird_account": false,
                 "active": true,
                 "created_at": "2023-01-01T12:00:00.000Z",
                 "updated_at": "2023-01-01T12:00:00.000Z"
@@ -46,6 +48,7 @@ class FinancialAccountsResponseStub
             "identifier": "NL01BANK0123456789",
             "currency": "EUR",
             "provider": "bank",
+            "moneybird_account": false,
             "active": true,
             "created_at": "2023-01-01T12:00:00.000Z",
             "updated_at": "2023-01-01T12:00:00.000Z"

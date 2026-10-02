@@ -58,6 +58,7 @@ When working with financial accounts, you'll have access to the following proper
 | identifier | string | Identifier for the financial account (e.g., bank account number) |
 | currency | string | Currency used for the financial account |
 | provider | string | Provider of the financial account |
+| moneybird_account | boolean | Whether Moneybird provides this account |
 | active | boolean | Whether the financial account is active |
 | created_at | string | ISO 8601 timestamp of when the financial account was created |
 | updated_at | string | ISO 8601 timestamp of when the financial account was last updated |
